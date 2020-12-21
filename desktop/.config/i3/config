@@ -190,9 +190,9 @@ for_window [class=".*"] border pixel 0
 gaps inner 4
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #00000099 #00000099 #ffffff #2e9ef4   #62127c
-client.focused_inactive #00000099 #00000099 #ffffff #2e9ef4   #62127c
-client.unfocused        #00000066 #00000066 #ffffff #292d2e   #222222
+client.focused          #11110088 #11110088 #ffffff #2e9ef4   #62127c
+client.focused_inactive #11110088 #11110088 #ffffff #2e9ef4   #62127c
+client.unfocused        #11110066 #11110066 #ffffff #292d2e   #222222
 
 exec_always xmodmap ~/.Xmodmap
 exec flameshot &
