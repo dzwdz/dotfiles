@@ -1,23 +1,40 @@
-! FarSide Baskerville
-*.foreground:   #919191
-*.background:   #000000
-*.cursorColor:  #919191
-*.color0:       #303030
-*.color8:       #5e5e5e
-*.color1:       #a43261
-*.color9:       #ff9fc9
-*.color2:       #006ca5
-*.color10:      #3bd6ff
-*.color3:       #007086
-*.color11:      #00ddf4
-*.color4:       #6751a6
-*.color12:      #d5b8ff
-*.color5:       #913e88
-*.color13:      #ffa7f6
-*.color6:       #0061b1
-*.color14:      #93c9ff
-*.color7:       #c6c6c6
-*.color15:      #ffffff
+! special
+*.foreground:   #f1ebe6
+*.background:   #1c1c1c
+*.cursorColor:  #f1ebe6
+
+! black
+*.color0:       #090300
+*.color8:       #d8c9bd
+
+! red
+*.color1:       #f79604
+*.color9:       #f79604
+
+! green
+*.color2:       #d873e7
+*.color10:      #d873e7
+
+! yellow
+*.color3:       #fded02
+*.color11:      #fded02
+
+! blue
+*.color4:       #d873e7
+*.color12:      #d873e7
+
+! magenta
+*.color5:       #a16a94
+*.color13:      #a16a94
+
+! cyan
+*.color6:       #b5e4f4
+*.color14:      #b5e4f4
+
+! white
+*.color7:       #a5a2a2
+*.color15:      #f7f7f7
+
 
 ! urxvt
 URxvt*buffered: true
@@ -33,4 +50,5 @@ URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: firefox
 URxvt.matcher.button: 1
 
-urxvt*background: rgba:0000/0000/0000/cc00
+urxvt*transparent: true
+urxvt*shading: 30

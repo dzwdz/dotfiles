@@ -189,9 +189,10 @@ exec_always --no-startup-id polybar top &
 for_window [class=".*"] border pixel 0
 gaps inner 4
 
-client.focused          #62127c #62127c #ffffff #2e9ef4   #62127c
-client.focused_inactive #62127c #62127c #ffffff #2e9ef4   #62127c
-client.unfocused        #222222 #222222 #888888 #292d2e   #222222
+# class                 border  backgr. text    indicator child_border
+client.focused          #00000099 #00000099 #ffffff #2e9ef4   #62127c
+client.focused_inactive #00000099 #00000099 #ffffff #2e9ef4   #62127c
+client.unfocused        #00000066 #00000066 #ffffff #292d2e   #222222
 
 exec_always xmodmap ~/.Xmodmap
 exec flameshot &

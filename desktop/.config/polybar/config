@@ -23,9 +23,9 @@ background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #f79604
-secondary = #ba04f7
-alert = #bd2c40
+primary = ${xrdb:color1}
+secondary = ${xrdb:color2}
+alert = ${xrdb:color1}
 
 [bar/top]
 monitor = HDMI-0
