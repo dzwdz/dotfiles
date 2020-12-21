@@ -1,27 +1,28 @@
-! https://github.com/CaydendW/Purps-Colorscheme
-*background: rgb:1f/13/2a
-*foreground: rgb:c3/c1/c4
-*color0: rgb:56/4d/5d
-*color8: rgb:71/6a/77
-*color1: rgb:f5/30/54
-*color9: rgb:f0/53/70
-*color2: rgb:b0/34/54
-*color10: rgb:b9/56/70
-*color3: rgb:b5/8d/db
-*color11: rgb:bd/9d/dc
-*color4: rgb:3f/37/b3
-*color12: rgb:5f/58/bc
-*color5: rgb:9c/7a/de
-*color13: rgb:a9/8e/de
-*color6: rgb:31/26/84
-*color14: rgb:54/4b/96
-*color7: rgb:c3/c1/c4
-*color15: rgb:de/de/de
+! FarSide Baskerville
+*.foreground:   #919191
+*.background:   #000000
+*.cursorColor:  #919191
+*.color0:       #303030
+*.color8:       #5e5e5e
+*.color1:       #a43261
+*.color9:       #ff9fc9
+*.color2:       #006ca5
+*.color10:      #3bd6ff
+*.color3:       #007086
+*.color11:      #00ddf4
+*.color4:       #6751a6
+*.color12:      #d5b8ff
+*.color5:       #913e88
+*.color13:      #ffa7f6
+*.color6:       #0061b1
+*.color14:      #93c9ff
+*.color7:       #c6c6c6
+*.color15:      #ffffff
 
 ! urxvt
 URxvt*buffered: true
 URxvt*cursorBlink: true
-URxvt*font:  xft:inconsolata:size=11:antialias=true
+URxvt*font: xft:Jetbrains Mono:size=11:antialias=true
 URxvt*depth: 32
 URxvt*borderless: 1
 URxvt*scrollBar: false
@@ -31,3 +32,6 @@ URxvt*termName: rxvt-unicode
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: firefox
 URxvt.matcher.button: 1
+
+urxvt*transparent: true
+urxvt*shading: 10
