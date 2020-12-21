@@ -5,7 +5,7 @@
 
 ! black
 *.color0:       #090300
-*.color8:       #d8c9bd
+*.color8:       #f1ebe6
 
 ! red
 *.color1:       #f79604
@@ -28,8 +28,8 @@
 *.color13:      #a16a94
 
 ! cyan
-*.color6:       #b5e4f4
-*.color14:      #b5e4f4
+*.color6:       #78bae5
+*.color14:      #78bae5
 
 ! white
 *.color7:       #a5a2a2
