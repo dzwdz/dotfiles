@@ -1,0 +1,18 @@
+#window {
+    background-color: #0009;
+    padding: 10;
+}
+
+* {
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    padding: 1;
+}
+
+element.selected {
+    background-color: #d873e7;
+}
+
+prompt {
+    enabled: false;
+}

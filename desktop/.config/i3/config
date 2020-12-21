@@ -18,7 +18,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # launching stuff
-bindsym $mod+space exec --no-startup-id "rofi -combi-modi window,drun,run -show combi"
+bindsym $mod+space exec --no-startup-id "rofi -show combi"
 bindsym $mod+Return exec i3-sensible-terminal
 
 # change focus
