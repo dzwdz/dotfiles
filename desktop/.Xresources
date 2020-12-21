@@ -33,5 +33,4 @@ URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: firefox
 URxvt.matcher.button: 1
 
-urxvt*transparent: true
-urxvt*shading: 10
+urxvt*background: rgba:0000/0000/0000/cc00

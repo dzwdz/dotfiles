@@ -206,3 +206,6 @@ for_window [class="Lollypop"] move container to workspace 9
 exec --no-startup-id lollypop
 
 workspace $ws9 output DP-0
+
+exec_always feh --bg-fill /hdd/Kuba/Dokumenty/\!MOJE/tapety/the\ stages\ of\ life.jpg
+exec picom
