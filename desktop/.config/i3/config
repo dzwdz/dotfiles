@@ -202,7 +202,7 @@ for_window [class="Element"] move container to workspace 9
 for_window [class="Discord"] move container to workspace 9 # broken
 for_window [class="Spotify"] move container to workspace 9
 for_window [class="Lollypop"] move container to workspace 9
-exec --no-startup-id element-desktop
+# exec --no-startup-id element-desktop
 exec --no-startup-id lollypop
 
 workspace $ws9 output DP-0
