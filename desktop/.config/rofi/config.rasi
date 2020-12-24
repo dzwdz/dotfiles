@@ -2,5 +2,5 @@ configuration {
     modi: "window,drun,combi";
     theme: "dzdzdz";
     font: "Jetbrains Mono 12";
-    combi-modi: "window,drun";
+    combi-modi: "window,drun,run";
 }
