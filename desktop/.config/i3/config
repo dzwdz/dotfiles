@@ -124,9 +124,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # theming
-client.focused          #11110088 #11110088 #ffffff #2e9ef4   #62127c
-client.focused_inactive #11110088 #11110088 #ffffff #2e9ef4   #62127c
-client.unfocused        #11110066 #11110066 #ffffff #292d2e   #222222
+client.focused          #00000088 #00000088 #ffffff #2e9ef4   #62127c
+client.focused_inactive #00000088 #00000088 #ffffff #2e9ef4   #62127c
+client.unfocused        #00000066 #00000066 #ffffff #292d2e   #222222
 for_window [class=".*"] border pixel 0
 gaps inner 4
 
@@ -140,7 +140,7 @@ bindsym Print exec flameshot gui
 
 # other stuff
 exec_always xmodmap ~/.Xmodmap # broken
-exec_always feh --bg-fill /hdd/Kuba/Dokumenty/\!MOJE/tapety/albumy/ksg.png
+exec_always feh --bg-fill /hdd/Kuba/Dokumenty/!MOJE/tapety/medusa.jpg
 exec picom
 # exec --no-startup-id element-desktop
 exec --no-startup-id lollypop
