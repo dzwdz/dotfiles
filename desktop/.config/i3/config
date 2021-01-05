@@ -144,3 +144,5 @@ exec_always feh --bg-fill /hdd/Kuba/Dokumenty/\!MOJE/tapety/albumy/ksg.png
 exec picom
 # exec --no-startup-id element-desktop
 exec --no-startup-id lollypop
+
+bindsym $mod+c exec ~/scripts/compact_mode.sh
