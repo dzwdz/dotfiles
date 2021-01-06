@@ -118,7 +118,7 @@ mode "resize" {
 
         # makes windows square
         bindsym l resize grow width 120 px
-        bindsym j resize grow width 120 px
+        bindsym j resize shrink width 120 px
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
