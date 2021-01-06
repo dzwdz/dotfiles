@@ -144,5 +144,6 @@ exec_always feh --bg-fill /hdd/Kuba/Dokumenty/!MOJE/tapety/medusa.jpg
 exec picom
 # exec --no-startup-id element-desktop
 exec --no-startup-id lollypop
+exec dex -ae i3
 
 bindsym $mod+c exec ~/scripts/compact_mode.sh

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=Wacom configs
+Exec=/home/dzwiedz/scripts/wacom.sh
