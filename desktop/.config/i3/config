@@ -144,7 +144,7 @@ bindsym Print exec flameshot gui
 
 # other stuff
 exec_always xmodmap ~/.Xmodmap # broken
-exec_always feh --bg-fill /hdd/Kuba/Dokumenty/!MOJE/tapety/pixel\ galaxies.png
+exec_always feh --bg-fill /hdd/Kuba/Dokumenty/!MOJE/tapety/albumy/ye.png
 exec picom
 # exec --no-startup-id element-desktop
 exec --no-startup-id lollypop
