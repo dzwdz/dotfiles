@@ -1,5 +1,5 @@
 #window {
-    background-color: #0009;
+    background-color: #141a2d;
     padding: 10;
 }
 
@@ -10,7 +10,7 @@
 }
 
 element.selected {
-    background-color: #d873e7;
+    background-color: #da47b6;
 }
 
 prompt {
