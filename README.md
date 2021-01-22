@@ -15,6 +15,7 @@ uses:
 - flameshot
 - the Jetbrains Mono font
 - urxvt
+- jq (for the display swapper)
 
 ## shell
 uses:
