@@ -9,8 +9,6 @@ set ignorecase
 set incsearch
 set title
 
-set spell spelllang=en_us
-
 hi GitGutterAdd		ctermbg=NONE ctermfg=GREEN
 hi GitGutterChange	ctermbg=NONE ctermfg=YELLOW
 hi GitGutterDelete	ctermbg=NONE ctermfg=RED

@@ -143,7 +143,7 @@ bindsym Print exec --no-startup-id flameshot gui
 # other stuff
 exec_always --no-startup-id xmodmap ~/.Xmodmap # broken
 exec_always --no-startup-id ~/.fehbg
-exec --no-startup-id bash -c "killall polybar && polybar top" 
+exec_always --no-startup-id bash -c "killall polybar; polybar top" 
 exec --no-startup-id picom
 # exec --no-startup-id element-desktop
 exec --no-startup-id lollypop
