@@ -7,5 +7,7 @@ end
 
 function fish_right_prompt
     set_color red
+    echo -n "$PWD "
+    set_color blue
     date +%H:%M
 end

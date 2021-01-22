@@ -2,6 +2,7 @@ alias py python
 alias gs "git status"
 alias gca "git commit -am"
 alias gp "git push"
+alias nw "urxvt &; disown"
 
 set fish_color_command red
 set fish_color_param brblack
