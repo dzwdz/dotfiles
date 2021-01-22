@@ -4,7 +4,7 @@ font pango:Jetbrains Mono 8
 
 # locking
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-bindsym $mod+l exec i3lock
+bindsym $mod+l exec --no-startup-id i3lock
 
 exec --no-startup-id nm-applet
 
@@ -13,9 +13,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # launching stuff
 bindsym $mod+space exec --no-startup-id "rofi -show combi"
@@ -103,7 +103,7 @@ for_window [class="Lollypop"] move container to workspace 9
 
 workspace $ws9 output DP-0
 
-bindsym $mod+Shift+p exec ~/scripts/i3-display-swap.sh
+bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
 
 # resizing
 mode "resize" {
@@ -136,20 +136,17 @@ client.unfocused        #00000066 #00000066 #ffffff #292d2e   #222222
 for_window [class=".*"] border pixel 0
 gaps inner 4
 
-# polybar
-exec_always killall -q polybar
-exec_always --no-startup-id polybar top & 
-
 # screenshots
-exec flameshot &
-bindsym Print exec flameshot gui
+exec --no-startup-id flameshot
+bindsym Print exec --no-startup-id flameshot gui
 
 # other stuff
-exec_always xmodmap ~/.Xmodmap # broken
-exec_always feh --bg-fill /hdd/Kuba/Dokumenty/!MOJE/tapety/albumy/ye.png
-exec picom
+exec_always --no-startup-id xmodmap ~/.Xmodmap # broken
+exec_always --no-startup-id ~/.fehbg
+exec --no-startup-id bash -c "killall polybar && polybar top" 
+exec --no-startup-id picom
 # exec --no-startup-id element-desktop
 exec --no-startup-id lollypop
-exec dex -ae i3
+exec --no-startup-id dex -ae i3
 
 bindsym $mod+c exec ~/scripts/compact_mode.sh
