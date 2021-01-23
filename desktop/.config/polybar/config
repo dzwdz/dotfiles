@@ -114,9 +114,8 @@ time-alt =
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary}
 
-label = %date% %time%
+label = %date%%time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -126,7 +125,7 @@ label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = muted
-label-muted-foreground = #666
+label-muted-foreground = #fff
 
 bar-volume-width = 10
 bar-volume-foreground-0 = ${colors.primary}
@@ -137,13 +136,13 @@ bar-volume-foreground-4 = ${colors.primary}
 bar-volume-foreground-5 = ${colors.primary}
 bar-volume-foreground-6 = ${colors.primary}
 bar-volume-gradient = false
-bar-volume-indicator = |
+bar-volume-indicator = ⁝
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.background}
 
 [settings]
 screenchange-reload = true

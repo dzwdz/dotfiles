@@ -2,5 +2,5 @@ configuration {
     modi: "window,drun,combi";
     theme: "dzdzdz";
     font: "Jetbrains Mono 12";
-    combi-modi: "window,drun,run";
+    combi-modi: "window,drun,run,repo:~/scripts/rofi_repos.sh";
 }
