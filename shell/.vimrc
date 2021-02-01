@@ -27,3 +27,23 @@ set mouse=a
 
 set foldmethod=indent
 hi Folded ctermbg=NONE
+
+" switch to last buffer
+nnoremap <Leader><Leader> :e#<CR>
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 20
+
+nnoremap <C-s> :w<CR>
+nnoremap <C-i> :tabnext<CR>
+nnoremap <C-S-i> :tabprevious<CR>
+nnoremap <C-w> :q<CR>
+nnoremap <C-t> :Te<CR>
+
+hi TabLineFill cterm=bold ctermbg=None
+hi TabLine ctermfg=White ctermbg=None
+
+" if vim is started with no arguments, start netrw
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | E | endif

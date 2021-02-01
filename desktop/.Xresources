@@ -52,3 +52,7 @@ URxvt.matcher.button: 1
 !urxvt*transparent: true
 !urxvt*shading: 10
 URxvt.background: [90]#26142d
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+

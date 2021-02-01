@@ -2,7 +2,11 @@ function fish_prompt
     set_color $fish_color_cwd
     echo -n (basename $PWD)
     set_color normal
-    echo -n ': '
+	if jobs -q
+		echo -n '* '
+	else
+	    echo -n ': '
+	end
 end
 
 function fish_right_prompt
