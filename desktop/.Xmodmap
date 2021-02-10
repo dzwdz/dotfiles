@@ -1,3 +1,8 @@
 clear Lock 
 keycode 66 = Hyper_L
 add mod4 = Hyper_L
+
+keycode  20 = minus underscore minus underscore ssharp ssharp ssharp
+keycode  34 = bracketleft braceleft bracketleft braceleft udiaeresis Udiaeresis udiaeresis
+keycode  47 = semicolon colon semicolon colon odiaeresis Odiaeresis odiaeresis
+keycode  48 = apostrophe quotedbl apostrophe quotedbl adiaeresis Adiaeresis adiaeresis

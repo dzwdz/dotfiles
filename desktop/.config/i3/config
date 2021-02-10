@@ -107,20 +107,16 @@ bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
 
 # resizing
 mode "resize" {
-        bindsym a resize shrink width 10 px or 10 ppt
+        bindsym a resize shrink width 120 px
         bindsym s resize grow height 10 px or 10 ppt
         bindsym w resize shrink height 10 px or 10 ppt
-        bindsym d resize grow width 10 px or 10 ppt
+        bindsym d resize grow width 120 px
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Left resize shrink width 120 px
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # makes windows square
-        bindsym l resize grow width 120 px
-        bindsym j resize shrink width 120 px
+        bindsym Right resize grow width 120 px
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -130,11 +126,15 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # theming
-client.focused          #00000088 #00000088 #ffffff #2e9ef4   #62127c
-client.focused_inactive #00000088 #00000088 #ffffff #2e9ef4   #62127c
-client.unfocused        #00000066 #00000066 #ffffff #292d2e   #222222
+set_from_resource $c0 color0 #000000
+set_from_resource $c1 color1 #111111
+set_from_resource $c8 color8 #888888
+set_from_resource $bg background #000000
+
+client.focused          $bg $bg $c1 #2e9ef4   #62127c
+client.focused_inactive $bg $bg #ffffff #2e9ef4   #62127c
+client.unfocused        $bg $bg #ffffff #292d2e   #222222
 for_window [class=".*"] border pixel 0
-gaps inner 4
 
 # screenshots
 exec --no-startup-id flameshot

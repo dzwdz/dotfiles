@@ -1,39 +1,39 @@
 ! special
-*.foreground:   #efc4d7
-*.background:   #26142d
-*.cursorColor:  #efc4d7
+*.foreground:   #adadad
+*.background:   #000000
+*.cursorColor:  #adadad
 
 ! black
-*.color0:       #8f5bdd
-*.color8:       #7a55a1
+*.color0:       #303030
+*.color8:       #5e5e5e
 
 ! red
-*.color1:       #cb226c
-*.color9:       #b42966
+*.color1:       #a43261
+*.color9:       #ff9fc9
 
 ! green
-*.color2:       #da47b6
-*.color10:      #d55fb8
+*.color2:       #006ca5
+*.color10:      #3bd6ff
 
 ! yellow
-*.color3:       #0c8ce7
-*.color11:      #237ab7
+*.color3:       #007086
+*.color11:      #00ddf4
 
 ! blue
-*.color4:       #e77057
-*.color12:      #cd6e59
+*.color4:       #6751a6
+*.color12:      #d5b8ff
 
 ! magenta
-*.color5:       #8394e3
-*.color13:      #1f467f
+*.color5:       #913e88
+*.color13:      #ffa7f6
 
 ! cyan
-*.color6:       #8d4c9e
-*.color14:      #744482
+*.color6:       #0061b1
+*.color14:      #93c9ff
 
 ! white
-*.color7:       #b283bd
-*.color15:      #956c9e
+*.color7:       #c6c6c6
+*.color15:      #ffffff
 
 ! urxvt
 URxvt*buffered: true
@@ -51,7 +51,6 @@ URxvt.matcher.button: 1
 
 !urxvt*transparent: true
 !urxvt*shading: 10
-URxvt.background: [90]#26142d
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false
