@@ -47,3 +47,7 @@ hi TabLine ctermfg=White ctermbg=None
 " if vim is started with no arguments, start netrw
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | E | endif
+
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
+
+runtime ftplugin/man.vim

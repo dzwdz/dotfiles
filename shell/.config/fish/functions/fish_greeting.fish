@@ -1,3 +1,3 @@
 function fish_greeting
-	seinfeld -c
+	seinfeld compact
 end
