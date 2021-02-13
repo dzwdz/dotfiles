@@ -4,7 +4,7 @@ font pango:Jetbrains Mono 8
 
 # locking
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-bindsym $mod+l exec --no-startup-id i3lock
+bindsym $mod+semicolon exec --no-startup-id i3lock
 
 exec --no-startup-id nm-applet
 
@@ -22,27 +22,39 @@ bindsym $mod+space exec --no-startup-id "rofi -show combi"
 bindsym $mod+Return exec i3-sensible-terminal
 
 # change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
 bindsym $mod+a focus left
 bindsym $mod+s focus down
 bindsym $mod+w focus up
 bindsym $mod+d focus right
+
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
 bindsym $mod+Shift+a move left
 bindsym $mod+Shift+s move down
 bindsym $mod+Shift+w move up
 bindsym $mod+Shift+d move right
+
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split
-bindsym $mod+h split h
+bindsym $mod+g split h
 bindsym $mod+v split v
 
 # layout stuff
@@ -107,15 +119,19 @@ bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
 
 # resizing
 mode "resize" {
+        bindsym h resize shrink width 120 px
+        bindsym j resize grow height 120 px
+        bindsym k resize shrink height 120 px
+        bindsym l resize grow width 120 px
+
         bindsym a resize shrink width 120 px
-        bindsym s resize grow height 10 px or 10 ppt
-        bindsym w resize shrink height 10 px or 10 ppt
+        bindsym s resize grow height 120 px
+        bindsym w resize shrink height 120 px
         bindsym d resize grow width 120 px
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 120 px
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Down resize grow height 120 px
+        bindsym Up resize shrink height 120 px
         bindsym Right resize grow width 120 px
 
         # back to normal: Enter or Escape or $mod+r
@@ -141,11 +157,10 @@ exec --no-startup-id flameshot
 bindsym Print exec --no-startup-id flameshot gui
 
 # other stuff
-exec_always --no-startup-id xmodmap ~/.Xmodmap # broken
+exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id ~/.fehbg
 exec_always --no-startup-id bash -c "killall polybar; polybar top" 
-exec --no-startup-id picom
-# exec --no-startup-id element-desktop
+# exec --no-startup-id picom
 exec --no-startup-id lollypop
 exec --no-startup-id dex -ae i3
 

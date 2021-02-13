@@ -36,13 +36,14 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
 nnoremap <C-s> :w<CR>
-nnoremap <C-i> :tabnext<CR>
-nnoremap <C-S-i> :tabprevious<CR>
+nnoremap <tab> :tabnext<CR>
+nnoremap <C-tab> :tabprevious<CR>
 nnoremap <C-w> :q<CR>
 nnoremap <C-t> :Te<CR>
 
 hi TabLineFill cterm=bold ctermbg=None
-hi TabLine ctermfg=White ctermbg=None
+hi TabLine ctermbg=None cterm=none
+hi TabLineSel ctermfg=2
 
 " if vim is started with no arguments, start netrw
 autocmd StdinReadPre * let s:std_in=1
