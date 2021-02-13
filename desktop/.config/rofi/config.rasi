@@ -2,5 +2,5 @@ configuration {
     modi: "window,drun,combi,ssh";
     theme: "dzdzdz";
     font: "Jetbrains Mono 12";
-    combi-modi: "window,repo:~/scripts/rofi_repos.sh,drun,run,ssh";
+    combi-modi: "repo:~/scripts/rofi/repos.sh,sub:~/scripts/rofi/sub.sh,pulse:~/scripts/rofi/pulse.rb,drun,run,ssh";
 }
