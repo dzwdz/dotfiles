@@ -1,8 +1,8 @@
 alias py python
 
 alias gs "git status -s"
-alias gc "git commit -m"
-alias gca "git commit -am"
+alias gc "git commit"
+alias gca "git commit -a"
 alias gp "git push"
 alias gl "git log --pretty=oneline --abbrev-commit --reverse"
 

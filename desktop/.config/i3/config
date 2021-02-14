@@ -107,7 +107,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 for_window [class="Firefox"] move container to workspace 1
-for_window [class="Joplin"] move container to workspace 9
+for_window [class="Joplin"] move container to workspace 10
 for_window [class="Element"] move container to workspace 9
 for_window [class="Discord"] move container to workspace 9 # broken
 for_window [class="Spotify"] move container to workspace 9
@@ -146,10 +146,11 @@ set_from_resource $c0 color0 #000000
 set_from_resource $c1 color1 #111111
 set_from_resource $c8 color8 #888888
 set_from_resource $bg background #000000
+set_from_resource $fg foreground #ffffff
 
 client.focused          $bg $bg $c1 #2e9ef4   #62127c
-client.focused_inactive $bg $bg #ffffff #2e9ef4   #62127c
-client.unfocused        $bg $bg #ffffff #292d2e   #222222
+client.focused_inactive $bg $bg $fg #2e9ef4   #62127c
+client.unfocused        $bg $bg $fg #292d2e   #222222
 for_window [class=".*"] border pixel 0
 
 # screenshots
@@ -161,6 +162,7 @@ exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id ~/.fehbg
 exec_always --no-startup-id bash -c "killall polybar; polybar top" 
 # exec --no-startup-id picom
+exec /home/dzwiedz/.joplin/Joplin.AppImage
 exec --no-startup-id lollypop
 exec --no-startup-id dex -ae i3
 
