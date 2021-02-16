@@ -24,4 +24,4 @@ set GEM_HOME (ruby -e 'puts Gem.user_dir')
 set PATH $PATH $GEM_HOME/bin ~/opt/cross/bin/ /opt/idea-IC-202.7319.50/bin /hdd/repo/current/utils
 set EDITOR nvim
 
-set FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -f -g \"\""
+export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -f -g \"\""
