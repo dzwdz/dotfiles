@@ -27,3 +27,9 @@ uses:
 uses:
 - xsetwacom
 - xbindkeys
+
+## vim
+uses:
+- nvim (although the config should be compatible with vim too)
+- fzf
+- ag (the_silver_searcher)

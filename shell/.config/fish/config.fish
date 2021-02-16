@@ -10,6 +10,7 @@ alias nw "urxvt &; disown"
 alias :q exit
 alias sf "seinfeld mark"
 alias idea "dm idea.sh ."
+alias nv nvim
 
 set fish_color_command red
 set fish_color_param brblack
@@ -21,4 +22,6 @@ set fish_color_search_match --background='000'
 set CDPATH . /hdd/repo/current ~/Documents ~
 set GEM_HOME (ruby -e 'puts Gem.user_dir')
 set PATH $PATH $GEM_HOME/bin ~/opt/cross/bin/ /opt/idea-IC-202.7319.50/bin /hdd/repo/current/utils
-set EDITOR vim
+set EDITOR nvim
+
+set FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -f -g \"\""
