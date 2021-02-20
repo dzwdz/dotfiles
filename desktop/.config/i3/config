@@ -113,7 +113,13 @@ for_window [class="Discord"] move container to workspace 9 # broken
 for_window [class="Spotify"] move container to workspace 9
 for_window [class="Lollypop"] move container to workspace 9
 
+workspace $ws1 output HDMI-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
+
+workspace $ws8 output DP-0
 workspace $ws9 output DP-0
+workspace $ws10 output DP-0
 
 bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
 
@@ -162,7 +168,7 @@ exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec_always --no-startup-id ~/.fehbg
 exec_always --no-startup-id bash -c "killall polybar; polybar top" 
 # exec --no-startup-id picom
-exec /home/dzwiedz/.joplin/Joplin.AppImage
+exec --no-startup-id i3-msg 'workspace 10; exec urxvt -e nvim -c"cd dropbox/notes"'
 exec --no-startup-id lollypop
 exec --no-startup-id dex -ae i3
 
