@@ -22,6 +22,7 @@ the power rofi thingy requires a sudoers modification, to allow running grub-reb
 ## shell
 uses:
 - fish
+- ripgrep (for `tds`)
 
 ## wacom
 uses:
@@ -31,5 +32,4 @@ uses:
 ## vim
 uses:
 - nvim (although the config should be compatible with vim too)
-- fzf
-- ag (the_silver_searcher)
+- fzf, ripgrep

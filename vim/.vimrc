@@ -3,6 +3,8 @@ let mapleader = "'"
 
 " some general settings idk
 syntax on
+set background=dark
+set encoding=utf8
 set number
 set noswapfile
 set hlsearch
@@ -13,8 +15,12 @@ set mouse=a
 set showcmd
 set laststatus=1
 
-set foldmethod=syntax
+set foldmethod=indent
+set foldlevel=99
 hi Folded ctermbg=NONE
+
+set list
+set listchars=tab:·\ 
 
 hi TabLineFill cterm=bold ctermbg=None
 hi TabLine ctermfg=Black ctermbg=None cterm=none
@@ -34,6 +40,7 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
 inoremap {<CR> {<CR><Tab><End><CR><BS>}<Up><Right>
 nnoremap <Leader><Leader> :e#<CR>
 nnoremap <Leader>f :F<CR>
+nnoremap <Leader>/ :let @/ = ""<CR>
 
 nnoremap <C-s> :w<CR>
 nnoremap <tab> :tabnext<CR>
@@ -41,6 +48,7 @@ nnoremap <S-tab> :tabprevious<CR>
 nnoremap <C-w> :q<CR>
 nnoremap <C-t> :Te<CR>
 
+nnoremap 0 ^
 
 " plugins
 hi GitGutterAdd		ctermbg=NONE ctermfg=GREEN

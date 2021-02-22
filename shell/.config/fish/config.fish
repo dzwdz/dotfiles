@@ -4,7 +4,9 @@ alias gs "git status -s"
 alias gc "git commit"
 alias gca "git commit -a"
 alias gp "git push"
+alias ga "git add"
 alias gl "git log --pretty=oneline --abbrev-commit --reverse"
+alias tds "rg -i -e todo -e fixme"
 
 alias nw "urxvt &; disown"
 alias :q exit
@@ -24,4 +26,4 @@ set GEM_HOME (ruby -e 'puts Gem.user_dir')
 set PATH $PATH $GEM_HOME/bin ~/opt/cross/bin/ /opt/idea-IC-202.7319.50/bin /hdd/repo/current/utils
 set EDITOR nvim
 
-export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -f -g \"\""
+export FZF_DEFAULT_COMMAND="rg --hidden --files --no-ignore-vcs -g '!.git/'"
