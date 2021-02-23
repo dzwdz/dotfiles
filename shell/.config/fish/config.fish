@@ -15,7 +15,7 @@ alias idea "dm idea.sh ."
 alias nv nvim
 
 set fish_color_command red
-set fish_color_param brblack
+set fish_color_param foreground
 set fish_color_operator green
 set fish_color_autosuggestion cyan
 set fish_color_error white

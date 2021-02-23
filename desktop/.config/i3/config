@@ -107,11 +107,15 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 for_window [class="Firefox"] move container to workspace 1
-for_window [class="Joplin"] move container to workspace 10
+
+for_window [class="libreoffice"] move container to workspace 8
+
 for_window [class="Element"] move container to workspace 9
 for_window [class="Discord"] move container to workspace 9 # broken
 for_window [class="Spotify"] move container to workspace 9
 for_window [class="Lollypop"] move container to workspace 9
+
+for_window [class="Joplin"] move container to workspace 10
 
 workspace $ws1 output HDMI-0
 workspace $ws2 output HDMI-0

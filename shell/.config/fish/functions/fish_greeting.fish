@@ -1,3 +1,7 @@
 function fish_greeting
-	seinfeld compact
+	if test -e /tmp/cast_mode
+		echo "cast"
+	else
+		seinfeld compact
+	end
 end
