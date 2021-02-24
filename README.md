@@ -33,3 +33,5 @@ uses:
 uses:
 - nvim (although the config should be compatible with vim too)
 - fzf, ripgrep
+- xclip
+- vim-gitgutter

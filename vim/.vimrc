@@ -1,21 +1,20 @@
-inoremap jk <ESC>
 let mapleader = "'"
 
 " some general settings idk
 syntax on
 set background=dark
 set encoding=utf8
-set number
+
+set hlsearch incsearch ignorecase
+set number relativenumber
+
+set hidden
 set noswapfile
-set hlsearch
-set ignorecase
-set incsearch
 set title
 set mouse=a
-set showcmd
-set laststatus=1
+set laststatus=1 showcmd
 
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=99
 hi Folded ctermbg=NONE
 
@@ -23,9 +22,15 @@ set list
 set listchars=tab:·\ 
 
 hi TabLineFill cterm=bold ctermbg=None
-hi TabLine ctermfg=Black ctermbg=None cterm=none
+hi TabLine ctermfg=7 ctermbg=None cterm=none
 hi TabLineSel ctermfg=3
+hi LineNr ctermfg=7
 
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType txt setlocal foldmethod=indent
+autocmd FileType markdown setlocal foldmethod=indent
+
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 " indentation
 set tabstop=4
@@ -33,10 +38,11 @@ set shiftwidth=4
 set updatetime=100
 set autoindent
 
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
-
-
 " useful bindings
+inoremap jk <ESC>
+tnoremap jk <C-\><C-N> 
+nnoremap jk :ls<CR>:buffer<space>
+
 inoremap {<CR> {<CR><Tab><End><CR><BS>}<Up><Right>
 nnoremap <Leader><Leader> :e#<CR>
 nnoremap <Leader>f :F<CR>
@@ -45,10 +51,12 @@ nnoremap <Leader>/ :let @/ = ""<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <tab> :tabnext<CR>
 nnoremap <S-tab> :tabprevious<CR>
-nnoremap <C-w> :q<CR>
-nnoremap <C-t> :Te<CR>
+nnoremap <C-q> :bd<CR>
+nnoremap !<C-q> :bd!<CR>
 
 nnoremap 0 ^
+
+command! -nargs=1 -complete=help H help <args> | silent only
 
 " plugins
 hi GitGutterAdd		ctermbg=NONE ctermfg=GREEN

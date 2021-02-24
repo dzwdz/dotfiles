@@ -6,6 +6,7 @@ alias gca "git commit -a"
 alias gp "git push"
 alias ga "git add"
 alias gl "git log --pretty=oneline --abbrev-commit --reverse"
+alias cr "cd (git rev-parse --show-toplevel)"
 alias tds "rg -i -e todo -e fixme"
 
 alias nw "urxvt &; disown"
