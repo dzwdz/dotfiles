@@ -28,3 +28,5 @@ set PATH $PATH $GEM_HOME/bin ~/opt/cross/bin/ /opt/idea-IC-202.7319.50/bin /hdd/
 set EDITOR nvim
 
 export FZF_DEFAULT_COMMAND="rg --hidden --files --no-ignore-vcs -g '!.git/'"
+
+fzf_key_bindings

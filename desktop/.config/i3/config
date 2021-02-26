@@ -1,14 +1,50 @@
+# vim: foldmethod=marker : foldlevel=1
 set $mod Mod4
 
-font pango:Jetbrains Mono 8
+# Workspaces {{{
+# setting the vars {{{
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+# }}}
+# window > workspace bindings {{{
+for_window [class="Firefox"] move container to workspace 1
 
-# locking
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -e -c 000000
-bindsym $mod+semicolon exec --no-startup-id i3lock
+for_window [class="libreoffice"] move container to workspace 8
+for_window [class="Element"] move container to workspace 9
+for_window [class="Discord"] move container to workspace 9 # broken
+for_window [class="Spotify"] move container to workspace 9
+for_window [class="Lollypop"] move container to workspace 9
 
-exec --no-startup-id nm-applet
+for_window [class="Joplin"] move container to workspace 10
+# }}}
+# workspace > monitor bindings {{{
+workspace $ws1 output HDMI-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
 
-# media keys
+workspace $ws8 output DP-0
+workspace $ws9 output DP-0
+workspace $ws10 output DP-0
+# }}}
+# }}}
+
+# Binds {{{
+bindsym $mod+space exec --no-startup-id "rofi -show combi"
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+semicolon exec --no-startup-id loginctl lock-session
+bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+c exec ~/scripts/compact_mode.sh
+bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
+
+# Media keys {{{
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -16,11 +52,57 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+# }}}
+# Resizing {{{
+mode "resize" {
+        bindsym h resize shrink width 120 px
+        bindsym j resize grow height 120 px
+        bindsym k resize shrink height 120 px
+        bindsym l resize grow width 120 px
 
-# launching stuff
-bindsym $mod+space exec --no-startup-id "rofi -show combi"
-bindsym $mod+Return exec i3-sensible-terminal
+        bindsym a resize shrink width 120 px
+        bindsym s resize grow height 120 px
+        bindsym w resize shrink height 120 px
+        bindsym d resize grow width 120 px
 
+        bindsym Left resize shrink width 120 px
+        bindsym Down resize grow height 120 px
+        bindsym Up resize shrink height 120 px
+        bindsym Right resize grow width 120 px
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+# }}}
+# Workspaces {{{
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+# }}}
+# The rest / the most boring ones {{{
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -68,112 +150,34 @@ floating_modifier $mod
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+q kill
+# }}}
+# }}}
 
+# "rice" {{{
+font pango:Jetbrains Mono 8
 
-# workspaces
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
-# switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
-
-for_window [class="Firefox"] move container to workspace 1
-
-for_window [class="libreoffice"] move container to workspace 8
-
-for_window [class="Element"] move container to workspace 9
-for_window [class="Discord"] move container to workspace 9 # broken
-for_window [class="Spotify"] move container to workspace 9
-for_window [class="Lollypop"] move container to workspace 9
-
-for_window [class="Joplin"] move container to workspace 10
-
-workspace $ws1 output HDMI-0
-workspace $ws2 output HDMI-0
-workspace $ws3 output HDMI-0
-
-workspace $ws8 output DP-0
-workspace $ws9 output DP-0
-workspace $ws10 output DP-0
-
-bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
-
-# resizing
-mode "resize" {
-        bindsym h resize shrink width 120 px
-        bindsym j resize grow height 120 px
-        bindsym k resize shrink height 120 px
-        bindsym l resize grow width 120 px
-
-        bindsym a resize shrink width 120 px
-        bindsym s resize grow height 120 px
-        bindsym w resize shrink height 120 px
-        bindsym d resize grow width 120 px
-
-        bindsym Left resize shrink width 120 px
-        bindsym Down resize grow height 120 px
-        bindsym Up resize shrink height 120 px
-        bindsym Right resize grow width 120 px
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-bindsym $mod+r mode "resize"
-
-# theming
 set_from_resource $c0 color0 #000000
 set_from_resource $c1 color1 #111111
+set_from_resource $c4 color4 #444444
 set_from_resource $c8 color8 #888888
 set_from_resource $bg background #000000
 set_from_resource $fg foreground #ffffff
 
-client.focused          $bg $bg $c1 #2e9ef4   #62127c
-client.focused_inactive $bg $bg $fg #2e9ef4   #62127c
-client.unfocused        $bg $bg $fg #292d2e   #222222
+client.focused          $bg $bg $c1 $bg $c8
+client.focused_inactive $bg $bg $fg $bg $bg
+client.unfocused        $bg $bg $fg $bg $bg
 for_window [class=".*"] border pixel 0
+# }}}
 
-# screenshots
-exec --no-startup-id flameshot
-bindsym Print exec --no-startup-id flameshot gui
-
-# other stuff
+# Autostart {{{
 exec_always --no-startup-id xmodmap ~/.Xmodmap
-exec_always --no-startup-id ~/.fehbg
-exec_always --no-startup-id bash -c "killall polybar; polybar top" 
-# exec --no-startup-id picom
-exec --no-startup-id i3-msg 'workspace 10; exec urxvt -e nvim -c"cd dropbox/notes"'
-exec --no-startup-id lollypop
+exec --no-startup-id nm-applet
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -e -c 000000
 exec --no-startup-id dex -ae i3
 
-bindsym $mod+c exec ~/scripts/compact_mode.sh
+exec_always --no-startup-id ~/.fehbg
+exec_always --no-startup-id bash -c "killall polybar; polybar top" 
+exec --no-startup-id flameshot
+exec --no-startup-id lollypop
+exec --no-startup-id i3-msg 'workspace 10; exec urxvt -e nvim -c"cd dropbox/notes"'
+# }}}

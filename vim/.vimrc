@@ -1,6 +1,6 @@
-let mapleader = " "
+" vim: foldmethod=marker : foldlevel=0
 
-" some general settings idk
+" Miscellaneous {{{
 syntax on
 set background=dark
 set encoding=utf8
@@ -14,33 +14,36 @@ set title
 set mouse=a
 set laststatus=1 showcmd
 
+hi TabLineFill cterm=bold ctermbg=None
+hi TabLine ctermfg=7 ctermbg=None cterm=none
+hi TabLineSel ctermfg=3
+hi LineNr ctermfg=7
+
+autocmd TermOpen * setlocal nonumber norelativenumber
+autocmd BufWritePost ~/.vimrc source ~/.vimrc
+" }}}
+
+" Indentation / Folding {{{
+set tabstop=4
+set shiftwidth=4
+set updatetime=100
+set autoindent
+
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType txt setlocal foldmethod=indent
+autocmd FileType markdown setlocal foldmethod=indent
+
 set foldmethod=syntax
 set foldlevel=99
 hi Folded ctermbg=NONE
 
 set list
 set listchars=tab:·\ 
+" }}}
 
-hi TabLineFill cterm=bold ctermbg=None
-hi TabLine ctermfg=7 ctermbg=None cterm=none
-hi TabLineSel ctermfg=3
-hi LineNr ctermfg=7
+" Mappings and custom commands {{{
+let mapleader = " "
 
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
-autocmd FileType txt setlocal foldmethod=indent
-autocmd FileType markdown setlocal foldmethod=indent
-
-autocmd TermOpen * setlocal nonumber norelativenumber
-
-autocmd BufWritePost ~/.vimrc source ~/.vimrc
-
-" indentation
-set tabstop=4
-set shiftwidth=4
-set updatetime=100
-set autoindent
-
-" useful bindings
 inoremap jk <ESC>
 tnoremap jk <C-\><C-N> 
 
@@ -55,7 +58,7 @@ nnoremap <tab> :tabnext<CR>
 nnoremap <S-tab> :tabprevious<CR>
 nnoremap <C-q> :bd<CR>
 nnoremap !<C-q> :bd!<CR>
-nnoremap gb :ls<CR>:buffer<space>
+nnoremap gb :ls<CR>:b<space>
 
 nnoremap 0 ^
 
@@ -69,8 +72,9 @@ command! Rid silent! execute "%bd\|e#"
 
 " make the current file executable
 command! MakeX execute "!chmod +x \"%:p\""
+""" }}}
 
-" plugins
+" Plugin specific {{{
 hi GitGutterAdd		ctermbg=NONE ctermfg=GREEN
 hi GitGutterChange	ctermbg=NONE ctermfg=YELLOW
 hi GitGutterDelete	ctermbg=NONE ctermfg=RED
@@ -78,11 +82,11 @@ hi SignColumn		ctermbg=NONE
 let g:gitgutter_sign_modified = '~'
 
 set rtp+=/usr/bin/fzf
-let g:fzf_layout = { 'window': 'enew' }
+"let g:fzf_layout = { 'window': 'enew' }
 
 runtime ftplugin/man.vim
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
-
+" }}}
