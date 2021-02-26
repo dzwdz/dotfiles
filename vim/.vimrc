@@ -1,4 +1,4 @@
-let mapleader = "'"
+let mapleader = " "
 
 " some general settings idk
 syntax on
@@ -32,6 +32,8 @@ autocmd FileType markdown setlocal foldmethod=indent
 
 autocmd TermOpen * setlocal nonumber norelativenumber
 
+autocmd BufWritePost ~/.vimrc source ~/.vimrc
+
 " indentation
 set tabstop=4
 set shiftwidth=4
@@ -41,22 +43,32 @@ set autoindent
 " useful bindings
 inoremap jk <ESC>
 tnoremap jk <C-\><C-N> 
-nnoremap jk :ls<CR>:buffer<space>
 
 inoremap {<CR> {<CR><Tab><End><CR><BS>}<Up><Right>
 nnoremap <Leader><Leader> :e#<CR>
 nnoremap <Leader>f :F<CR>
 nnoremap <Leader>/ :let @/ = ""<CR>
+nnoremap <Leader>r :w<CR>:!"%:p"<CR>
 
 nnoremap <C-s> :w<CR>
 nnoremap <tab> :tabnext<CR>
 nnoremap <S-tab> :tabprevious<CR>
 nnoremap <C-q> :bd<CR>
 nnoremap !<C-q> :bd!<CR>
+nnoremap gb :ls<CR>:buffer<space>
 
 nnoremap 0 ^
 
+xnoremap < <gv
+xnoremap > >gv
+
 command! -nargs=1 -complete=help H help <args> | silent only
+
+" gets rid of all buffers expect unsaved ones and the current one
+command! Rid silent! execute "%bd\|e#"
+
+" make the current file executable
+command! MakeX execute "!chmod +x \"%:p\""
 
 " plugins
 hi GitGutterAdd		ctermbg=NONE ctermfg=GREEN
