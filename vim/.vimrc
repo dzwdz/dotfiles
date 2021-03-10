@@ -24,7 +24,9 @@ hi TabLineSel ctermfg=3
 hi LineNr ctermfg=7
 hi ColorColumn ctermbg=black
 
-autocmd TermOpen * setlocal nonumber norelativenumber
+if has('nvim')
+	autocmd TermOpen * setlocal nonumber norelativenumber
+endif
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 " }}}
 
