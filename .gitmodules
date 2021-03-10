@@ -1,3 +1,12 @@
 [submodule "vim/.vim/pack/ages/start/quick-scope"]
 	path = vim/.vim/pack/ages/start/quick-scope
 	url = git@github.com:unblevable/quick-scope.git
+[submodule "vim/.vim/pack/ages/start/vim-peekaboo"]
+	path = vim/.vim/pack/ages/start/vim-peekaboo
+	url = git@github.com:junegunn/vim-peekaboo.git
+[submodule "vim/.vim/pack/ages/start/rust.vim"]
+	path = vim/.vim/pack/ages/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "vim/.vim/pack/ages/start/syntastic"]
+	path = vim/.vim/pack/ages/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic

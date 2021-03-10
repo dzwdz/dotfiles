@@ -14,10 +14,15 @@ set title
 set mouse=a
 set laststatus=1 showcmd
 
+set path+=**
+
+set colorcolumn=80
+
 hi TabLineFill cterm=bold ctermbg=None
 hi TabLine ctermfg=7 ctermbg=None cterm=none
 hi TabLineSel ctermfg=3
 hi LineNr ctermfg=7
+hi ColorColumn ctermbg=black
 
 autocmd TermOpen * setlocal nonumber norelativenumber
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
@@ -39,6 +44,8 @@ hi Folded ctermbg=NONE
 
 set list
 set listchars=tab:·\ 
+
+set fillchars=fold:\ 
 " }}}
 
 " Mappings and custom commands {{{
@@ -47,7 +54,7 @@ let mapleader = " "
 inoremap jk <ESC>
 tnoremap jk <C-\><C-N> 
 
-inoremap {<CR> {<CR><Tab><End><CR><BS>}<Up><Right>
+"inoremap {<CR> {<CR><Tab><End><CR><BS>}<Up><Right>
 nnoremap <Leader><Leader> :e#<CR>
 nnoremap <Leader>f :F<CR>
 nnoremap <Leader>/ :let @/ = ""<CR>
@@ -62,9 +69,6 @@ nnoremap gb :ls<CR>:b<space>
 
 nnoremap 0 ^
 
-xnoremap < <gv
-xnoremap > >gv
-
 command! -nargs=1 -complete=help H help <args> | silent only
 
 " gets rid of all buffers expect unsaved ones and the current one
@@ -72,6 +76,9 @@ command! Rid silent! execute "%bd\|e#"
 
 " make the current file executable
 command! MakeX execute "!chmod +x \"%:p\""
+
+iab rubysb #!/usr/bin/env ruby
+iab vifold vim: foldmethod=marker : foldlevel=0
 """ }}}
 
 " Plugin specific {{{

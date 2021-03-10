@@ -1,6 +1,5 @@
 # dotfiles
-highly specific to my config n shit, has a bunch of hardcoded paths.
-probably won't ever be public
+files with dots. this repo was never meant to be public, yet here we are
 
 ## csgo
 csgo configs, need to be manually symlinked to the cfg directory

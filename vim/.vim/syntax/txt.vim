@@ -6,4 +6,5 @@ let b:current_syntax = "txt"
 
 syn match Whitespace '^#.*'
 syn match Todo '^!.*'
+syn match Pmenu '^?.*'
 syn match WarningMsg '\*.\+\*'
