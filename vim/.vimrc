@@ -24,6 +24,10 @@ hi TabLineSel ctermfg=3
 hi LineNr ctermfg=7
 hi ColorColumn ctermbg=black
 
+hi VertSplit cterm=none
+hi StatusLine cterm=bold
+hi StatusLineNC cterm=bold
+
 if has('nvim')
 	autocmd TermOpen * setlocal nonumber norelativenumber
 endif
@@ -69,6 +73,11 @@ nnoremap <C-q> :bd<CR>
 nnoremap !<C-q> :bd!<CR>
 nnoremap gb :ls<CR>:b<space>
 
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
 nnoremap 0 ^
 
 command! -nargs=1 -complete=help H help <args> | silent only
@@ -81,6 +90,7 @@ command! MakeX execute "!chmod +x \"%:p\""
 
 iab rubysb #!/usr/bin/env ruby
 iab vifold vim: foldmethod=marker : foldlevel=0
+iab <expr> isonow strftime("%FT%T%z")
 """ }}}
 
 " Plugin specific {{{
