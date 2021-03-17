@@ -10,3 +10,6 @@
 [submodule "vim/.vim/pack/ages/start/syntastic"]
 	path = vim/.vim/pack/ages/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic
+[submodule "vim/.vim/pack/ages/start/goyo.vim"]
+	path = vim/.vim/pack/ages/start/goyo.vim
+	url = git@github.com:junegunn/goyo.vim.git
