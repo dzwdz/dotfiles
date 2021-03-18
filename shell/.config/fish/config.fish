@@ -15,6 +15,9 @@ alias sf "seinfeld mark"
 alias idea "dm idea.sh ."
 alias nv nvim
 
+set -g fish_key_bindings fish_vi_key_bindings
+
+set fish_color_cwd brmagenta
 set fish_color_command red
 set fish_color_param foreground
 set fish_color_operator green
