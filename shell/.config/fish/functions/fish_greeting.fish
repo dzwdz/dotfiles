@@ -2,6 +2,8 @@ function fish_greeting
 	if test -e /tmp/cast_mode
 		echo "cast"
 	else
-		seinfeld compact
+		if type -q seinfeld
+			seinfeld compact
+		end
 	end
 end

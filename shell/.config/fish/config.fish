@@ -32,4 +32,6 @@ set EDITOR nvim
 
 export FZF_DEFAULT_COMMAND="rg --hidden --files --no-ignore-vcs -g '!.git/'"
 
-fzf_key_bindings
+if functions -q fzf_key_bindings
+	fzf_key_bindings
+end
