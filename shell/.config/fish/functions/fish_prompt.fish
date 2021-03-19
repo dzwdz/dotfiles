@@ -1,5 +1,9 @@
 function fish_prompt
     set_color -r --bold $fish_color_cwd
+	if set -q SSH_CLIENT
+		echo -n (hostname)
+		set_color -r brblue
+	end
     echo -n (basename $PWD)
 	set_color normal
 	if jobs -q
