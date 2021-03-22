@@ -11,7 +11,7 @@ alias tds "rg -i -e todo -e fixme"
 
 alias nw "urxvt &; disown"
 alias :q exit
-alias sf "seinfeld mark"
+alias sf "sein mark"
 alias idea "dm idea.sh ."
 alias nv nvim
 
