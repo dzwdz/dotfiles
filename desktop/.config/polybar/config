@@ -48,7 +48,7 @@ module-margin-right = 1
 
 font-0 = JetBrains Mono:style=Regular:size=10
 
-modules-left = date pulseaudio mpd
+modules-left = date mic pulseaudio mpd
 modules-center = i3
 modules-right = 
 
@@ -105,13 +105,13 @@ interval = 5
 date = %m.%d
 date-alt = %m.%d
 
-time =
+time = %H:%M
 time-alt =
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
-label = %date%%time%
+label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -130,6 +130,14 @@ host = 127.0.0.1
 port = 6600
 
 label-song = %title%
+
+[module/mic]
+type = custom/script
+
+exec = pactl list sources | grep Mute | head -n 1 | sed 's/\tMute: /mute /'
+
+click-left = pactl set-source-mute @DEFAULT_SOURCE@ toggle
+interval = 1
 
 [settings]
 screenchange-reload = true

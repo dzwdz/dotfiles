@@ -44,6 +44,9 @@ bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+c exec ~/scripts/compact_mode.sh
 bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
 
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
 # Media keys {{{
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
@@ -174,11 +177,17 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -e -c 000000
 exec --no-startup-id dex -ae i3
 
-exec_always --no-startup-id ~/.fehbg
 exec_always --no-startup-id bash -c "killall polybar; polybar top" 
+exec --no-startup-id ~/.fehbg
 exec --no-startup-id picom
 exec --no-startup-id flameshot
-exec --no-startup-id i3-msg 'workspace 9; exec urxvt -e mosh dzwdz@tilde.town'
+
+for_window [class="KeePassXC"] move scratchpad
+exec keepassxc
+
+exec --no-startup-id i3-msg 'workspace 9; exec urxvt -e mosh dzwdz@tilde.town -- tmux a'
 exec --no-startup-id i3-msg 'workspace 9; exec urxvt -e ncmpcpp'
 exec --no-startup-id i3-msg 'workspace 10; exec urxvt -e nvim -c "cd ~/Notes" -c "e landing.txt"'
+
+exec_always --no-startup-id "sleep 10; systemctl start --user mpdscribble.service" # a dumb hack
 # }}}
