@@ -33,7 +33,6 @@ if has('nvim')
 endif
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 " }}}
-
 " Indentation / Folding {{{
 set tabstop=4
 set shiftwidth=4
@@ -53,7 +52,6 @@ set listchars=tab:·\
 
 set fillchars=fold:\ 
 " }}}
-
 " Mappings and custom commands {{{
 let mapleader = " "
 
@@ -92,7 +90,6 @@ iab rubysb #!/usr/bin/env ruby
 iab vifold vim: foldmethod=marker : foldlevel=0
 iab <expr> isonow strftime("%FT%T%z")
 """ }}}
-
 " Plugin specific {{{
 hi GitGutterAdd		ctermbg=NONE ctermfg=GREEN
 hi GitGutterChange	ctermbg=NONE ctermfg=YELLOW

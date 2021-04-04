@@ -165,7 +165,7 @@ set_from_resource $c8 color8 #888888
 set_from_resource $bg background #000000
 set_from_resource $fg foreground #ffffff
 
-client.focused          $bg $bg $c1 $bg $c8
+client.focused          $bg $bg $c1 $bg $bg
 client.focused_inactive $bg $bg $fg $bg $bg
 client.unfocused        $bg $bg $fg $bg $bg
 for_window [class=".*"] border pixel 2
@@ -185,7 +185,7 @@ exec --no-startup-id flameshot
 for_window [class="KeePassXC"] move scratchpad
 exec keepassxc
 
-exec --no-startup-id i3-msg 'workspace 9; exec urxvt -e mosh dzwdz@tilde.town -- tmux a'
+exec --no-startup-id i3-msg 'workspace 9; exec urxvt -e ssh dzwdz@10.69.0.1 -t tmux a'
 exec --no-startup-id i3-msg 'workspace 9; exec urxvt -e ncmpcpp'
 exec --no-startup-id i3-msg 'workspace 10; exec urxvt -e nvim -c "cd ~/Notes" -c "e landing.txt"'
 
