@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 stow -t ~ desktop
 stow -t ~ shell
 stow -t ~ wacom
