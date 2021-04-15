@@ -181,6 +181,7 @@ exec_always --no-startup-id bash -c "killall polybar; polybar top"
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id picom
 exec --no-startup-id flameshot
+exec --no-startup-id ~/.localfixes
 
 for_window [class="KeePassXC"] move scratchpad
 exec keepassxc

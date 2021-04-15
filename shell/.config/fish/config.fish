@@ -14,6 +14,7 @@ alias :q exit
 alias sf "sein mark"
 alias idea "dm idea.sh ."
 alias nv nvim
+alias s ssh
 
 set -g fish_key_bindings fish_vi_key_bindings
 
@@ -27,7 +28,7 @@ set fish_color_search_match --background='000'
 
 set CDPATH . /hdd/repo/current ~/Documents ~
 set GEM_HOME (ruby -e 'puts Gem.user_dir')
-set PATH $PATH $GEM_HOME/bin ~/opt/cross/bin/ /opt/idea-IC-202.7319.50/bin /hdd/repo/current/utils
+set PATH $PATH ~/go/bin $GEM_HOME/bin ~/opt/cross/bin/ /opt/idea-IC-202.7319.50/bin /hdd/repo/current/utils
 set EDITOR nvim
 
 export FZF_DEFAULT_COMMAND="rg --hidden --files --no-ignore-vcs -g '!.git/'"
