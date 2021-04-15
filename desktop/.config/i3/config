@@ -169,6 +169,43 @@ client.focused          $bg $bg $c1 $bg $bg
 client.focused_inactive $bg $bg $fg $bg $bg
 client.unfocused        $bg $bg $fg $bg $bg
 for_window [class=".*"] border pixel 2
+
+bar {
+	status_command i3blocks
+	output primary
+	tray_output primary
+
+	font pango:JetBrains Mono 12
+	separator_symbol " : "
+	mode hide
+	workspace_min_width 40
+	colors {
+		background $bg
+		statusline $fg
+		separator $c8
+
+		focused_workspace  $c8 $c8 $fg
+		inactive_workspace $bg $bg $fg
+	}
+}
+
+bar {
+	output nonprimary
+	tray_output none
+
+	font pango:JetBrains Mono 12
+	separator_symbol " : "
+	mode hide
+	workspace_min_width 40
+	colors {
+		background $bg
+		statusline $fg
+		separator $c8
+
+		focused_workspace  $c8 $c8 $fg
+		inactive_workspace $bg $bg $fg
+	}
+}
 # }}}
 
 # Autostart {{{
@@ -177,7 +214,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -e -c 000000
 exec --no-startup-id dex -ae i3
 
-exec_always --no-startup-id bash -c "killall polybar; polybar top" 
+# exec_always --no-startup-id bash -c "killall polybar; polybar top" 
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id picom
 exec --no-startup-id flameshot

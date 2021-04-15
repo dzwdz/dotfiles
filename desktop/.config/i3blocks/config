@@ -1,0 +1,15 @@
+[mic]
+command=~/scripts/i3blocks/mic
+interval=2
+
+[volume]
+command=~/scripts/i3blocks/volume
+interval=2
+signal=10
+
+[time]
+command=date +%H:%M
+interval=15
+
+[dummy]
+full_text=
