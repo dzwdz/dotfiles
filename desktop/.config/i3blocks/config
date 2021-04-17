@@ -8,7 +8,7 @@ interval=2
 signal=10
 
 [time]
-command=date +%H:%M
+command=date +%m-%d\ %H:%M
 interval=15
 
 [dummy]
