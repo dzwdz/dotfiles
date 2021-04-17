@@ -209,7 +209,6 @@ bar {
 # }}}
 
 # Autostart {{{
-exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -e -c 000000
 exec --no-startup-id dex -ae i3
@@ -228,4 +227,5 @@ exec --no-startup-id i3-msg 'workspace 9; exec urxvt -e ncmpcpp'
 exec --no-startup-id i3-msg 'workspace 10; exec urxvt -e nvim -c "cd ~/Notes" -c "e landing.txt"'
 
 exec_always --no-startup-id "sleep 10; systemctl start --user mpdscribble.service" # a dumb hack
+exec_always --no-startup-id xmodmap ~/.Xmodmap
 # }}}
