@@ -26,7 +26,7 @@ set fish_color_autosuggestion cyan
 set fish_color_error white
 set fish_color_search_match --background='000'
 
-set CDPATH . /hdd/repo/current ~/Documents ~
+set CDPATH . /code ~/Documents ~
 set GEM_HOME (ruby -e 'puts Gem.user_dir')
 set PATH $PATH ~/go/bin $GEM_HOME/bin ~/opt/cross/bin/ /opt/idea-IC-202.7319.50/bin /hdd/repo/current/utils
 set EDITOR nvim

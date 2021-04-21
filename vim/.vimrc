@@ -60,7 +60,7 @@ tnoremap jk <C-\><C-N>
 
 "inoremap {<CR> {<CR><Tab><End><CR><BS>}<Up><Right>
 nnoremap <Leader><Leader> :e#<CR>
-nnoremap <Leader>f :F<CR>
+nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>/ :let @/ = ""<CR>
 nnoremap <Leader>r :w<CR>:!"%:p"<CR>
 
