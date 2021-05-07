@@ -16,3 +16,6 @@
 [submodule "vim/.vim/pack/ages/start/vim-glsl"]
 	path = vim/.vim/pack/ages/start/vim-glsl
 	url = git@github.com:tikhomirov/vim-glsl.git
+[submodule "vim/.vim/pack/ages/start/coc.nvim"]
+	path = vim/.vim/pack/ages/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git

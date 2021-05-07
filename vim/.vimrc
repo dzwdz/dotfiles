@@ -28,6 +28,8 @@ hi VertSplit cterm=none
 hi StatusLine cterm=bold
 hi StatusLineNC cterm=bold
 
+hi PMenu ctermbg=102
+
 if has('nvim')
 	autocmd TermOpen * setlocal nonumber norelativenumber
 endif
