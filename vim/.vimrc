@@ -42,6 +42,7 @@ set updatetime=100
 set autoindent
 
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType txt setlocal foldmethod=indent
 autocmd FileType markdown setlocal foldmethod=indent
 
