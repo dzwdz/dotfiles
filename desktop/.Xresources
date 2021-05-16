@@ -29,6 +29,7 @@
 *color15: #ebdbb2
 URxvt.background: [90]#1d2021
 
+*font: cursed
 
 !urxvt
 URxvt*buffered: true

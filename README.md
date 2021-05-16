@@ -9,7 +9,7 @@ autostart > `exec symlink_name/bindy.cfg`
 ## desktop
 uses:
 - i3-gaps, i3blocks, feh, picom, dex
-- rofi
+- rofi (not really)
 - flameshot
 - the Jetbrains Mono font
 - urxvt
