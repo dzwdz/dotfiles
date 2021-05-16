@@ -23,7 +23,7 @@ for_window [class="Discord"] move container to workspace 9 # broken
 for_window [class="Spotify"] move container to workspace 9
 for_window [class="Lollypop"] move container to workspace 9
 
-for_window [class="Joplin"] move container to workspace 10
+for_window [class="Pavucontrol"] floating enable
 # }}}
 # workspace > monitor bindings {{{
 workspace $ws1 output HDMI-0
@@ -163,7 +163,7 @@ set_from_resource $c8 color8 #888888
 set_from_resource $bg background #000000
 set_from_resource $fg foreground #ffffff
 
-client.focused          $bg $bg $c1 $bg $bg
+client.focused          $bg $bg $c1 $bg $c8
 client.focused_inactive $bg $bg $fg $bg $bg
 client.unfocused        $bg $bg $fg $bg $bg
 for_window [class=".*"] border pixel 2

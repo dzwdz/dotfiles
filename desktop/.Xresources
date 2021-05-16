@@ -1,5 +1,6 @@
 ! hard contrast: *background: #1d2021
-*background: #282828
+*background: #1d2021
+! *background: #282828
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
@@ -26,7 +27,7 @@
 ! LightGrey + White
 *color7:  #a89984
 *color15: #ebdbb2
-URxvt.background: [90]#282828
+URxvt.background: [90]#1d2021
 
 
 !urxvt
