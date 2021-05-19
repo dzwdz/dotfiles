@@ -38,23 +38,11 @@ workspace $ws10 output DP-0
 # Binds {{{
 bindsym $mod+space exec --no-startup-id "dmenu_run"
 bindsym $mod+Return exec i3-sensible-terminal -e tmux new-session -A -s main
-bindsym $mod+semicolon exec --no-startup-id loginctl lock-session
-bindsym Print exec --no-startup-id flameshot gui
-bindsym $mod+c exec ~/scripts/compact_mode.sh
 bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
 
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
-# Media keys {{{
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86AudioPlay exec --no-startup-id "playerctl play-pause; mpc toggle"
-bindsym XF86AudioNext exec --no-startup-id "playerctl next; mpc next"
-bindsym XF86AudioPrev exec --no-startup-id "playerctl previous; mpc prev"
-# }}}
 # Resizing {{{
 mode "resize" {
         bindsym h resize shrink width 120 px
@@ -100,8 +88,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # move between displays
-bindsym $mod+n move workspace to output left
-bindsym $mod+m move workspace to output right
+bindsym $mod+Shift+comma move workspace to output left
+bindsym $mod+Shift+period move workspace to output right
 # }}}
 # The rest / the most boring ones {{{
 # change focus
