@@ -1,6 +1,6 @@
 clear Lock 
-keycode 66 = Hyper_L
-add mod4 = Hyper_L
+keycode 66 = Super_L
+add mod4 = Super_L
 
 keycode  20 = minus underscore minus underscore ssharp ssharp ssharp
 keycode  34 = bracketleft braceleft bracketleft braceleft udiaeresis Udiaeresis udiaeresis

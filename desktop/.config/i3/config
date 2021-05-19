@@ -172,9 +172,10 @@ bar {
 	status_command i3blocks
 	output primary
 	tray_output primary
+	position top
 
 	font pango:JetBrains Mono 12
-	separator_symbol " : "
+	separator_symbol " / "
 	mode hide
 	workspace_min_width 40
 	colors {
@@ -190,9 +191,10 @@ bar {
 bar {
 	output nonprimary
 	tray_output none
+	position top
 
 	font pango:JetBrains Mono 12
-	separator_symbol " : "
+	separator_symbol " / "
 	mode hide
 	workspace_min_width 40
 	colors {
