@@ -24,6 +24,7 @@ set fish_color_autosuggestion cyan
 set fish_color_error white
 set fish_color_search_match --background='000'
 set -g fish_term24bit 1
+set __fish_git_prompt_show_informative_status
 
 set CDPATH . /code ~/Documents ~
 set GEM_HOME (ruby -e 'puts Gem.user_dir')

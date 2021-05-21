@@ -19,6 +19,8 @@ end
 
 function fish_right_prompt
     set_color grey
+	fish_git_prompt
+	echo -n ' '
     date +%H:%M
 	set_color normal
 end
