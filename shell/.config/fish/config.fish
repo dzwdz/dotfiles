@@ -16,8 +16,6 @@ alias idea "dm idea.sh ."
 alias nv nvim
 alias s ssh
 
-set -g fish_key_bindings fish_vi_key_bindings
-
 set fish_color_cwd brmagenta
 set fish_color_command red
 set fish_color_param foreground
@@ -25,6 +23,7 @@ set fish_color_operator green
 set fish_color_autosuggestion cyan
 set fish_color_error white
 set fish_color_search_match --background='000'
+set -g fish_term24bit 1
 
 set CDPATH . /code ~/Documents ~
 set GEM_HOME (ruby -e 'puts Gem.user_dir')

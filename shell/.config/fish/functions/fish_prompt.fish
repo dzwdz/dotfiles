@@ -1,5 +1,9 @@
+set prompt_cnt 0
+set prompt_colors red f80 yellow green blue magenta
+
 function fish_prompt
-    set_color -r --bold $fish_color_cwd
+	set prompt_cnt (math $prompt_cnt % 6 + 1)
+    set_color --bold $prompt_colors[$prompt_cnt]
 	if set -q SSH_CLIENT
 		echo -n (hostname)
 		set_color -r brblue
@@ -14,30 +18,7 @@ function fish_prompt
 end
 
 function fish_right_prompt
-    set_color brmagenta
-    echo $PWD
-    set_color -r brblue
+    set_color grey
     date +%H:%M
 	set_color normal
-end
-
-function fish_mode_prompt
-  switch $fish_bind_mode
-    case default
-      set_color -r brgreen
-      echo 'n'
-    case insert
-      set_color -r brblue
-      echo 'i'
-    case replace_one
-      set_color -r green
-      echo 'r'
-    case visual
-      set_color -r yellow
-      echo 'v'
-    case '*'
-      set_color -r red
-      echo '?'
-  end
-  set_color normal
 end
