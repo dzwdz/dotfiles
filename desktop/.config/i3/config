@@ -37,7 +37,7 @@ workspace $ws10 output DP-0
 # }}}
 # Binds {{{
 bindsym $mod+space exec --no-startup-id "dmenu_run"
-bindsym $mod+Return exec i3-sensible-terminal -e tmux new-session -A -s main
+bindsym $mod+Shift+Return exec i3-sensible-terminal -e tmux new-session -A -s main
 bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
 
 bindsym $mod+minus scratchpad show
