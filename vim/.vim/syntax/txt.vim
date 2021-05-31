@@ -1,10 +1,9 @@
 if exists("b:current_syntax")
-	finish
+else
+	let b:current_syntax = "txt"
 endif
 
-let b:current_syntax = "txt"
 
 syn match Whitespace '^#.*'
 syn match Todo '^!.*'
 syn match Pmenu '^?.*'
-syn match WarningMsg '\*.\+\*'

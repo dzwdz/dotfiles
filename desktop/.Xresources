@@ -35,6 +35,7 @@ URxvt.background: [90]#1d2021
 URxvt*buffered: true
 URxvt*cursorBlink: true
 URxvt*font: xft:cursed
+URxvt*boldFont: xft:cursed
 URxvt*depth: 32
 URxvt*borderless: 1
 URxvt*scrollBar: false

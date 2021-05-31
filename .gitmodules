@@ -19,3 +19,6 @@
 [submodule "vim/.vim/pack/ages/start/coc.nvim"]
 	path = vim/.vim/pack/ages/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
+[submodule "vim/.vim/pack/ages/start/vimwiki"]
+	path = vim/.vim/pack/ages/start/vimwiki
+	url = git@github.com:vimwiki/vimwiki.git
