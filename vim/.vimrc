@@ -110,5 +110,5 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
 let g:vimwiki_list = [{'path': '~/Notes/',
-                      \ 'path_html': '~/Notes_html'}]
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 " }}}

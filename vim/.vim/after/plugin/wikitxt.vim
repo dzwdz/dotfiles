@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.wiki set filetype+=.txt
+au BufRead,BufNewFile *.md set filetype+=.txt
