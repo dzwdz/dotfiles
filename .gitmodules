@@ -22,3 +22,6 @@
 [submodule "vim/.vim/pack/ages/start/vimwiki"]
 	path = vim/.vim/pack/ages/start/vimwiki
 	url = git@github.com:vimwiki/vimwiki.git
+[submodule "emacs/.emacs.d/ext/org-krita"]
+	path = emacs/.emacs.d/ext/org-krita
+	url = git@github.com:lepisma/org-krita.git

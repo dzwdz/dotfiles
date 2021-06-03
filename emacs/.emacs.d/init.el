@@ -3,6 +3,9 @@
              '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
+(add-to-list 'load-path "~/.emacs.d/ext/org-krita")
+(require 'org-krita)
+
 (unless (package-installed-p 'evil)
   (package-install 'evil))
 (unless (package-installed-p 'general)
