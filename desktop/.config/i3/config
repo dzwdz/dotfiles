@@ -37,7 +37,7 @@ workspace $ws10 output DP-0
 # }}}
 # Binds {{{
 bindsym $mod+space exec --no-startup-id "dmenu_run"
-bindsym $mod+Return exec i3-sensible-terminal -e tmux new-session -A -s main
+bindsym $mod+Shift+Return exec i3-sensible-terminal -e tmux new-session -A -s main
 bindsym $mod+Shift+p exec --no-startup-id ~/scripts/i3-display-swap.sh
 
 bindsym $mod+minus scratchpad show
@@ -154,31 +154,11 @@ set_from_resource $fg foreground #ffffff
 client.focused          $bg $bg $c1 $bg $c8
 client.focused_inactive $bg $bg $fg $bg $bg
 client.unfocused        $bg $bg $fg $bg $bg
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 0
 
 bar {
 	status_command i3blocks
-	output primary
 	tray_output primary
-	position top
-
-	font pango:JetBrains Mono 12
-	separator_symbol " / "
-	mode hide
-	workspace_min_width 40
-	colors {
-		background $bg
-		statusline $fg
-		separator $c8
-
-		focused_workspace  $c8 $c8 $fg
-		inactive_workspace $bg $bg $fg
-	}
-}
-
-bar {
-	output nonprimary
-	tray_output none
 	position top
 
 	font pango:JetBrains Mono 12

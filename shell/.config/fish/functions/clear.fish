@@ -1,3 +1,3 @@
-function clear
-	tput clear
-end
+#function clear
+#	tput clear
+#end
