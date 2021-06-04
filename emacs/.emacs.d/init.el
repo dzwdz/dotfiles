@@ -33,10 +33,9 @@
 (setq completion-ignore-case t)
 
 ;; org mode setup
-(add-to-list 'load-path "~/.emacs.d/ext/org-krita")
-(require 'org-krita)
 (unless (package-installed-p 'org-roam)
   (package-install 'org-roam))
+(require 'org)
 
 (add-hook 'after-init-hook 'org-roam-mode)
 (setq org-roam-directory "~/Notes")
@@ -59,6 +58,18 @@
 (global-set-key (kbd "C-c n") 'org-roam-find-file)
 (global-set-key (kbd "C-c i") 'org-roam-insert)
 (setq org-return-follows-link t)
+
+; graphical notes
+(setq org-file-apps
+      (append '(("\\.png\\'" . "krita --nosplash --canvasonly \"%s\"")) org-file-apps))
+(defun org-artist-get-path ()
+  (format "./img/%s %s.png" (truncate (time-to-seconds)) (car (org-roam--extract-titles))))
+(defun org-artist-insert ()
+  (interactive)
+  (let ((img-path (org-artist-get-path)))
+    (call-process "convert" nil nil nil "-size" "512x512" "xc:transparent" img-path)
+    (org-insert-link nil img-path))
+  (org-redisplay-inline-images))
 
 
 ;; making emacs pretty
