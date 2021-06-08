@@ -28,7 +28,7 @@ set __fish_git_prompt_show_informative_status
 
 set CDPATH . /code ~/Documents ~
 set GEM_HOME (ruby -e 'puts Gem.user_dir')
-set PATH $PATH ~/go/bin $GEM_HOME/bin ~/opt/cross/bin/ /opt/idea-IC-202.7319.50/bin /code/other/utils/
+set PATH $PATH ~/go/bin $GEM_HOME/bin ~/opt/cross/bin/ /opt/idea-IC-202.7319.50/bin ~/.local/bin ~/.pkgs/usr/bin
 set EDITOR nvim
 
 export FZF_DEFAULT_COMMAND="rg --hidden --files --no-ignore-vcs -g '!.git/'"
