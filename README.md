@@ -8,12 +8,11 @@ autostart > `exec symlink_name/bindy.cfg`
 
 ## desktop
 uses:
-- i3-gaps, i3blocks, feh, picom, dex
-- rofi (not really)
+- dwm, dmenu, feh, picom, dex
 - flameshot
 - the Jetbrains Mono font
-- urxvt
-- jq (for the display swapper)
+- kiedtl's cursed font
+- st
 
 the power rofi thingy requires a sudoers modification, to allow running grub-reboot without a password
 
