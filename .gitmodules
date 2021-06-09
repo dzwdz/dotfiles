@@ -1,27 +1,3 @@
-[submodule "vim/.vim/pack/ages/start/quick-scope"]
-	path = vim/.vim/pack/ages/start/quick-scope
-	url = git@github.com:unblevable/quick-scope.git
-[submodule "vim/.vim/pack/ages/start/vim-peekaboo"]
-	path = vim/.vim/pack/ages/start/vim-peekaboo
-	url = git@github.com:junegunn/vim-peekaboo.git
-[submodule "vim/.vim/pack/ages/start/rust.vim"]
-	path = vim/.vim/pack/ages/start/rust.vim
-	url = https://github.com/rust-lang/rust.vim
-[submodule "vim/.vim/pack/ages/start/syntastic"]
-	path = vim/.vim/pack/ages/start/syntastic
-	url = https://github.com/vim-syntastic/syntastic
-[submodule "vim/.vim/pack/ages/start/goyo.vim"]
-	path = vim/.vim/pack/ages/start/goyo.vim
-	url = git@github.com:junegunn/goyo.vim.git
-[submodule "vim/.vim/pack/ages/start/vim-glsl"]
-	path = vim/.vim/pack/ages/start/vim-glsl
-	url = git@github.com:tikhomirov/vim-glsl.git
-[submodule "vim/.vim/pack/ages/start/coc.nvim"]
-	path = vim/.vim/pack/ages/start/coc.nvim
-	url = https://github.com/neoclide/coc.nvim.git
-[submodule "vim/.vim/pack/ages/start/vimwiki"]
-	path = vim/.vim/pack/ages/start/vimwiki
-	url = git@github.com:vimwiki/vimwiki.git
-[submodule "emacs/.emacs.d/ext/org-krita"]
-	path = emacs/.emacs.d/ext/org-krita
-	url = git@github.com:lepisma/org-krita.git
+[submodule "home/.vim/pack/ages/start/coc.nvim"]
+	path = home/.vim/pack/ages/start/coc.nvim
+	url = git@github.com:neoclide/coc.nvim.git
