@@ -20,6 +20,8 @@
   XF86AudioNext 
 "playerctl previous; mpc prev"
   XF86AudioPrev 
+"mpdmenu"
+  XF86AudioStop
 
 "loginctl lock-session"
   Mod4 + semicolon
