@@ -99,6 +99,7 @@ hi GitGutterChange	ctermbg=NONE ctermfg=YELLOW
 hi GitGutterDelete	ctermbg=NONE ctermfg=RED
 hi SignColumn		ctermbg=NONE
 let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
 
 set rtp+=/usr/bin/fzf
 "let g:fzf_layout = { 'window': 'enew' }
