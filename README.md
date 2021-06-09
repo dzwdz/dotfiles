@@ -25,6 +25,7 @@ uses:
 uses:
 - xsetwacom
 - xbindkeys
+- xdotool
 
 ## vim
 uses:

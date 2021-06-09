@@ -91,7 +91,7 @@
 (tool-bar-mode -1)
 
 (setq org-hide-leading-stars nil)
-(set-face-attribute 'org-document-title nil :font "Liberation Serif" :height 3.0 :foreground "#32302f")
+(set-face-attribute 'org-document-title nil :font "DejaVu Serif" :height 3.0 :foreground "#32302f")
 
 
 ;; show the index on load

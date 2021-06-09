@@ -33,6 +33,7 @@ set EDITOR nvim
 
 export FZF_DEFAULT_COMMAND="rg --hidden --files --no-ignore-vcs -g '!.git/'"
 
+source /usr/share/doc/fzf/key-bindings.fish
 if functions -q fzf_key_bindings
 	fzf_key_bindings
 end
