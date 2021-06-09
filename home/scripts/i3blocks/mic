@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-if [[ $button ]]; then
-	pactl set-source-mute @DEFAULT_SOURCE@ toggle
-fi
-
-pactl list sources | grep Mute | head -n 1 | sed 's/\tMute: /mute /'
