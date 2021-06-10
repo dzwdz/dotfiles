@@ -55,8 +55,9 @@
      (file . find-file)
      (wl . wl-other-frame)))
 
-(global-set-key (kbd "C-c n") 'org-roam-find-file)
-(global-set-key (kbd "C-c i") 'org-roam-insert)
+(global-set-key (kbd "s-a") 'org-roam-find-file)
+(general-def org-mode-map
+  "C-c i" 'org-roam-insert)
 (setq org-return-follows-link t)
 
 ; graphical notes

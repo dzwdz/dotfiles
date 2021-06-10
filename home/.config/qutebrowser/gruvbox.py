@@ -280,28 +280,15 @@ c.colors.tabs.indicator.stop = bright_aqua
 c.colors.tabs.indicator.error = bright_red
 
 # Foreground color of unselected odd tabs.
-c.colors.tabs.odd.fg = fg2
-
-# Background color of unselected odd tabs.
-c.colors.tabs.odd.bg = bg2
-
-# Foreground color of unselected even tabs.
+c.colors.tabs.odd.fg = bg0
+c.colors.tabs.odd.bg = fg1
 c.colors.tabs.even.fg = c.colors.tabs.odd.fg
+c.colors.tabs.even.bg = c.colors.tabs.odd.bg
 
-# Background color of unselected even tabs.
-c.colors.tabs.even.bg = bg3
-
-# Foreground color of selected odd tabs.
 c.colors.tabs.selected.odd.fg = fg2
-
-# Background color of selected odd tabs.
 c.colors.tabs.selected.odd.bg = bg0
-
-# Foreground color of selected even tabs.
 c.colors.tabs.selected.even.fg = c.colors.tabs.selected.odd.fg
-
-# Background color of selected even tabs.
-c.colors.tabs.selected.even.bg = bg0
+c.colors.tabs.selected.even.bg = c.colors.tabs.selected.odd.bg
 
 # Background color of pinned unselected even tabs.
 c.colors.tabs.pinned.even.bg = bright_green
@@ -329,4 +316,4 @@ c.colors.tabs.pinned.selected.odd.fg = c.colors.tabs.selected.odd.fg
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).
-c.colors.webpage.bg = bg4
+c.colors.webpage.bg = fg1
