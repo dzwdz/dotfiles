@@ -52,6 +52,7 @@ hi Folded ctermbg=NONE
 
 set list
 set listchars=tab:·\ 
+hi Whitespace ctermfg=DarkGray
 
 set fillchars=fold:\ 
 " }}}
