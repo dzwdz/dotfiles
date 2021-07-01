@@ -20,7 +20,7 @@ set __fish_git_prompt_show_informative_status
 
 set CDPATH . /code ~/Documents ~
 set GEM_HOME (ruby -e 'puts Gem.user_dir')
-set PATH $PATH $GEM_HOME/bin ~/.bin ~/.local/bin ~/.pkgs/usr/bin
+set PATH $PATH $GEM_HOME/bin ~/.bin ~/.local/bin ~/.local/opt/cross/bin ~/.pkgs/usr/bin
 set EDITOR nvim
 
 export FZF_DEFAULT_COMMAND="rg --hidden --files --no-ignore-vcs -g '!.git/'"

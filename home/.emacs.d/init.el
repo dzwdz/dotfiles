@@ -95,7 +95,8 @@ Repeated invocations toggle between the two most recently open buffers."
 (load-theme 'gruvbox-light-soft t)
 
 
-(set-face-attribute 'default nil :font "JetBrains Mono" :height 120)
+;(set-face-attribute 'default nil :font "Winston" :height 160)
+(set-face-attribute 'default nil :font "Jetbrains Mono" :height 120)
 (let ((bg "#d5c4a1"))
   (set-face-attribute 'mode-line nil
 		      :box `(:line-width 8 :color ,bg)
@@ -108,8 +109,17 @@ Repeated invocations toggle between the two most recently open buffers."
 (tool-bar-mode -1)
 
 (setq org-hide-leading-stars nil)
-(set-face-attribute 'org-document-title nil :font "DejaVu Serif" :height 3.0 :foreground "#32302f")
+(set-face-attribute 'org-document-title nil :font "Luxi Serif" :height 3.0 :foreground "#32302f")
 
+
+;; goyo
+(unless (package-installed-p 'visual-fill-column)
+  (package-install 'visual-fill-column))
+(require 'visual-fill-column)
+(add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+(add-hook 'org-mode-hook #'visual-line-mode)
+(setq-default visual-fill-column-width 100
+	      visual-fill-column-center-text t)
 
 ;; show the index on load
 (setq inhibit-startup-message t)
@@ -123,3 +133,4 @@ Repeated invocations toggle between the two most recently open buffers."
 (show-paren-mode t)
 
 (global-set-key (kbd "C-x C-b") 'bs-show) ; tiny buffer mgmt
+
