@@ -36,4 +36,4 @@ st -c term9 tmux attach-session -t music &
 st -c term9 tmux attach-session -t irc &
 
 # ~/.localfixes
-exec dbus-run-session /hdd/builds/dwm/dwm
+exec dbus-run-session dwm
