@@ -4,6 +4,6 @@ trap "rm /tmp/dwmstatus" EXIT
 
 while true
 do
-	xsetroot -name "$(date "+%a %Y-%m-%d %H:%M") $(sein compacter)"
+	xsetroot -name "$(cat /sys/class/power_supply/*/capacity) $(date "+%a %Y-%m-%d %H:%M") $(sein compacter)"
 	sleep 30
 done
