@@ -23,7 +23,7 @@ set GEM_HOME (ruby -e 'puts Gem.user_dir')
 set PATH $PATH $GEM_HOME/bin ~/.bin ~/.local/bin ~/.local/opt/cross/bin ~/.pkgs/usr/bin
 set EDITOR nvim
 
-export FZF_DEFAULT_COMMAND="rg --hidden --files --no-ignore-vcs -g '!.git/'"
+export FZF_DEFAULT_COMMAND="rg --hidden --files -g '!.git/'"
 
 source /usr/share/doc/fzf/key-bindings.fish
 if functions -q fzf_key_bindings
