@@ -3,9 +3,10 @@ alias py python
 alias gs "git status -s"
 alias gc "git commit"
 alias gca "git commit -a"
+alias gds "git diff --staged"
 alias gp "git push"
 alias ga "git add"
-alias gl "git log --pretty=oneline --abbrev-commit --reverse"
+alias gl "git log --pretty=oneline --abbrev-commit"
 alias cr "cd (git rev-parse --show-toplevel)"
 alias todo "rg -i -e todo -e fixme"
 
