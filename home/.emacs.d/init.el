@@ -14,12 +14,17 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; EVIL
 (unless (package-installed-p 'evil)
   (package-install 'evil))
+(unless (package-installed-p 'evil-collection)
+  (package-install 'evil-collection))
 (unless (package-installed-p 'general)
   (package-install 'general))
 
+(setq evil-want-keybinding nil)
 (require 'evil)
+(require 'evil-collection)
 (require 'general)
 (evil-mode 1)
+(evil-collection-init)
 (general-evil-setup)
 (general-imap "j"
   (general-key-dispatch 'self-insert-command
@@ -28,7 +33,9 @@ Repeated invocations toggle between the two most recently open buffers."
 (general-nmap "SPC"
   (general-key-dispatch 'next-char
     "SPC" 'er-switch-to-previous-buffer
-      "i" 'org-roam-insert))
+    "i"   'org-roam-insert
+    "p"   'projectile-commander
+    "f"   'projectile-find-file))
 
 (with-eval-after-load 'evil-maps ; don't fuck up org mode
   (define-key evil-motion-state-map (kbd "SPC") nil)
@@ -42,13 +49,18 @@ Repeated invocations toggle between the two most recently open buffers."
 (evil-org-set-key-theme '(navigation insert textobjects additional calendar))
 (require 'evil-org-agenda)
 (evil-org-agenda-set-keys)
-					;
+
 ;; incremental search
 (unless (package-installed-p 'selectrum)
   (package-install 'selectrum))
 (require 'selectrum)
 (selectrum-mode +1)
 (setq completion-ignore-case t)
+
+(unless (package-installed-p 'selectrum-prescient)
+  (package-install 'selectrum-prescient))
+(require 'selectrum-prescient)
+(selectrum-prescient-mode +1)
 
 ;; org mode setup
 (unless (package-installed-p 'org-roam)
@@ -95,12 +107,13 @@ Repeated invocations toggle between the two most recently open buffers."
 (load-theme 'gruvbox-light-soft t)
 
 
-;(set-face-attribute 'default nil :font "Winston" :height 160)
+; (set-face-attribute 'default nil :font "Winston" :height 160)
 (set-face-attribute 'default nil :font "Jetbrains Mono" :height 120)
-(let ((bg "#d5c4a1"))
-  (set-face-attribute 'mode-line nil
-		      :box `(:line-width 8 :color ,bg)
-		      :background bg))
+(set-face-attribute 'default nil :font "cursed" :height 180)
+; (let ((bg "#d5c4a1"))
+;   (set-face-attribute 'mode-line nil
+;  		      :box `(:line-width 8 :color ,bg)
+;  		      :background bg))
 (blink-cursor-mode 0)
 (setq-default cursor-type 'bar)
 
@@ -125,6 +138,21 @@ Repeated invocations toggle between the two most recently open buffers."
 (setq inhibit-startup-message t)
 (find-file "~/Notes/index.org")
 
+;; projectile
+(unless (package-installed-p 'projectile)
+  (package-install 'projectile))
+(require 'projectile)
+(setq projectile-project-search-path (cddr (directory-files "/code/" t)))
+(projectile-mode +1)
+
+;; git
+(unless (package-installed-p 'magit)
+  (package-install 'magit))
+(require 'magit)
+(unless (package-installed-p 'git-gutter)
+  (package-install 'git-gutter))
+(require 'git-gutter)
+(global-git-gutter-mode +1)
 
 ;; misc
 (global-set-key (kbd "C-s") 'save-buffer)
