@@ -37,3 +37,7 @@ source /usr/share/doc/fzf/key-bindings.fish
 if functions -q fzf_key_bindings
 	fzf_key_bindings
 end
+
+function fish_title
+	true
+end
