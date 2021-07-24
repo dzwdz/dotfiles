@@ -35,12 +35,13 @@ Repeated invocations toggle between the two most recently open buffers."
     "SPC" 'er-switch-to-previous-buffer
     "i"   'org-roam-insert
     "p"   'projectile-commander
-    "f"   'projectile-find-file))
+    "f"   'projectile-find-file
+    "t"   'projectile-run-term))
 
-(with-eval-after-load 'evil-maps ; don't fuck up org mode
-  (define-key evil-motion-state-map (kbd "SPC") nil)
-  (define-key evil-motion-state-map (kbd "RET") nil)
-  (define-key evil-motion-state-map (kbd "TAB") nil))
+;  (with-eval-after-load 'evil-maps ; don't fuck up org mode
+;    (define-key evil-motion-state-map (kbd "SPC") nil)
+;    (define-key evil-motion-state-map (kbd "RET") nil)
+;    (define-key evil-motion-state-map (kbd "TAB") nil))
 
 (unless (package-installed-p 'evil-org)
   (package-install 'evil-org))
@@ -153,6 +154,12 @@ Repeated invocations toggle between the two most recently open buffers."
   (package-install 'git-gutter))
 (require 'git-gutter)
 (global-git-gutter-mode +1)
+
+;; tabs
+(setq whitespace-style '(tab-mark))
+(global-whitespace-mode)
+(setq indent-tabs-mode t)
+(setq tab-width 4)
 
 ;; misc
 (global-set-key (kbd "C-s") 'save-buffer)
