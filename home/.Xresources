@@ -18,5 +18,5 @@
 *color7:  #a89984
 *color15: #ebdbb2
 
-! specifying a (wrong) size because st sucks
-*font: cursed:size=16
+dmenu.font: cursed:size=16
+*font: lode:size=14

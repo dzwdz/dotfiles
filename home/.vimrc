@@ -2,7 +2,7 @@
 
 " Miscellaneous {{{
 syntax on
-set background=dark
+set background=light
 set encoding=utf8
 
 set hlsearch incsearch ignorecase
