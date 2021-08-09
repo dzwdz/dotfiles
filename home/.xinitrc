@@ -15,10 +15,7 @@ xbindkeys
 xss-lock --transfer-sleep-lock -- i3lock --nofork -e -c 000000 &
 
 dex -ae dwm &
-flameshot &
-unclutter &
 dwmstatus &
-picom &
 ~/.fehbg
 
 pulseaudio --exit-idle-time=-1 &
@@ -27,7 +24,6 @@ mpd &
 
 eval $(ssh-agent)
 
-tmux new-session -d -s main
 tmux new-session -d -s irc mosh pi tmux a
 tmux new-session -d -s music ncmpcpp
 
