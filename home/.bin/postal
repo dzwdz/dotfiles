@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+
+ROOT=~/.postal
+mkdir -p $ROOT
+cd $ROOT
+
+install() {
+	NAME=$(basename $1 .git)
+	cd $ROOT
+
+	echo installing $NAME...
+	[ -d $NAME ] || git clone $1 --recursive --depth 1 $NAME
+	cd $NAME
+	make install
+}
+
+case "$1" in
+	i|install)
+		install $2
+		;;
+	*)
+		cat <<USAGE
+usage: postal install (git repo links)+
+USAGE
+		;;
+esac
