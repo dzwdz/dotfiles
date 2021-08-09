@@ -36,4 +36,6 @@ st -c term9 tmux attach-session -t music &
 st -c term9 tmux attach-session -t irc &
 
 # ~/.localfixes
-exec dbus-run-session dwm
+
+type dbus-run-session && exec dbus-run-session dwm
+exec dwm
