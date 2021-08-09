@@ -41,3 +41,6 @@ end
 function fish_title
 	true
 end
+
+function fish_greeting
+end
