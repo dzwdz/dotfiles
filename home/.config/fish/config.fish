@@ -6,7 +6,7 @@ alias gca "git commit -a"
 alias gds "git diff --staged"
 alias gp "git push"
 alias ga "git add"
-alias gl "git log --pretty=oneline --abbrev-commit --shortstat --reverse | sed -E \"s/^[^ ]+/\\\\x1b[30m&\\\\x1b[m/\" | sed -zE \"s/\n [0-9]+ files? changed(, ([0-9]+) insertions\(\+\))?(, ([0-9]+) deletions\(\-\))?/ \\\\x1b[1;30m\+\2, -\4\\\\x1b[m/g\""
+alias gl "git log --pretty=oneline --abbrev-commit --shortstat --reverse | sed -E \"s/^[^ ]+/\\\\x1b[30m&\\\\x1b[m/\" | sed -zE \"s/\n [0-9]+ files? changed(, ([0-9]+) insertions?\(\+\))?(, ([0-9]+) deletions?\(\-\))?/ \\\\x1b[1;30m\+\2, -\4\\\\x1b[m/g\""
 alias cr "cd (git rev-parse --show-toplevel)"
 alias todo "rg -i -e todo -e fixme"
 
