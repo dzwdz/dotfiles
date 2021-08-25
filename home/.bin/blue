@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bluetoothctl power on
+cat ~/.blue | grep $1
+cat ~/.blue | grep $1 | sh
