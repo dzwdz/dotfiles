@@ -18,6 +18,8 @@ dex -ae dwm &
 dwmstatus &
 ~/.fehbg
 
+pipewire &
+pipewire-pulse &
 pulseaudio --exit-idle-time=-1 &
 mpdscribble &
 mpd &
