@@ -33,7 +33,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (general-nmap "SPC"
   (general-key-dispatch 'next-char
     "SPC" 'er-switch-to-previous-buffer
-    "i"   'org-roam-insert
+    "i"   'org-roam-node-insert
     "p"   'projectile-commander
     "f"   'projectile-find-file
     "t"   'projectile-run-term))
@@ -86,7 +86,7 @@ Repeated invocations toggle between the two most recently open buffers."
      (file . find-file)
      (wl . wl-other-frame)))
 
-(global-set-key (kbd "s-a") 'org-roam-find-file)
+(global-set-key (kbd "s-a") 'org-roam-node-find)
 (setq org-return-follows-link t)
 
 ; graphical notes
