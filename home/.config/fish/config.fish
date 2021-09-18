@@ -3,6 +3,7 @@ alias py python
 alias gs "git status -s"
 alias gc "git commit"
 alias gca "git commit -a"
+alias gd "git diff"
 alias gds "git diff --staged"
 alias gp "git push"
 alias ga "git add"
