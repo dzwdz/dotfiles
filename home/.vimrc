@@ -30,6 +30,8 @@ hi StatusLineNC cterm=bold
 
 hi PMenu ctermbg=102
 
+let g:neoterm_autoscroll = 1
+
 if has('nvim')
 	autocmd TermOpen * setlocal nonumber norelativenumber
 endif
@@ -42,6 +44,8 @@ set updatetime=100
 set autoindent
 
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType lisp setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType scheme setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType txt setlocal foldmethod=indent
 autocmd FileType markdown setlocal foldmethod=indent
@@ -113,4 +117,16 @@ let g:netrw_winsize = 20
 
 let g:vimwiki_list = [{'path': '~/Notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+" }}}
+
+" tiny SLIME clone {{{
+" aka a minimal shitty ripoff of vim-slime
+if has('nvim')
+	autocmd TermOpen * let g:tslime_last_channel = &channel
+	" in visual mode, yank the selection
+	vmap <C-c><C-c> :yank<CR>:call chansend(g:tslime_last_channel, @")<CR>
+	" in normal mode, yank paragraph
+	" the '' restores the original cursor position
+	nmap <C-c><C-c> m'vip:yank<CR>:call chansend(g:tslime_last_channel, @")<CR>''
+endif
 " }}}
