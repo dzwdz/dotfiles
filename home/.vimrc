@@ -79,6 +79,9 @@ nnoremap <C-q> :bd<CR>
 nnoremap !<C-q> :bd!<CR>
 nnoremap gb :ls<CR>:b<space>
 
+nmap j gj
+nmap k gk
+
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
