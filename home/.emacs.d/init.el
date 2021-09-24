@@ -163,7 +163,7 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; misc
 (global-set-key (kbd "C-s") 'save-buffer)
-(setq backup-directory-alist '(("." . "~/tmp/emacs")))
+(setq backup-directory-alist '(("." . "~/.tmp/emacs")))
 (defalias 'yes-or-no-p 'y-or-n-p)
 (show-paren-mode t)
 
