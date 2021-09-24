@@ -11,5 +11,6 @@ for orig in $(git ls-files | grep home/)
 do
 	target=$PREFIX$(echo $orig | sed s/home//)
 	mkdir -p $(dirname $target)
+	rm -v "$target"
 	ln -sr $orig $target
 done
