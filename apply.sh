@@ -16,3 +16,7 @@ done
 # fix permissions on .ssh
 chmod 700 $PREFIX/.ssh
 chmod 644 $PREFIX/.ssh/config
+
+# create some standard dirs
+mkdir $PREFIX/art
+mkdir $PREFIX/code
