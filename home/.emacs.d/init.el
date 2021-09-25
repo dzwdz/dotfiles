@@ -11,6 +11,9 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
 ;; EVIL
 (unless (package-installed-p 'evil)
   (package-install 'evil))
@@ -33,15 +36,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (general-nmap "SPC"
   (general-key-dispatch 'next-char
     "SPC" 'er-switch-to-previous-buffer
-    "i"   'org-roam-node-insert
-    "p"   'projectile-commander
-    "f"   'projectile-find-file
-    "t"   'projectile-run-term))
-
-;  (with-eval-after-load 'evil-maps ; don't fuck up org mode
-;    (define-key evil-motion-state-map (kbd "SPC") nil)
-;    (define-key evil-motion-state-map (kbd "RET") nil)
-;    (define-key evil-motion-state-map (kbd "TAB") nil))
+    "i"   'org-roam-node-insert))
 
 (unless (package-installed-p 'evil-org)
   (package-install 'evil-org))
@@ -68,9 +63,10 @@ Repeated invocations toggle between the two most recently open buffers."
   (package-install 'org-roam))
 (require 'org)
 
-(add-hook 'after-init-hook 'org-roam-mode)
-(setq org-roam-directory "~/Notes")
+(setq org-roam-directory (file-truename "~/Notes"))
 (setq org-agenda-files '("~/Notes"))
+(setq org-roam-v2-ack t)
+(org-roam-db-autosync-mode)
 
 (setq org-startup-with-inline-images t)
 (setq org-startup-with-latex-preview t)
@@ -108,13 +104,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (load-theme 'gruvbox-light-soft t)
 
 
-; (set-face-attribute 'default nil :font "Winston" :height 160)
-(set-face-attribute 'default nil :font "Jetbrains Mono" :height 120)
-(set-face-attribute 'default nil :font "cursed" :height 180)
-; (let ((bg "#d5c4a1"))
-;   (set-face-attribute 'mode-line nil
-;  		      :box `(:line-width 8 :color ,bg)
-;  		      :background bg))
 (blink-cursor-mode 0)
 (setq-default cursor-type 'bar)
 
@@ -139,22 +128,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (setq inhibit-startup-message t)
 (find-file "~/Notes/index.org")
 
-;; projectile
-(unless (package-installed-p 'projectile)
-  (package-install 'projectile))
-(require 'projectile)
-(setq projectile-project-search-path (cddr (directory-files "/code/" t)))
-(projectile-mode +1)
-
-;; git
-(unless (package-installed-p 'magit)
-  (package-install 'magit))
-(require 'magit)
-(unless (package-installed-p 'git-gutter)
-  (package-install 'git-gutter))
-(require 'git-gutter)
-(global-git-gutter-mode +1)
-
 ;; tabs
 (setq whitespace-style '(tab-mark))
 (global-whitespace-mode)
@@ -168,4 +141,3 @@ Repeated invocations toggle between the two most recently open buffers."
 (show-paren-mode t)
 
 (global-set-key (kbd "C-x C-b") 'bs-show) ; tiny buffer mgmt
-
