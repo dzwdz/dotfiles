@@ -1,10 +1,10 @@
 #!/bin/sh
 # installs all the packages i'm using postal for
 
-postal i git@github.com:dzwdz/dwm.git
-postal i git@github.com:dzwdz/dmenu.git
-postal i git@github.com:dzwdz/st.git
+postal i https://github.com/dzwdz/dwm.git
+postal i https://github.com/dzwdz/dmenu.git
+postal i https://github.com/dzwdz/st.git
 
-postal i git@github.com:dzwdz/bitmap-fonts.git
+postal i https://github.com/dzwdz/bitmap-fonts.git
 
-postal i git@github.com:dzwdz/sein.git
+postal i https://github.com/dzwdz/sein.git
