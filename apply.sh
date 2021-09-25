@@ -1,16 +1,18 @@
 #!/usr/bin/env sh
-
 # TODO ensure that this is run in the right dir
-PREFIX=~
 
+PREFIX=~/
 mkdir -p $PREFIX
-ln -sr home/.bin $PREFIX/.bin
-ln -sr home/.vim $PREFIX/.vim
 
+# symlink files
 for orig in $(git ls-files | grep home/)
 do
 	target=$PREFIX$(echo $orig | sed s/home//)
 	mkdir -p $(dirname $target)
-	rm -v "$target"
+	rm -fv "$target"
 	ln -sr $orig $target
 done
+
+# fix permissions on .ssh
+chmod 700 $PREFIX/.ssh
+chmod 644 $PREFIX/.ssh/config
