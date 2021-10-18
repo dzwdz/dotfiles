@@ -3,3 +3,5 @@
 	name = dzwdz
 [core]
 	editor = vim
+[init]
+	defaultBranch = main
