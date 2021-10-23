@@ -14,6 +14,8 @@ alias sc "sein compact"
 alias todo "rg -i -e todo -e fixme"
 alias vi nvim
 alias s ssh
+alias nw "tmux new-window"
+alias ns "tmux split-window -b"
 
 set __fish_git_prompt_show_informative_status
 
