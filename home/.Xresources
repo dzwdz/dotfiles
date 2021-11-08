@@ -19,7 +19,7 @@
 *color15: #ebdbb2
 
 dmenu.font: cursed:size=16
-*font: lode:size=14
+*font: BmPlus IBM VGA 8x16:style=Regular:size=10
 
 
 ! special
