@@ -28,7 +28,7 @@ export FZF_DEFAULT_COMMAND="rg --hidden --files -g '!.git/'"
 
 
 
-source /usr/share/doc/fzf/key-bindings.fish
+source /usr/share/fzf/key-bindings.fish
 if functions -q fzf_key_bindings
 	fzf_key_bindings
 end
