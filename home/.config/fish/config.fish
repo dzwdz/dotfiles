@@ -26,6 +26,7 @@ set PATH $PATH $GEM_HOME/bin ~/.bin ~/.local/bin ~/.local/opt/cross/bin ~/.pkgs/
 set EDITOR nvim
 export FZF_DEFAULT_COMMAND="rg --hidden --files -g '!.git/'"
 
+export GIB_HOME="/hdd/gib/"
 
 
 source /usr/share/fzf/key-bindings.fish
