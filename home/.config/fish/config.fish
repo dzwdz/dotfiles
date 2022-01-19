@@ -28,8 +28,9 @@ export FZF_DEFAULT_COMMAND="rg --hidden --files -g '!.git/'"
 
 export GIB_HOME="/hdd/gib/"
 
+source ~/.privaterc 2>/dev/null
 
-source /usr/share/fzf/key-bindings.fish
+source /usr/share/fzf/key-bindings.fish 2>/dev/null
 if functions -q fzf_key_bindings
 	fzf_key_bindings
 end
