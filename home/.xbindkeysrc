@@ -14,6 +14,11 @@
 "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
   XF86AudioMicMute 
 
+"xbacklight +5"
+  XF86MonBrightnessUp
+"xbacklight -5"
+  XF86MonBrightnessDown
+
 "playerctl play-pause; mpc toggle"
   XF86AudioPlay 
 "playerctl next; mpc next"
