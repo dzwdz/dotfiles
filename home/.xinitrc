@@ -35,4 +35,5 @@ st -c term9 tmux attach-session -t irc &
 # ~/.localfixes
 
 type dbus-run-session && exec dbus-run-session dwm
+type dbus-launch && exec dbus-launch dwm
 exec dwm
