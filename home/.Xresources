@@ -18,8 +18,9 @@
 *color7:  #a89984
 *color15: #ebdbb2
 
-dmenu.font: cursed:size=16
-*font: BmPlus IBM VGA 8x16:style=Regular:size=10
+! dmenu.font: cursed:size=16
+! *font: BmPlus IBM VGA 8x16:style=Regular:size=10
+*font: mono:size=14
 
 
 ! special

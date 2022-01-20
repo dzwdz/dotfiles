@@ -1,8 +1,8 @@
 #!/bin/sh
 
-RESULT=$(mpc -f %albumartist%\\t%album% listall | uniq | dmenu)
-ARTIST=$(echo "$RESULT" | sed -e 's/\t.*//')
-ALBUM=$(echo "$RESULT" | sed -e 's/.*\t//')
+RESULT=$(mpc -f "%albumartist%  —  %album%" listall | uniq | dmenu)
+ARTIST=$(echo "$RESULT" | sed -e 's/  —  .*//')
+ALBUM=$(echo "$RESULT" | sed -e 's/.*  —  //')
 
 mpc clear
 test -n "$RESULT" && mpc search album "$ALBUM" albumartist "$ARTIST" | mpc add
