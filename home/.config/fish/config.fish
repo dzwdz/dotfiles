@@ -8,9 +8,6 @@ alias gs "git status -s"
 alias gl "git log --reverse \"--pretty=%x1b[30m%h%x1b[0m %s %x1b[1;30m%ar%x1b[0m\" | cat"
 alias cr "cd (git rev-parse --show-toplevel)"
 
-
-alias sf "sein mark"
-alias sc "sein compact"
 alias todo "rg -i -e todo -e fixme"
 alias vi nvim
 alias s ssh

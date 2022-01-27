@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+# a dead simple habit tracker for dead simple people
+require 'date'
+
+Base = File.expand_path '~/.bein/'
+
+if not File.directory? Base
+  puts "#{Base} isn't a directory, quitting"
+  exit
+end
+
+
+#####
+
+class Goal
+  def initialize path
+    @path = path
+    @marks = File.readlines(path).map(&:strip)
+  end
+
+  def mark day
+    if day and not marked? day
+      File.open @path, 'a' do |f|
+        f.puts day.iso8601
+      end
+    end
+  end
+
+  def marked? day
+    @marks.include? day.iso8601
+  end
+
+  def today?
+    marked? Date.today
+  end
+
+  def streak
+    day = Date.today
+    streak = 0
+
+    streak += 1 if marked? day
+    day -= 1
+    while marked? day
+      day -= 1
+      streak += 1
+    end
+    streak
+  end
+
+  def name
+    @path.split('/')[-1]
+  end
+
+  def to_s
+    "#{name} #{streak}#{'!' unless today?}"
+  end
+end
+
+if ARGV.empty?
+  puts Dir[Base + '/**/*'].map{|path| Goal.new path}.join(', ')
+else
+  ARGV.each do |goal|
+    Goal.new(Base + '/' + goal).mark(Date.today)
+  end
+end
