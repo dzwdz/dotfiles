@@ -25,12 +25,10 @@ mpd &
 
 eval $(ssh-agent)
 
-tmux new-session -d -s irc mosh pi tmux a
 tmux new-session -d -s music ncmpcpp
 
 emacs &
 st -c term9 tmux attach-session -t music &
-st -c term9 tmux attach-session -t irc &
 
 # ~/.localfixes
 
