@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+require "pstore"
+
+$ID = ARGV.shift
+$Begin = Time.now
+$obj = PStore.new '/tmp/track.pstore'
+$PrevTime = 0
+
+$obj.transaction do
+  $PrevTime = ($obj[$ID] || 0)
+end
+
+def time_str seconds
+  seconds = seconds.round
+  minutes = seconds / 60
+  '%02d:%02d' % [minutes, seconds % 60]
+end
+
+def elapsed
+  Time.now - $Begin + $PrevTime
+end
+
+def set_title title
+  print "\033]2;#{title}\033\\"
+end
+
+thr = Thread.new do
+  loop do
+    sleep 1
+    set_title "#{time_str elapsed} (#{$ID})"
+  end
+end
+
+pid = spawn(*ARGV)
+Process.wait pid
+
+$obj.transaction do
+  $obj[$ID] = elapsed
+end
+
+set_title ""
