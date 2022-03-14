@@ -14,6 +14,8 @@ alias s ssh
 alias nw "tmux new-window"
 alias ns "tmux split-window -b"
 
+alias goodnight "sudo poweroff"
+
 set __fish_git_prompt_show_informative_status
 
 # TODO move to .profile

@@ -1,7 +1,7 @@
 " vim: foldmethod=marker : foldlevel=0
 
 " Miscellaneous {{{
-syntax on
+syntax off
 set background=light
 set encoding=utf8
 
@@ -10,7 +10,7 @@ set number relativenumber
 
 set hidden
 set noswapfile
-set title
+set notitle
 set mouse=a
 set laststatus=1 showcmd
 
