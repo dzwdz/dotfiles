@@ -1,8 +1,6 @@
 " vim: foldmethod=marker : foldlevel=0
 
 " Miscellaneous {{{
-syntax off
-set background=light
 set encoding=utf8
 
 set hlsearch incsearch ignorecase
@@ -16,26 +14,36 @@ set laststatus=1 showcmd
 
 set path+=**
 
-set colorcolumn=80
-
-hi TabLineFill cterm=bold ctermbg=None
-hi TabLine ctermfg=7 ctermbg=None cterm=none
-hi TabLineSel ctermfg=3
-hi LineNr ctermfg=7
-hi ColorColumn ctermbg=black
-
-hi VertSplit cterm=none
-hi StatusLine cterm=bold
-hi StatusLineNC cterm=bold
-
-hi PMenu ctermbg=102
-
 let g:neoterm_autoscroll = 1
 
 if has('nvim')
 	autocmd TermOpen * setlocal nonumber norelativenumber
 endif
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
+" }}}
+" Theme {{{
+syntax off
+set background=light
+
+set colorcolumn=80
+hi ColorColumn ctermbg=black
+
+hi TabLineFill cterm=bold ctermbg=None
+hi TabLine ctermfg=7 ctermbg=None cterm=none
+hi TabLineSel ctermfg=3
+hi LineNr ctermfg=7
+
+hi VertSplit cterm=none
+hi StatusLine cterm=bold
+hi StatusLineNC cterm=bold
+
+hi PMenu ctermbg=NONE ctermfg=none cterm=reverse
+
+set list
+set listchars=tab:·\ 
+hi Whitespace ctermfg=DarkGray
+
+set fillchars=fold:\ 
 " }}}
 " Indentation / Folding {{{
 set tabstop=4
@@ -53,12 +61,6 @@ autocmd FileType markdown setlocal foldmethod=indent
 set foldmethod=syntax
 set foldlevel=99
 hi Folded ctermbg=NONE
-
-set list
-set listchars=tab:·\ 
-hi Whitespace ctermfg=DarkGray
-
-set fillchars=fold:\ 
 " }}}
 " Mappings and custom commands {{{
 let mapleader = " "
@@ -117,19 +119,4 @@ runtime ftplugin/man.vim
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
-
-let g:vimwiki_list = [{'path': '~/Notes/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-" }}}
-
-" tiny SLIME clone {{{
-" aka a minimal shitty ripoff of vim-slime
-if has('nvim')
-	autocmd TermOpen * let g:tslime_last_channel = &channel
-	" in visual mode, yank the selection
-	vmap <C-c><C-c> :yank<CR>:call chansend(g:tslime_last_channel, @")<CR>
-	" in normal mode, yank paragraph
-	" the '' restores the original cursor position
-	nmap <C-c><C-c> m'vip:yank<CR>:call chansend(g:tslime_last_channel, @")<CR>''
-endif
 " }}}
