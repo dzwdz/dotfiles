@@ -15,6 +15,8 @@ alias nw "tmux new-window"
 alias ns "tmux split-window -b"
 
 alias goodnight "sudo poweroff"
+alias log "cd ~syncthing/Sync/log/; vi (date -I)"
+alias irc "track irc mosh pi tmux a"
 
 set __fish_git_prompt_show_informative_status
 
