@@ -1,0 +1,2 @@
+#!/bin/sh
+PATH="/usr/busybox/bin:$PATH" exec sh
