@@ -1,6 +1,3 @@
-[submodule "home/.vim/pack/ages/start/coc.nvim"]
-	path = home/.vim/pack/ages/start/coc.nvim
-	url = git@github.com:neoclide/coc.nvim.git
 [submodule "home/.vim/pack/ages/start/vim-gitgutter"]
 	path = home/.vim/pack/ages/start/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
