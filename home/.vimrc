@@ -22,7 +22,7 @@ endif
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 " }}}
 " Theme {{{
-syntax off
+syntax on
 set background=light
 
 set colorcolumn=80
