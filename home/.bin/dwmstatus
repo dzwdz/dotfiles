@@ -1,7 +1,6 @@
 #!/bin/sh
-test -e /tmp/dwmstatus && exit
-touch /tmp/dwmstatus
-trap "rm /tmp/dwmstatus" EXIT
+MYPID=$$
+kill $(ps -C dwmstatus -o pid= | grep -v $MYPID)
 
 while true
 do
