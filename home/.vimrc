@@ -37,6 +37,9 @@ hi VertSplit cterm=none
 hi StatusLine cterm=bold
 hi StatusLineNC cterm=bold
 
+hi DiffAdd ctermbg=None
+hi DiffDelete ctermbg=None
+
 hi PMenu ctermbg=NONE ctermfg=none cterm=reverse
 
 set list
