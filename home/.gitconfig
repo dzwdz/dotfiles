@@ -3,6 +3,7 @@
 	name = dzwdz
 [core]
 	editor = vim
+	pager = 
 [init]
 	defaultBranch = main
 [diff]
