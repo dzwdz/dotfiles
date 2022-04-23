@@ -18,7 +18,6 @@ alias goodnight "sudo poweroff"
 alias log "cd ~syncthing/Sync/log/; vi (date -I)"
 alias irc "track irc mosh pi tmux a"
 
-set __fish_git_prompt_show_informative_status
 fish_vi_key_bindings
 
 # TODO move to .profile
@@ -42,24 +41,4 @@ function fish_title
 end
 
 function fish_greeting
-end
-
-function fish_prompt
-	if set -q SSH_CLIENT
-		echo -n (hostname)\ 
-	end
-    echo -n (basename $PWD)
-	if jobs -q
-		echo -n '*'
-	else
-	    echo -n ':'
-	end
-end
-
-function fish_right_prompt
-    set_color grey
-	fish_git_prompt
-	echo -n ' '
-    date +%H:%M
-	set_color normal
 end
