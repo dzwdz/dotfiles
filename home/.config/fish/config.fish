@@ -19,12 +19,13 @@ alias log "cd ~syncthing/Sync/log/; vi (date -I)"
 alias irc "track irc mosh pi tmux a"
 
 set __fish_git_prompt_show_informative_status
+fish_vi_key_bindings
 
 # TODO move to .profile
 set CDPATH . /code ~/Documents ~
 set GEM_HOME (ruby -e 'puts Gem.user_dir')
 set PATH $PATH $GEM_HOME/bin ~/.bin ~/.local/bin ~/.local/opt/cross/bin ~/.pkgs/usr/bin /sbin
-set EDITOR nvim
+export EDITOR nvim
 export FZF_DEFAULT_COMMAND="rg --hidden --files -g '!.git/'"
 
 export GIB_HOME="/hdd/gib/"
@@ -41,7 +42,6 @@ function fish_title
 end
 
 function fish_greeting
-	tput cup 255 # put prompt at the bottom
 end
 
 function fish_prompt
