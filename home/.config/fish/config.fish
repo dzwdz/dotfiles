@@ -5,7 +5,7 @@ alias gp "git push"
 alias gd "git diff"
 alias gds "git diff --staged"
 alias gs "git status -s"
-alias gl "git log --reverse \"--pretty=%x1b[30m%h%x1b[0m %s %x1b[1;30m%ar%x1b[0m\" | cat"
+alias gl "git log --reverse \"--pretty=%x1b[30m%h%x1b[0m %s %x1b[1;30m%ar%x1b[0m\""
 alias cr "cd (git rev-parse --show-toplevel)"
 
 alias todo "rg -i -e todo -e fixme"
