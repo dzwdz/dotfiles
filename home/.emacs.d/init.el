@@ -151,7 +151,11 @@ Repeated invocations toggle between the two most recently open buffers."
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-scroll-amount '(3))
 
-(setq display-line-numbers 'relative)
+(setq-default display-line-numbers 'relative)
+
+; https://www.emacswiki.org/emacs/Evil#h5o-12
+(define-key evil-normal-state-map (kbd "RET") (lookup-key evil-motion-state-map (kbd "RET")))
+(define-key evil-motion-state-map (kbd "RET") nil)
 
 
 (custom-set-variables
@@ -159,6 +163,7 @@ Repeated invocations toggle between the two most recently open buffers."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-undo-system 'undo-redo)
  '(warning-suppress-types '((comp) (comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
