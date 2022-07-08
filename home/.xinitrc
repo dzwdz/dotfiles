@@ -27,7 +27,7 @@ eval $(ssh-agent)
 
 tmux new-session -d -s music ncmpcpp
 
-emacs &
+emacs -T "Org Roam" ~/Notes/index.org &
 st -c term9 tmux attach-session -t music &
 
 # ~/.localfixes

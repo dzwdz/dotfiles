@@ -36,7 +36,8 @@ Repeated invocations toggle between the two most recently open buffers."
 (general-nmap "SPC"
   (general-key-dispatch 'next-char
     "SPC" 'er-switch-to-previous-buffer
-    "i"   'org-roam-node-insert))
+    "i"   'org-roam-node-insert
+	"f"   'projectile-find-file))
 
 (unless (package-installed-p 'evil-org)
   (package-install 'evil-org))
@@ -101,7 +102,7 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; making emacs pretty
 (unless (package-installed-p 'gruvbox-theme)
   (package-install 'gruvbox-theme))
-(load-theme 'gruvbox-light-soft t)
+(load-theme 'gruvbox-light-hard t)
 
 
 (blink-cursor-mode 0)
@@ -126,18 +127,42 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; show the index on load
 (setq inhibit-startup-message t)
-(find-file "~/Notes/index.org")
+;(find-file "~/Notes/index.org")
 
 ;; tabs
-(setq whitespace-style '(tab-mark))
+(setq whitespace-style '(tab-mark tabs face trailing))
 (global-whitespace-mode)
-(setq indent-tabs-mode t)
-(setq tab-width 4)
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
+(setq-default c-basic-offset 4)
+(set-face-attribute 'whitespace-tab nil :background nil)
 
-;; misc
+;; magit
+(unless (package-installed-p 'magit)
+  (package-install 'magit))
+(require 'magit)
+
+;; Misc
 (global-set-key (kbd "C-s") 'save-buffer)
 (setq backup-directory-alist '(("." . "~/.tmp/emacs")))
 (defalias 'yes-or-no-p 'y-or-n-p)
 (show-paren-mode t)
 
-(global-set-key (kbd "C-x C-b") 'bs-show) ; tiny buffer mgmt
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-scroll-amount '(3))
+
+(setq display-line-numbers 'relative)
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(warning-suppress-types '((comp) (comp))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
