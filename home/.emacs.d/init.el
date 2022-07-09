@@ -115,6 +115,9 @@ Repeated invocations toggle between the two most recently open buffers."
 (setq org-hide-leading-stars nil)
 (set-face-attribute 'org-document-title nil :font "Luxi Serif" :height 3.0 :foreground "#32302f")
 
+(if (find-font (font-spec :name "JetBrains Mono"))
+	(set-face-attribute 'default nil :font "JetBrains Mono"))
+(set-face-attribute 'vertical-border nil :foreground (face-attribute 'default :background))
 
 ;; goyo
 (unless (package-installed-p 'visual-fill-column)
@@ -156,6 +159,12 @@ Repeated invocations toggle between the two most recently open buffers."
 ; https://www.emacswiki.org/emacs/Evil#h5o-12
 (define-key evil-normal-state-map (kbd "RET") (lookup-key evil-motion-state-map (kbd "RET")))
 (define-key evil-motion-state-map (kbd "RET") nil)
+
+; i have no fucking clue where i'm importing projectile
+(projectile-mode)
+(setq projectile-enable-caching t)
+
+(fringe-mode 0)
 
 
 (custom-set-variables
