@@ -100,10 +100,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (global-set-key (kbd "C-l") 'org-redisplay-inline-images)
 
 ;; making emacs pretty
-(unless (package-installed-p 'gruvbox-theme)
-  (package-install 'gruvbox-theme))
-(load-theme 'gruvbox-light-hard t)
-
+(load-theme 'modus-operandi t)
 
 (blink-cursor-mode 0)
 (setq-default cursor-type 'bar)
@@ -113,11 +110,10 @@ Repeated invocations toggle between the two most recently open buffers."
 (tool-bar-mode -1)
 
 (setq org-hide-leading-stars nil)
-(set-face-attribute 'org-document-title nil :font "Luxi Serif" :height 3.0 :foreground "#32302f")
+(set-face-attribute 'org-document-title nil :font "Luxi Serif" :height 3.0 :foreground (face-attribute 'default :background))
 
 (if (find-font (font-spec :name "JetBrains Mono"))
 	(set-face-attribute 'default nil :font "JetBrains Mono"))
-(set-face-attribute 'vertical-border nil :foreground (face-attribute 'default :background))
 
 ;; goyo
 (unless (package-installed-p 'visual-fill-column)
@@ -138,7 +134,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
-(set-face-attribute 'whitespace-tab nil :background nil)
+(setq-default backward-delete-char-untabify-method nil)
 
 ;; magit
 (unless (package-installed-p 'magit)
@@ -165,6 +161,9 @@ Repeated invocations toggle between the two most recently open buffers."
 (setq projectile-enable-caching t)
 
 (fringe-mode 0)
+
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
 
 
 (custom-set-variables
