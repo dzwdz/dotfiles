@@ -100,7 +100,9 @@ Repeated invocations toggle between the two most recently open buffers."
 (global-set-key (kbd "C-l") 'org-redisplay-inline-images)
 
 ;; making emacs pretty
-(load-theme 'modus-operandi t)
+(unless (package-installed-p 'gruvbox-theme)
+  (package-install 'gruvbox-theme))
+(load-theme 'gruvbox-light-medium t)
 
 (blink-cursor-mode 0)
 (setq-default cursor-type 'bar)
@@ -171,6 +173,8 @@ Repeated invocations toggle between the two most recently open buffers."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("6bdcff29f32f85a2d99f48377d6bfa362768e86189656f63adbf715ac5c1340b" "4eb6fa2ee436e943b168a0cd8eab11afc0752aebb5d974bba2b2ddc8910fca8f" default))
  '(evil-undo-system 'undo-redo)
  '(warning-suppress-types '((comp) (comp))))
 (custom-set-faces
