@@ -1,5 +1,26 @@
 " vim: foldmethod=marker : foldlevel=0
 
+" Miscellaneous {{{
+set encoding=utf8
+
+set hlsearch incsearch ignorecase
+set number relativenumber
+
+set hidden
+set noswapfile
+set notitle
+set mouse=a
+set laststatus=1 showcmd
+
+set path+=**
+
+let g:neoterm_autoscroll = 1
+
+if has('nvim')
+	autocmd TermOpen * setlocal nonumber norelativenumber
+endif
+autocmd BufWritePost ~/.vimrc source ~/.vimrc
+" }}}
 " Theme {{{
 syntax on
 set background=light
