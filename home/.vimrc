@@ -1,26 +1,5 @@
 " vim: foldmethod=marker : foldlevel=0
 
-" Miscellaneous {{{
-set encoding=utf8
-
-set hlsearch incsearch ignorecase
-set number relativenumber
-
-set hidden
-set noswapfile
-set notitle
-set mouse=a
-set laststatus=1 showcmd
-
-set path+=**
-
-let g:neoterm_autoscroll = 1
-
-if has('nvim')
-	autocmd TermOpen * setlocal nonumber norelativenumber
-endif
-autocmd BufWritePost ~/.vimrc source ~/.vimrc
-" }}}
 " Theme {{{
 syntax on
 set background=light
@@ -47,12 +26,19 @@ set listchars=tab:·\
 hi Whitespace ctermfg=DarkGray
 
 set fillchars=fold:\ 
+
+if has("gui_running")
+	set go-=L go-=R go-=l go-=r go-=m go-=T go-=b
+	set guicursor=a:blinkoff0
+	colorscheme slate
+	set guifont=JetBrains\ Mono\ Light\ 12
+endif
 " }}}
 " Indentation / Folding {{{
 set tabstop=4
 set shiftwidth=4
 set updatetime=100
-set autoindent
+set autoindent cindent
 
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType lisp setlocal shiftwidth=2 tabstop=2 expandtab

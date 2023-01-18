@@ -23,6 +23,8 @@ pulseaudio --exit-idle-time=-1 &
 mpdscribble &
 mpd &
 
+redshift -l manual:lat=50.15:lon=19.01 &
+
 eval $(ssh-agent)
 
 tmux new-session -d -s music ncmpcpp
