@@ -1,6 +1,0 @@
-[submodule "home/.vim/pack/ages/start/vim-gitgutter"]
-	path = home/.vim/pack/ages/start/vim-gitgutter
-	url = git@github.com:airblade/vim-gitgutter.git
-[submodule "home/.vim/pack/ages/start/nvim-lspconfig"]
-	path = home/.vim/pack/ages/start/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig
