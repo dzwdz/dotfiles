@@ -23,7 +23,7 @@ autocmd BufWritePost ~/.vimrc source ~/.vimrc
 " }}}
 " Theme {{{
 syntax on
-set background=light
+set background=dark
 
 set colorcolumn=80
 hi ColorColumn ctermbg=black
@@ -51,8 +51,19 @@ set fillchars=fold:\
 if has("gui_running")
 	set go-=L go-=R go-=l go-=r go-=m go-=T go-=b
 	set guicursor=a:blinkoff0
-	colorscheme slate
-	set guifont=JetBrains\ Mono\ Light\ 12
+	let g:gruvbox_contrast_dark='hard'
+	let g:fzf_colors = {}
+	colorscheme gruvbox
+	let g:fzf_colors.bg = ['fg', 'GruvboxBg0']
+	set guifont=Iosevka\ 14
+
+	let g:terminal_ansi_colors = [
+		\'#282828', '#CC241D', '#98971A', '#D79921',
+		\'#458588', '#B16286', '#689D6A', '#D65D0E',
+		\'#fb4934', '#b8bb26', '#fabd2f', '#83a598',
+		\'#d3869b', '#8ec07c', '#fe8019', '#FBF1C7',
+	\]
+	hi Terminal guibg='#1d2021' guifg='#ebdbb2'
 endif
 " }}}
 " Indentation / Folding {{{

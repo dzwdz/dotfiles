@@ -1,3 +1,6 @@
 [submodule "home/.vim/pack/ages/start/vim-fugitive"]
 	path = home/.vim/pack/ages/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "home/.vim/pack/ages/start/gruvbox"]
+	path = home/.vim/pack/ages/start/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
