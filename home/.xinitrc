@@ -1,19 +1,14 @@
 #!/bin/sh
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export LD_LIBRARY_PATH=.pkgs/usr/lib/
 
 xrdb ~/.Xresources
-setxkbmap -layout pl 
-xmodmap ~/.Xmodmap
+setxkbmap -layout pl ; xmodmap ~/.Xmodmap
 xbindkeys
-
-# eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-# export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
 xss-lock -l slock &
 
-dex -ae dwm &
+#dex -ae dwm &
 dwmstatus &
 ~/.fehbg
 

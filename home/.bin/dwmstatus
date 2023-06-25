@@ -4,6 +4,6 @@ kill $(ps -C dwmstatus -o pid= | grep -v $MYPID)
 
 while true
 do
-	xsetroot -name "$(cat /sys/class/power_supply/*/capacity) $(bein) $(date "+%a %Y-%m-%d %H:%M")"
+	xsetroot -name "$(cat /sys/class/power_supply/*/capacity) $(date "+%a %Y-%m-%d %H:%M")"
 	sleep 30
 done

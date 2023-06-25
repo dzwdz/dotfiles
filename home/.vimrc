@@ -4,7 +4,9 @@
 set encoding=utf8
 
 set hlsearch incsearch ignorecase
-set number relativenumber
+command Nhide tabdo windo set nonumber norelativenumber
+command Nshow tabdo windo set number relativenumber
+Nshow
 
 set hidden
 set noswapfile
@@ -19,7 +21,6 @@ let g:neoterm_autoscroll = 1
 if has('nvim')
 	autocmd TermOpen * setlocal nonumber norelativenumber
 endif
-autocmd BufWritePost ~/.vimrc source ~/.vimrc
 " }}}
 " Theme {{{
 syntax on
@@ -49,7 +50,7 @@ hi Whitespace ctermfg=DarkGray
 set fillchars=fold:\ 
 
 if has("gui_running")
-	set go-=L go-=R go-=l go-=r go-=m go-=T go-=b
+	set go-=L go-=R go-=l go-=r go-=m go-=T go-=b go-=e
 	set guicursor=a:blinkoff0
 	let g:gruvbox_contrast_dark='hard'
 	let g:fzf_colors = {}
@@ -67,8 +68,7 @@ if has("gui_running")
 endif
 " }}}
 " Indentation / Folding {{{
-set tabstop=4
-set shiftwidth=4
+set ts=4 sw=4
 set updatetime=100
 set autoindent cindent
 
@@ -102,6 +102,9 @@ nnoremap <C-q> :bd<CR>
 nnoremap !<C-q> :bd!<CR>
 nnoremap gb :ls<CR>:b<space>
 
+" launch manpages in native plugin
+nmap K <Leader>K
+
 nmap j gj
 nmap k gk
 
@@ -114,9 +117,6 @@ nnoremap 0 ^
 
 command! -nargs=1 -complete=help H help <args> | silent only
 
-" gets rid of all buffers expect unsaved ones and the current one
-command! Rid silent! execute "%bd\|e#"
-
 " make the current file executable
 command! MakeX execute "!chmod +x \"%:p\""
 
@@ -125,13 +125,6 @@ iab vifold vim: foldmethod=marker : foldlevel=0
 iab <expr> isonow strftime("%FT%T%z")
 """ }}}
 " Plugin specific {{{
-hi GitGutterAdd		ctermbg=NONE ctermfg=GREEN
-hi GitGutterChange	ctermbg=NONE ctermfg=YELLOW
-hi GitGutterDelete	ctermbg=NONE ctermfg=RED
-hi SignColumn		ctermbg=NONE
-let g:gitgutter_sign_modified = '~'
-let g:gitgutter_sign_removed = '-'
-
 set rtp+=/usr/bin/fzf
 "let g:fzf_layout = { 'window': 'enew' }
 
@@ -140,8 +133,4 @@ runtime ftplugin/man.vim
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
-
-if has('nvim')
-	lua require'lspconfig'.clangd.setup{autostart = false}
-endif
 " }}}

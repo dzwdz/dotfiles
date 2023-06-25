@@ -30,5 +30,3 @@
 
 "loginctl lock-session"
   Mod4 + semicolon
-"flameshot gui"
-  Print

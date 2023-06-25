@@ -23,7 +23,7 @@ fish_vi_key_bindings
 # TODO move to .profile
 set CDPATH . /code ~/Documents ~
 set GEM_HOME (ruby -e 'puts Gem.user_dir')
-set PATH $PATH $GEM_HOME/bin ~/.bin ~/.local/bin ~/.local/opt/cross/bin ~/.pkgs/usr/bin /sbin
+set PATH $PATH $GEM_HOME/bin ~/.bin ~/.local/bin /sbin
 export EDITOR nvim
 export FZF_DEFAULT_COMMAND="rg --hidden --files -g '!.git/'"
 
