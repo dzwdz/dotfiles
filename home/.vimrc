@@ -125,8 +125,9 @@ iab vifold vim: foldmethod=marker : foldlevel=0
 iab <expr> isonow strftime("%FT%T%z")
 """ }}}
 " Plugin specific {{{
-set rtp+=/usr/bin/fzf
+"set rtp+=/usr/bin/fzf
 "let g:fzf_layout = { 'window': 'enew' }
+source /usr/share/doc/fzf/examples/fzf.vim
 
 runtime ftplugin/man.vim
 

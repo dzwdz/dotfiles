@@ -1,0 +1,2 @@
+export FZF_DEFAULT_COMMAND="rg --hidden --files -g '!.git/'"
+export EDITOR=vim

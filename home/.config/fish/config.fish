@@ -10,7 +10,7 @@ alias gl "git log --reverse \"--pretty=%x1b[30m%h%x1b[0m %s %x1b[1;30m%ar%x1b[0m
 alias cr "cd (git rev-parse --show-toplevel)"
 
 alias todo "rg -i -e todo -e fixme"
-alias vi nvim
+alias vi vim
 alias s ssh
 alias nw "tmux new-window"
 alias ns "tmux split-window -b"
