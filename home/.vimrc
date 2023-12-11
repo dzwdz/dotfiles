@@ -56,7 +56,7 @@ if has("gui_running")
 	let g:fzf_colors = {}
 	colorscheme gruvbox
 	let g:fzf_colors.bg = ['fg', 'GruvboxBg0']
-	set guifont=Iosevka\ 14
+	set guifont=Iosevka\ Fixed\ 14
 
 	let g:terminal_ansi_colors = [
 		\'#282828', '#CC241D', '#98971A', '#D79921',
