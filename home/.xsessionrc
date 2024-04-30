@@ -1,5 +1,5 @@
 export FZF_DEFAULT_COMMAND="rg --hidden --files -g '!.git/'"
 export EDITOR=vim
 export MOZ_X11_EGL=1
-export GTK_IM_MODULE=xim
+#export GTK_IM_MODULE=xim # causes issues with audacity
 export QT_IM_MODULE=xim
