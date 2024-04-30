@@ -66,3 +66,4 @@ installdot .vimrc
 installdot .xbindkeysrc
 installdot .xinitrc
 installdot .xsessionrc
+installdot .bash_aliases
