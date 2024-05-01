@@ -45,21 +45,25 @@ installdot() {
 	ln -s $loc $target
 }
 
-installdot .Xmodmap
-installdot .Xresources
-installdot .Xsession
-for file in .bin/*; do
-	installdot $file
-done
-installdot .config/fish/config.fish
-installdot .gitconfig
-installdot .tmux.conf
-installdot .vim/pack/ages/start/gruvbox
-installdot .vim/pack/ages/start/vim-fugitive
-installdot .vimrc
-installdot .xbindkeysrc
-installdot .xinitrc
-installdot .xsessionrc
-installdot .bash_aliases
-installdot .XCompose
-installdot .config/awesome
+installdots() {
+	for f in "$@"; do
+		installdot $f
+	done
+}
+
+# X11
+installdots .Xmodmap .XCompose .xbindkeysrc # keyboard config
+installdots .Xresources .config/awesome # theming
+installdots .Xsession .xsessionrc .xinitrc # misc
+
+# regular cli stuff
+installdots .local/bin/*
+installdots .config/fish/config.fish
+installdots .config/git/config
+installdots .config/tmux/tmux.conf
+installdots .bash_aliases
+
+# vim
+installdots .vim/pack/ages/start/gruvbox
+installdots .vim/pack/ages/start/vim-fugitive
+installdots .vimrc
