@@ -67,3 +67,5 @@ installdot .xbindkeysrc
 installdot .xinitrc
 installdot .xsessionrc
 installdot .bash_aliases
+installdot .XCompose
+installdot .config/awesome

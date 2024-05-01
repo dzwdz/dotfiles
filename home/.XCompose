@@ -1,0 +1,633 @@
+include "%L"
+
+<Multi_key> <space> <space> : "␣" U2423
+<Multi_key> <space> <i> : "ı" U0131
+<Multi_key> <exclam> <asciitilde> <minus> : "≄" U2244
+<Multi_key> <exclam> <asciitilde> <equal> : "≇" U2247
+<Multi_key> <exclam> <asciitilde> <asciitilde> : "≉" U2249
+<Multi_key> <exclam> <exclam> : "¡" U00A1
+<Multi_key> <exclam> <less> : "≮" U226E
+<Multi_key> <exclam> <equal> : "≠" U2260
+<Multi_key> <exclam> <greater> : "≯" U226F
+<Multi_key> <exclam> <question> : "‽" U203D
+<Multi_key> <exclam> <b> : "⊄" U2284
+<Multi_key> <exclam> <m> : "∉" U2209
+<Multi_key> <exclam> <p> : "⊅" U2285
+<Multi_key> <quotedbl> <asterisk> <I> : "Ϊ" U03AA
+<Multi_key> <quotedbl> <asterisk> <U> : "Ϋ" U03AB
+<Multi_key> <quotedbl> <asterisk> <i> : "ϊ" U03CA
+<Multi_key> <quotedbl> <asterisk> <u> : "ϋ" U03CB
+<Multi_key> <quotedbl> <quotedbl> : "¨" U00A8
+<Multi_key> <quotedbl> <A> : "Ä" U00C4
+<Multi_key> <quotedbl> <E> : "Ë" U00CB
+<Multi_key> <quotedbl> <I> : "Ï" U00CF
+<Multi_key> <quotedbl> <O> : "Ö" U00D6
+<Multi_key> <quotedbl> <U> : "Ü" U00DC
+<Multi_key> <quotedbl> <Y> : "Ÿ" U0178
+<Multi_key> <quotedbl> <a> : "ä" U00E4
+<Multi_key> <quotedbl> <e> : "ë" U00EB
+<Multi_key> <quotedbl> <i> : "ï" U00EF
+<Multi_key> <quotedbl> <o> : "ö" U00F6
+<Multi_key> <quotedbl> <u> : "ü" U00FC
+<Multi_key> <quotedbl> <y> : "ÿ" U00FF
+<Multi_key> <dollar> <asterisk> <f> : "ϕ" U03D5
+<Multi_key> <dollar> <asterisk> <h> : "ϑ" U03D1
+<Multi_key> <dollar> <asterisk> <k> : "ϰ" U03F0
+<Multi_key> <dollar> <B> : "ℬ" U212C
+<Multi_key> <dollar> <E> : "ℰ" U2130
+<Multi_key> <dollar> <F> : "ℱ" U2131
+<Multi_key> <dollar> <H> : "ℋ" U210B
+<Multi_key> <dollar> <I> : "ℐ" U2110
+<Multi_key> <dollar> <L> : "ℒ" U2112
+<Multi_key> <dollar> <M> : "ℳ" U2133
+<Multi_key> <dollar> <R> : "ℛ" U211B
+<Multi_key> <dollar> <V> : "Ʋ" U01B2
+<Multi_key> <dollar> <a> : "ɑ" U0251
+<Multi_key> <dollar> <e> : "ℯ" U212F
+<Multi_key> <dollar> <f> : "ƒ" U0192
+<Multi_key> <dollar> <g> : "ℊ" U210A
+<Multi_key> <dollar> <l> : "ℓ" U2113
+<Multi_key> <dollar> <o> : "ℴ" U2134
+<Multi_key> <dollar> <p> : "℘" U2118
+<Multi_key> <dollar> <v> : "ʋ" U028B
+<Multi_key> <apostrophe> <quotedbl> <U> : "Ǘ" U01D7
+<Multi_key> <apostrophe> <quotedbl> <u> : "ǘ" U01D8
+<Multi_key> <apostrophe> <apostrophe> : "´" U00B4
+<Multi_key> <apostrophe> <A> : "Á" U00C1
+<Multi_key> <apostrophe> <C> : "Ć" U0106
+<Multi_key> <apostrophe> <E> : "É" U00C9
+<Multi_key> <apostrophe> <I> : "Í" U00CD
+<Multi_key> <apostrophe> <L> : "Ĺ" U0139
+<Multi_key> <apostrophe> <M> : "Ḿ" U1E3E
+<Multi_key> <apostrophe> <N> : "Ń" U0143
+<Multi_key> <apostrophe> <O> : "Ó" U00D3
+<Multi_key> <apostrophe> <R> : "Ŕ" U0154
+<Multi_key> <apostrophe> <S> : "Ś" U015A
+<Multi_key> <apostrophe> <U> : "Ú" U00DA
+<Multi_key> <apostrophe> <Y> : "Ý" U00DD
+<Multi_key> <apostrophe> <Z> : "Ź" U0179
+<Multi_key> <apostrophe> <a> : "á" U00E1
+<Multi_key> <apostrophe> <c> : "ć" U0107
+<Multi_key> <apostrophe> <e> : "é" U00E9
+<Multi_key> <apostrophe> <g> : "ģ" U0123
+<Multi_key> <apostrophe> <i> : "í" U00ED
+<Multi_key> <apostrophe> <l> : "ĺ" U013A
+<Multi_key> <apostrophe> <m> : "ḿ" U1E3F
+<Multi_key> <apostrophe> <n> : "ń" U0144
+<Multi_key> <apostrophe> <o> : "ó" U00F3
+<Multi_key> <apostrophe> <r> : "ŕ" U0155
+<Multi_key> <apostrophe> <s> : "ś" U015B
+<Multi_key> <apostrophe> <u> : "ú" U00FA
+<Multi_key> <apostrophe> <y> : "ý" U00FD
+<Multi_key> <apostrophe> <z> : "ź" U017A
+<Multi_key> <asterisk> <asterisk> : "∗" U2217
+<Multi_key> <asterisk> <A> : "Α" U0391
+<Multi_key> <asterisk> <B> : "Β" U0392
+<Multi_key> <asterisk> <C> : "Ξ" U039E
+<Multi_key> <asterisk> <D> : "Δ" U0394
+<Multi_key> <asterisk> <E> : "Ε" U0395
+<Multi_key> <asterisk> <F> : "Φ" U03A6
+<Multi_key> <asterisk> <G> : "Γ" U0393
+<Multi_key> <asterisk> <H> : "Θ" U0398
+<Multi_key> <asterisk> <I> : "Ι" U0399
+<Multi_key> <asterisk> <K> : "Κ" U039A
+<Multi_key> <asterisk> <L> : "Λ" U039B
+<Multi_key> <asterisk> <M> : "Μ" U039C
+<Multi_key> <asterisk> <N> : "Ν" U039D
+<Multi_key> <asterisk> <O> : "Ο" U039F
+<Multi_key> <asterisk> <P> : "Π" U03A0
+<Multi_key> <asterisk> <Q> : "Ψ" U03A8
+<Multi_key> <asterisk> <R> : "Ρ" U03A1
+<Multi_key> <asterisk> <S> : "Σ" U03A3
+<Multi_key> <asterisk> <T> : "Τ" U03A4
+<Multi_key> <asterisk> <U> : "Υ" U03A5
+<Multi_key> <asterisk> <W> : "Ω" U03A9
+<Multi_key> <asterisk> <X> : "Χ" U03A7
+<Multi_key> <asterisk> <Y> : "Η" U0397
+<Multi_key> <asterisk> <Z> : "Ζ" U0396
+<Multi_key> <asterisk> <a> : "α" U03B1
+<Multi_key> <asterisk> <b> : "β" U03B2
+<Multi_key> <asterisk> <c> : "ξ" U03BE
+<Multi_key> <asterisk> <d> : "δ" U03B4
+<Multi_key> <asterisk> <e> : "ε" U03B5
+<Multi_key> <asterisk> <f> : "φ" U03C6
+<Multi_key> <asterisk> <g> : "γ" U03B3
+<Multi_key> <asterisk> <h> : "θ" U03B8
+<Multi_key> <asterisk> <i> : "ι" U03B9
+<Multi_key> <asterisk> <k> : "κ" U03BA
+<Multi_key> <asterisk> <l> : "λ" U03BB
+<Multi_key> <asterisk> <m> : "μ" U03BC
+<Multi_key> <asterisk> <n> : "ν" U03BD
+<Multi_key> <asterisk> <o> : "ο" U03BF
+<Multi_key> <asterisk> <p> : "π" U03C0
+<Multi_key> <asterisk> <q> : "ψ" U03C8
+<Multi_key> <asterisk> <r> : "ρ" U03C1
+<Multi_key> <asterisk> <s> : "σ" U03C3
+<Multi_key> <asterisk> <t> : "τ" U03C4
+<Multi_key> <asterisk> <u> : "υ" U03C5
+<Multi_key> <asterisk> <w> : "ω" U03C9
+<Multi_key> <asterisk> <x> : "χ" U03C7
+<Multi_key> <asterisk> <y> : "η" U03B7
+<Multi_key> <asterisk> <z> : "ζ" U03B6
+<Multi_key> <plus> <minus> : "±" U00B1
+<Multi_key> <plus> <greater> : "》" U300B
+<Multi_key> <plus> <O> : "⊕" U2295
+<Multi_key> <comma> <comma> : "¸" U00B8
+<Multi_key> <comma> <A> : "Ą" U0104
+<Multi_key> <comma> <C> : "Ç" U00C7
+<Multi_key> <comma> <E> : "Ę" U0118
+<Multi_key> <comma> <G> : "Ģ" U0122
+<Multi_key> <comma> <I> : "Į" U012E
+<Multi_key> <comma> <K> : "Ķ" U0136
+<Multi_key> <comma> <L> : "Ļ" U013B
+<Multi_key> <comma> <N> : "Ņ" U0145
+<Multi_key> <comma> <O> : "Ǫ" U01EA
+<Multi_key> <comma> <R> : "Ŗ" U0156
+<Multi_key> <comma> <S> : "Ş" U015E
+<Multi_key> <comma> <T> : "Ţ" U0162
+<Multi_key> <comma> <U> : "Ų" U0172
+<Multi_key> <comma> <a> : "ą" U0105
+<Multi_key> <comma> <c> : "ç" U00E7
+<Multi_key> <comma> <e> : "ę" U0119
+<Multi_key> <comma> <g> : "ģ" U0123
+<Multi_key> <comma> <i> : "į" U012F
+<Multi_key> <comma> <k> : "ķ" U0137
+<Multi_key> <comma> <l> : "ļ" U013C
+<Multi_key> <comma> <n> : "ņ" U0146
+<Multi_key> <comma> <o> : "ǫ" U01EB
+<Multi_key> <comma> <r> : "ŗ" U0157
+<Multi_key> <comma> <s> : "ş" U015F
+<Multi_key> <comma> <t> : "ţ" U0163
+<Multi_key> <comma> <u> : "ų" U0173
+<Multi_key> <minus> <asterisk> <l> : "ƛ" U019B
+<Multi_key> <minus> <plus> : "∓" U2213
+<Multi_key> <minus> <minus> : "­" U00AD
+<Multi_key> <minus> <2> : "ƻ" U01BB
+<Multi_key> <minus> <colon> : "÷" U00F7
+<Multi_key> <minus> <greater> : "→" U2192
+<Multi_key> <minus> <D> : "Ð" U00D0
+<Multi_key> <minus> <G> : "Ǥ" U01E4
+<Multi_key> <minus> <H> : "Ħ" U0126
+<Multi_key> <minus> <I> : "Ɨ" U0197
+<Multi_key> <minus> <L> : "Ł" U0141
+<Multi_key> <minus> <O> : "⊖" U2296
+<Multi_key> <minus> <T> : "Ŧ" U0166
+<Multi_key> <minus> <Z> : "Ƶ" U01B5
+<Multi_key> <minus> <b> : "ƀ" U0180
+<Multi_key> <minus> <d> : "ð" U00F0
+<Multi_key> <minus> <g> : "ǥ" U01E5
+<Multi_key> <minus> <h> : "ℏ" U210F
+<Multi_key> <minus> <i> : "ɨ" U0268
+<Multi_key> <minus> <l> : "ł" U0142
+<Multi_key> <minus> <t> : "ŧ" U0167
+<Multi_key> <minus> <u> : "ʉ" U0289
+<Multi_key> <minus> <z> : "ƶ" U01B6
+<Multi_key> <minus> <asciitilde> : "≂" U2242
+<Multi_key> <period> <period> : "·" U00B7
+<Multi_key> <period> <C> : "Ċ" U010A
+<Multi_key> <period> <E> : "Ė" U0116
+<Multi_key> <period> <G> : "Ġ" U0120
+<Multi_key> <period> <I> : "İ" U0130
+<Multi_key> <period> <L> : "Ŀ" U013F
+<Multi_key> <period> <O> : "⊙" U2299
+<Multi_key> <period> <Z> : "Ż" U017B
+<Multi_key> <period> <c> : "ċ" U010B
+<Multi_key> <period> <e> : "ė" U0117
+<Multi_key> <period> <g> : "ġ" U0121
+<Multi_key> <period> <l> : "ŀ" U0140
+<Multi_key> <period> <z> : "ż" U017C
+<Multi_key> <slash> <greater> : "〉" U232A
+<Multi_key> <slash> <O> : "Ø" U00D8
+<Multi_key> <slash> <o> : "ø" U00F8
+<Multi_key> <1> <period> : "․" U2024
+<Multi_key> <1> <2> : "½" U00BD
+<Multi_key> <1> <3> : "⅓" U2153
+<Multi_key> <1> <4> : "¼" U00BC
+<Multi_key> <1> <5> : "⅕" U2155
+<Multi_key> <1> <6> : "⅙" U2159
+<Multi_key> <1> <8> : "⅛" U215B
+<Multi_key> <2> <minus> : "ƻ" U01BB
+<Multi_key> <2> <period> : "‥" U2025
+<Multi_key> <2> <3> : "⅔" U2154
+<Multi_key> <2> <5> : "⅖" U2156
+<Multi_key> <3> <period> : "…" U2026
+<Multi_key> <3> <4> : "¾" U00BE
+<Multi_key> <3> <5> : "⅗" U2157
+<Multi_key> <3> <8> : "⅜" U215C
+<Multi_key> <4> <5> : "⅘" U2158
+<Multi_key> <5> <6> : "⅚" U215A
+<Multi_key> <5> <8> : "⅝" U215D
+<Multi_key> <7> <8> : "⅞" U215E
+<Multi_key> <colon> <parenleft> : "☹" U2639
+<Multi_key> <colon> <parenright> : "☺" U263A
+<Multi_key> <colon> <comma> : "😂" U1F602
+<Multi_key> <colon> <minus> : "÷" U00F7
+<Multi_key> <colon> <equal> : "≔" U2254
+<Multi_key> <less> <exclam> <equal> : "≨" U2268
+<Multi_key> <less> <exclam> <asciitilde> : "⋦" U22E6
+<Multi_key> <less> <plus> : "《" U300A
+<Multi_key> <less> <minus> : "←" U2190
+<Multi_key> <less> <slash> : "〈" U2329
+<Multi_key> <less> <less> : "«" U00AB
+<Multi_key> <less> <equal> : "≤" U2264
+<Multi_key> <less> <greater> : "≶" U2276
+<Multi_key> <less> <asciitilde> : "≲" U2272
+<Multi_key> <equal> <colon> : "≕" U2255
+<Multi_key> <equal> <less> : "⋜" U22DC
+<Multi_key> <equal> <equal> : "≡" U2261
+<Multi_key> <equal> <greater> : "⋝" U22DD
+<Multi_key> <equal> <O> : "⊜" U229C
+<Multi_key> <equal> <V> : "⇒" U21D2
+<Multi_key> <greater> <exclam> <equal> : "≩" U2269
+<Multi_key> <greater> <exclam> <asciitilde> : "⋧" U22E7
+<Multi_key> <greater> <less> : "≷" U2277
+<Multi_key> <greater> <equal> : "≥" U2265
+<Multi_key> <greater> <greater> : "»" U00BB
+<Multi_key> <greater> <bar> : "⇥" U21E5
+<Multi_key> <greater> <asciitilde> : "≳" U2273
+<Multi_key> <question> <exclam> : "‽" U203D
+<Multi_key> <question> <question> : "¿" U00BF
+<Multi_key> <at> <apostrophe> <apostrophe> : "ъ" U044A
+<Multi_key> <at> <at> <apostrophe> : "ь" U044C
+<Multi_key> <at> <at> <E> : "Е" U0415
+<Multi_key> <at> <at> <K> : "К" U041A
+<Multi_key> <at> <at> <S> : "С" U0421
+<Multi_key> <at> <at> <T> : "Т" U0422
+<Multi_key> <at> <at> <Y> : "Ы" U042B
+<Multi_key> <at> <at> <Z> : "З" U0417
+<Multi_key> <at> <at> <e> : "е" U0435
+<Multi_key> <at> <at> <k> : "к" U043A
+<Multi_key> <at> <at> <s> : "с" U0441
+<Multi_key> <at> <at> <t> : "т" U0442
+<Multi_key> <at> <at> <y> : "ы" U044B
+<Multi_key> <at> <at> <z> : "з" U0437
+<Multi_key> <at> <C> <H> : "Ч" U0427
+<Multi_key> <at> <C> <h> : "Ч" U0427
+<Multi_key> <at> <E> <H> : "Э" U042D
+<Multi_key> <at> <E> <h> : "Э" U042D
+<Multi_key> <at> <K> <H> : "Х" U0425
+<Multi_key> <at> <K> <h> : "Х" U0425
+<Multi_key> <at> <S> <C> : "Щ" U0429
+<Multi_key> <at> <S> <H> : "Ш" U0428
+<Multi_key> <at> <S> <c> : "Щ" U0429
+<Multi_key> <at> <S> <h> : "Ш" U0428
+<Multi_key> <at> <T> <S> : "Ц" U0426
+<Multi_key> <at> <T> <s> : "Ц" U0426
+<Multi_key> <at> <Y> <A> : "Я" U042F
+<Multi_key> <at> <Y> <E> : "Е" U0415
+<Multi_key> <at> <Y> <O> : "Ё" U0401
+<Multi_key> <at> <Y> <U> : "Ю" U042E
+<Multi_key> <at> <Y> <a> : "Я" U042F
+<Multi_key> <at> <Y> <e> : "Е" U0415
+<Multi_key> <at> <Y> <o> : "Ё" U0401
+<Multi_key> <at> <Y> <u> : "Ю" U042E
+<Multi_key> <at> <Z> <H> : "Ж" U0416
+<Multi_key> <at> <Z> <h> : "Ж" U0416
+<Multi_key> <at> <c> <h> : "ч" U0447
+<Multi_key> <at> <e> <h> : "э" U044D
+<Multi_key> <at> <k> <h> : "х" U0445
+<Multi_key> <at> <s> <c> : "щ" U0449
+<Multi_key> <at> <s> <h> : "ш" U0448
+<Multi_key> <at> <t> <s> : "ц" U0446
+<Multi_key> <at> <y> <a> : "я" U044F
+<Multi_key> <at> <y> <e> : "е" U0435
+<Multi_key> <at> <y> <o> : "ё" U0451
+<Multi_key> <at> <y> <u> : "ю" U044E
+<Multi_key> <at> <z> <h> : "ж" U0436
+<Multi_key> <at> <A> : "А" U0410
+<Multi_key> <at> <B> : "Б" U0411
+<Multi_key> <at> <D> : "Д" U0414
+<Multi_key> <at> <F> : "Ф" U0424
+<Multi_key> <at> <G> : "Г" U0413
+<Multi_key> <at> <I> : "И" U0418
+<Multi_key> <at> <J> : "Й" U0419
+<Multi_key> <at> <L> : "Л" U041B
+<Multi_key> <at> <M> : "М" U041C
+<Multi_key> <at> <N> : "Н" U041D
+<Multi_key> <at> <O> : "О" U041E
+<Multi_key> <at> <P> : "П" U041F
+<Multi_key> <at> <R> : "Р" U0420
+<Multi_key> <at> <U> : "У" U0423
+<Multi_key> <at> <V> : "В" U0412
+<Multi_key> <at> <X> : "Х" U0425
+<Multi_key> <at> <a> : "а" U0430
+<Multi_key> <at> <b> : "б" U0431
+<Multi_key> <at> <d> : "д" U0434
+<Multi_key> <at> <f> : "ф" U0444
+<Multi_key> <at> <g> : "г" U0433
+<Multi_key> <at> <i> : "и" U0438
+<Multi_key> <at> <j> : "й" U0439
+<Multi_key> <at> <l> : "л" U043B
+<Multi_key> <at> <m> : "м" U043C
+<Multi_key> <at> <n> : "н" U043D
+<Multi_key> <at> <o> : "о" U043E
+<Multi_key> <at> <p> : "п" U043F
+<Multi_key> <at> <r> : "р" U0440
+<Multi_key> <at> <u> : "у" U0443
+<Multi_key> <at> <v> : "в" U0432
+<Multi_key> <at> <x> : "х" U0445
+<Multi_key> <A> <E> : "Æ" U00C6
+<Multi_key> <C> <A> : "⋂" U22C2
+<Multi_key> <C> <C> : "ℂ" U2102
+<Multi_key> <C> <U> : "⋃" U22C3
+<Multi_key> <D> <v> <Z> : "Ǆ" U01C4
+<Multi_key> <D> <v> <z> : "ǅ" U01C5
+<Multi_key> <D> <minus> : "Ð" U00D0
+<Multi_key> <D> <e> : "∆" U2206
+<Multi_key> <G> <minus> : "Ǥ" U01E4
+<Multi_key> <H> <minus> : "Ħ" U0126
+<Multi_key> <H> <H> : "ℍ" U210D
+<Multi_key> <I> <minus> : "Ɨ" U0197
+<Multi_key> <I> <J> : "Ĳ" U0132
+<Multi_key> <L> <ampersand> : "⋀" U22C0
+<Multi_key> <L> <minus> : "Ł" U0141
+<Multi_key> <L> <J> : "Ǉ" U01C7
+<Multi_key> <L> <j> : "ǈ" U01C8
+<Multi_key> <L> <bar> : "⋁" U22C1
+<Multi_key> <M> <numbersign> : "♮" U266E
+<Multi_key> <M> <4> : "♩" U2669
+<Multi_key> <M> <8> : "♪" U266A
+<Multi_key> <M> <b> : "♭" U266D
+<Multi_key> <M> <s> : "♯" U266F
+<Multi_key> <N> <J> : "Ǌ" U01CA
+<Multi_key> <N> <N> : "ℕ" U2115
+<Multi_key> <N> <j> : "ǋ" U01CB
+<Multi_key> <O> <asterisk> : "⊛" U229B
+<Multi_key> <O> <plus> : "⊕" U2295
+<Multi_key> <O> <minus> : "⊖" U2296
+<Multi_key> <O> <period> : "⊙" U2299
+<Multi_key> <O> <slash> : "⊘" U2298
+<Multi_key> <O> <equal> : "⊜" U229C
+<Multi_key> <O> <E> : "Œ" U0152
+<Multi_key> <O> <I> : "Ƣ" U01A2
+<Multi_key> <O> <c> : "©" U00A9
+<Multi_key> <O> <o> : "⊚" U229A
+<Multi_key> <O> <p> : "℗" U2117
+<Multi_key> <O> <r> : "®" U00AE
+<Multi_key> <O> <x> : "⊗" U2297
+<Multi_key> <P> <P> : "ℙ" U2119
+<Multi_key> <Q> <Q> : "ℚ" U211A
+<Multi_key> <R> <R> : "ℝ" U211D
+<Multi_key> <S> <1> : "¹" U00B9
+<Multi_key> <S> <2> : "²" U00B2
+<Multi_key> <S> <3> : "³" U00B3
+<Multi_key> <S> <S> : "§" U00A7
+<Multi_key> <T> <minus> : "Ŧ" U0166
+<Multi_key> <T> <u> : "⊨" U22A8
+<Multi_key> <V> <equal> : "⇐" U21D0
+<Multi_key> <Y> <R> : "Ʀ" U01A6
+<Multi_key> <Z> <minus> : "Ƶ" U01B5
+<Multi_key> <Z> <A> : "" UF015
+<Multi_key> <Z> <C> : "" UF017
+<Multi_key> <Z> <S> : "" UF016
+<Multi_key> <Z> <Z> : "ℤ" U2124
+<Multi_key> <asciicircum> <A> : "Â" U00C2
+<Multi_key> <asciicircum> <C> : "Ĉ" U0108
+<Multi_key> <asciicircum> <E> : "Ê" U00CA
+<Multi_key> <asciicircum> <G> : "Ĝ" U011C
+<Multi_key> <asciicircum> <H> : "Ĥ" U0124
+<Multi_key> <asciicircum> <I> : "Î" U00CE
+<Multi_key> <asciicircum> <J> : "Ĵ" U0134
+<Multi_key> <asciicircum> <O> : "Ô" U00D4
+<Multi_key> <asciicircum> <S> : "Ŝ" U015C
+<Multi_key> <asciicircum> <U> : "Û" U00DB
+<Multi_key> <asciicircum> <W> : "Ŵ" U0174
+<Multi_key> <asciicircum> <Y> : "Ŷ" U0176
+<Multi_key> <asciicircum> <a> : "â" U00E2
+<Multi_key> <asciicircum> <c> : "ĉ" U0109
+<Multi_key> <asciicircum> <e> : "ê" U00EA
+<Multi_key> <asciicircum> <g> : "ĝ" U011D
+<Multi_key> <asciicircum> <h> : "ĥ" U0125
+<Multi_key> <asciicircum> <i> : "î" U00EE
+<Multi_key> <asciicircum> <j> : "ĵ" U0135
+<Multi_key> <asciicircum> <o> : "ô" U00F4
+<Multi_key> <asciicircum> <s> : "ŝ" U015D
+<Multi_key> <asciicircum> <u> : "û" U00FB
+<Multi_key> <asciicircum> <w> : "ŵ" U0175
+<Multi_key> <asciicircum> <y> : "ŷ" U0177
+<Multi_key> <underscore> <quotedbl> <A> : "Ǟ" U01DE
+<Multi_key> <underscore> <quotedbl> <U> : "Ǖ" U01D5
+<Multi_key> <underscore> <quotedbl> <a> : "ǟ" U01DF
+<Multi_key> <underscore> <quotedbl> <u> : "ǖ" U01D6
+<Multi_key> <underscore> <comma> <O> : "Ǭ" U01EC
+<Multi_key> <underscore> <comma> <o> : "ǭ" U01ED
+<Multi_key> <underscore> <period> <A> : "Ǡ" U01E0
+<Multi_key> <underscore> <period> <a> : "ǡ" U01E1
+<Multi_key> <underscore> <A> : "Ā" U0100
+<Multi_key> <underscore> <E> : "Ē" U0112
+<Multi_key> <underscore> <I> : "Ī" U012A
+<Multi_key> <underscore> <O> : "Ō" U014C
+<Multi_key> <underscore> <U> : "Ū" U016A
+<Multi_key> <underscore> <underscore> : "¯" U00AF
+<Multi_key> <underscore> <a> : "ā" U0101
+<Multi_key> <underscore> <e> : "ē" U0113
+<Multi_key> <underscore> <i> : "ī" U012B
+<Multi_key> <underscore> <o> : "ō" U014D
+<Multi_key> <underscore> <u> : "ū" U016B
+<Multi_key> <grave> <quotedbl> <U> : "Ǜ" U01DB
+<Multi_key> <grave> <quotedbl> <u> : "ǜ" U01DC
+<Multi_key> <grave> <A> : "À" U00C0
+<Multi_key> <grave> <E> : "È" U00C8
+<Multi_key> <grave> <I> : "Ì" U00CC
+<Multi_key> <grave> <O> : "Ò" U00D2
+<Multi_key> <grave> <U> : "Ù" U00D9
+<Multi_key> <grave> <a> : "à" U00E0
+<Multi_key> <grave> <e> : "è" U00E8
+<Multi_key> <grave> <i> : "ì" U00EC
+<Multi_key> <grave> <o> : "ò" U00F2
+<Multi_key> <grave> <u> : "ù" U00F9
+<Multi_key> <a> <b> : "↔" U2194
+<Multi_key> <a> <e> : "æ" U00E6
+<Multi_key> <a> <n> : "∠" U2220
+<Multi_key> <b> <parenleft> : "₍" U208D
+<Multi_key> <b> <parenright> : "₎" U208E
+<Multi_key> <b> <plus> : "₊" U208A
+<Multi_key> <b> <minus> : "₋" U208B
+<Multi_key> <b> <0> : "₀" U2080
+<Multi_key> <b> <1> : "₁" U2081
+<Multi_key> <b> <2> : "₂" U2082
+<Multi_key> <b> <3> : "₃" U2083
+<Multi_key> <b> <4> : "₄" U2084
+<Multi_key> <b> <5> : "₅" U2085
+<Multi_key> <b> <6> : "₆" U2086
+<Multi_key> <b> <7> : "₇" U2087
+<Multi_key> <b> <8> : "₈" U2088
+<Multi_key> <b> <9> : "₉" U2089
+<Multi_key> <b> <equal> : "₌" U208C
+<Multi_key> <b> <b> : "♝" U265D
+<Multi_key> <b> <k> : "♚" U265A
+<Multi_key> <b> <n> : "♞" U265E
+<Multi_key> <b> <p> : "♟" U265F
+<Multi_key> <b> <q> : "♛" U265B
+<Multi_key> <b> <r> : "♜" U265C
+<Multi_key> <b> <t> : "⋈" U22C8
+<Multi_key> <b> <u> : "•" U2022
+<Multi_key> <c> <dollar> : "¢" U00A2
+<Multi_key> <c> <O> : "©" U00A9
+<Multi_key> <c> <a> : "∩" U2229
+<Multi_key> <c> <g> : "≅" U2245
+<Multi_key> <c> <o> : "∘" U2218
+<Multi_key> <c> <u> : "∪" U222A
+<Multi_key> <d> <v> <z> : "ǆ" U01C6
+<Multi_key> <d> <minus> : "ð" U00F0
+<Multi_key> <d> <a> : "↓" U2193
+<Multi_key> <d> <d> : "‡" U2021
+<Multi_key> <d> <e> : "°" U00B0
+<Multi_key> <d> <g> : "†" U2020
+<Multi_key> <d> <z> : "ʣ" U02A3
+<Multi_key> <e> <dollar> : "€" U20AC
+<Multi_key> <e> <l> : "⋯" U22EF
+<Multi_key> <e> <m> : "—" U2014
+<Multi_key> <e> <n> : "–" U2013
+<Multi_key> <e> <s> : "∅" U2205
+<Multi_key> <f> <a> : "∀" U2200
+<Multi_key> <g> <dollar> : "¤" U00A4
+<Multi_key> <g> <minus> : "ǥ" U01E5
+<Multi_key> <g> <r> : "∇" U2207
+<Multi_key> <h> <minus> : "ℏ" U210F
+<Multi_key> <h> <v> : "ƕ" U0195
+<Multi_key> <i> <minus> : "ɨ" U0268
+<Multi_key> <i> <b> : "⊆" U2286
+<Multi_key> <i> <f> : "∞" U221E
+<Multi_key> <i> <j> : "ĳ" U0133
+<Multi_key> <i> <p> : "⊇" U2287
+<Multi_key> <i> <s> : "∫" U222B
+<Multi_key> <l> <quotedbl> : "“" U201C
+<Multi_key> <l> <dollar> : "£" U00A3
+<Multi_key> <l> <ampersand> : "∧" U2227
+<Multi_key> <l> <apostrophe> : "‘" U2018
+<Multi_key> <l> <minus> : "ł" U0142
+<Multi_key> <l> <c> : "⌈" U2308
+<Multi_key> <l> <d> : "⊲" U22B2
+<Multi_key> <l> <f> : "⌊" U230A
+<Multi_key> <l> <j> : "ǉ" U01C9
+<Multi_key> <l> <z> : "⋄" U22C4
+<Multi_key> <l> <bar> : "∨" U2228
+<Multi_key> <m> <i> : "µ" U00B5
+<Multi_key> <m> <o> : "∈" U2208
+<Multi_key> <m> <u> : "×" U00D7
+<Multi_key> <n> <j> : "ǌ" U01CC
+<Multi_key> <n> <o> : "¬" U00AC
+<Multi_key> <o> <A> : "Å" U00C5
+<Multi_key> <o> <O> : "⊚" U229A
+<Multi_key> <o> <U> : "Ů" U016E
+<Multi_key> <o> <a> : "å" U00E5
+<Multi_key> <o> <e> : "œ" U0153
+<Multi_key> <o> <i> : "ƣ" U01A3
+<Multi_key> <o> <u> : "ů" U016F
+<Multi_key> <p> <O> : "℗" U2117
+<Multi_key> <p> <d> : "∂" U2202
+<Multi_key> <p> <g> : "¶" U00B6
+<Multi_key> <p> <p> : "∥" U2225
+<Multi_key> <p> <r> : "∏" U220F
+<Multi_key> <p> <t> : "∝" U221D
+<Multi_key> <r> <quotedbl> : "”" U201D
+<Multi_key> <r> <apostrophe> : "’" U2019
+<Multi_key> <r> <O> : "®" U00AE
+<Multi_key> <r> <c> : "⌉" U2309
+<Multi_key> <r> <d> : "⊳" U22B3
+<Multi_key> <r> <f> : "⌋" U230B
+<Multi_key> <s> <parenleft> : "⁽" U207D
+<Multi_key> <s> <parenright> : "⁾" U207E
+<Multi_key> <s> <plus> : "⁺" U207A
+<Multi_key> <s> <minus> : "⁻" U207B
+<Multi_key> <s> <0> : "⁰" U2070
+<Multi_key> <s> <1> : "¹" U00B9
+<Multi_key> <s> <2> : "²" U00B2
+<Multi_key> <s> <3> : "³" U00B3
+<Multi_key> <s> <4> : "⁴" U2074
+<Multi_key> <s> <5> : "⁵" U2075
+<Multi_key> <s> <6> : "⁶" U2076
+<Multi_key> <s> <7> : "⁷" U2077
+<Multi_key> <s> <8> : "⁸" U2078
+<Multi_key> <s> <9> : "⁹" U2079
+<Multi_key> <s> <equal> : "⁼" U207C
+<Multi_key> <s> <a> : "ª" U00AA
+<Multi_key> <s> <b> : "⊂" U2282
+<Multi_key> <s> <i> : "ⁱ" U2071
+<Multi_key> <s> <n> : "ⁿ" U207F
+<Multi_key> <s> <o> : "º" U00BA
+<Multi_key> <s> <p> : "⊃" U2283
+<Multi_key> <s> <r> : "√" U221A
+<Multi_key> <s> <s> : "ß" U00DF
+<Multi_key> <s> <t> : "∍" U220D
+<Multi_key> <s> <u> : "∑" U2211
+<Multi_key> <t> <minus> : "ŧ" U0167
+<Multi_key> <t> <e> : "∃" U2203
+<Multi_key> <t> <f> : "∴" U2234
+<Multi_key> <t> <m> : "™" U2122
+<Multi_key> <t> <s> : "ς" U03C2
+<Multi_key> <t> <u> : "⊢" U22A2
+<Multi_key> <u> <minus> : "ʉ" U0289
+<Multi_key> <u> <A> : "Ă" U0102
+<Multi_key> <u> <E> : "Ĕ" U0114
+<Multi_key> <u> <G> : "Ğ" U011E
+<Multi_key> <u> <I> : "Ĭ" U012C
+<Multi_key> <u> <O> : "Ŏ" U014E
+<Multi_key> <u> <U> : "Ŭ" U016C
+<Multi_key> <u> <a> : "↑" U2191
+<Multi_key> <u> <e> : "ĕ" U0115
+<Multi_key> <u> <g> : "ğ" U011F
+<Multi_key> <u> <i> : "ĭ" U012D
+<Multi_key> <u> <o> : "ŏ" U014F
+<Multi_key> <u> <u> : "ŭ" U016D
+<Multi_key> <v> <quotedbl> <U> : "Ǚ" U01D9
+<Multi_key> <v> <quotedbl> <u> : "ǚ" U01DA
+<Multi_key> <v> <A> : "Ǎ" U01CD
+<Multi_key> <v> <C> : "Č" U010C
+<Multi_key> <v> <D> : "Ď" U010E
+<Multi_key> <v> <E> : "Ě" U011A
+<Multi_key> <v> <G> : "Ǧ" U01E6
+<Multi_key> <v> <I> : "Ǐ" U01CF
+<Multi_key> <v> <K> : "Ǩ" U01E8
+<Multi_key> <v> <L> : "Ľ" U013D
+<Multi_key> <v> <N> : "Ň" U0147
+<Multi_key> <v> <O> : "Ǒ" U01D1
+<Multi_key> <v> <R> : "Ř" U0158
+<Multi_key> <v> <S> : "Š" U0160
+<Multi_key> <v> <T> : "Ť" U0164
+<Multi_key> <v> <U> : "Ǔ" U01D3
+<Multi_key> <v> <Z> : "Ž" U017D
+<Multi_key> <v> <a> : "ǎ" U01CE
+<Multi_key> <v> <c> : "č" U010D
+<Multi_key> <v> <d> : "ď" U010F
+<Multi_key> <v> <e> : "ě" U011B
+<Multi_key> <v> <g> : "ǧ" U01E7
+<Multi_key> <v> <i> : "ǐ" U01D0
+<Multi_key> <v> <j> : "ǰ" U01F0
+<Multi_key> <v> <k> : "ǩ" U01E9
+<Multi_key> <v> <l> : "ľ" U013E
+<Multi_key> <v> <n> : "ň" U0148
+<Multi_key> <v> <o> : "ǒ" U01D2
+<Multi_key> <v> <r> : "ř" U0159
+<Multi_key> <v> <s> : "š" U0161
+<Multi_key> <v> <t> : "ť" U0165
+<Multi_key> <v> <u> : "ǔ" U01D4
+<Multi_key> <v> <z> : "ž" U017E
+<Multi_key> <w> <b> : "♗" U2657
+<Multi_key> <w> <k> : "♔" U2654
+<Multi_key> <w> <n> : "♘" U2658
+<Multi_key> <w> <p> : "♙" U2659
+<Multi_key> <w> <q> : "♕" U2655
+<Multi_key> <w> <r> : "♖" U2656
+<Multi_key> <x> <O> : "⊗" U2297
+<Multi_key> <y> <dollar> : "¥" U00A5
+<Multi_key> <z> <minus> : "ƶ" U01B6
+<Multi_key> <bar> <less> : "⇤" U21E4
+<Multi_key> <bar> <P> : "Þ" U00DE
+<Multi_key> <bar> <p> : "þ" U00FE
+<Multi_key> <bar> <bar> : "¦" U00A6
+<Multi_key> <asciitilde> <exclam> <equal> : "≆" U2246
+<Multi_key> <asciitilde> <minus> : "≃" U2243
+<Multi_key> <asciitilde> <equal> : "≅" U2245
+<Multi_key> <asciitilde> <A> : "Ã" U00C3
+<Multi_key> <asciitilde> <I> : "Ĩ" U0128
+<Multi_key> <asciitilde> <N> : "Ñ" U00D1
+<Multi_key> <asciitilde> <O> : "Õ" U00D5
+<Multi_key> <asciitilde> <U> : "Ũ" U0168
+<Multi_key> <asciitilde> <a> : "ã" U00E3
+<Multi_key> <asciitilde> <i> : "ĩ" U0129
+<Multi_key> <asciitilde> <n> : "ñ" U00F1
+<Multi_key> <asciitilde> <o> : "õ" U00F5
+<Multi_key> <asciitilde> <u> : "ũ" U0169
+<Multi_key> <asciitilde> <asciitilde> : "≈" U2248

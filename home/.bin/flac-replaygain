@@ -1,0 +1,7 @@
+#!/bin/sh
+for arg; do
+	if ls "$arg"/*.flac >/dev/null; then
+		echo $arg
+		metaflac --add-replay-gain "$arg/"*.flac
+	fi
+done
