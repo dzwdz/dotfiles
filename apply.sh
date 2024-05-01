@@ -52,14 +52,8 @@ for file in .bin/*; do
 	installdot $file
 done
 installdot .config/fish/config.fish
-installdot .config/fish/functions/fish_prompt.fish
-installdot .config/ncmpcpp/config
-installdot .config/nvim/init.vim
-installdot .emacs.d/init.el
 installdot .gitconfig
-installdot .local/share/fonts/BmPlus_IBM_VGA_8x16.otb
 installdot .tmux.conf
-installdot .vim/ftdetect/html.vim
 installdot .vim/pack/ages/start/gruvbox
 installdot .vim/pack/ages/start/vim-fugitive
 installdot .vimrc
