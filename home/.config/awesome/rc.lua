@@ -424,7 +424,7 @@ clientkeys = gears.table.join(
                   end
                   c:swap(c2)
               end,
-              {description = "move to master", group = "client"})
+              {description = "move to master", group = "client"}),
     -- awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
     --           {description = "move to screen", group = "client"}),
     -- awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
@@ -436,12 +436,12 @@ clientkeys = gears.table.join(
     --         c.minimized = true
     --     end ,
     --     {description = "minimize", group = "client"}),
-    -- awful.key({ modkey,           }, "m",
-    --     function (c)
-    --         c.maximized = not c.maximized
-    --         c:raise()
-    --     end ,
-    --     {description = "(un)maximize", group = "client"}),
+    awful.key({ modkey,           }, "m",
+        function (c)
+            c.maximized = not c.maximized
+            c:raise()
+        end ,
+        {description = "(un)maximize", group = "client"})
     -- awful.key({ modkey, "Control" }, "m",
     --     function (c)
     --         c.maximized_vertical = not c.maximized_vertical
