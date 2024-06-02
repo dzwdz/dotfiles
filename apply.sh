@@ -63,7 +63,8 @@ installdots .config/git/config
 installdots .config/tmux/tmux.conf
 installdots .bash_aliases
 
-# vim
+# editors
 installdots .vim/pack/ages/start/gruvbox
 installdots .vim/pack/ages/start/vim-fugitive
 installdots .vimrc
+installdots .emacs.d/init.el
