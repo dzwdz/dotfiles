@@ -16,7 +16,7 @@
 ;; Looks.
 (load-theme 'modus-operandi)
 (blink-cursor-mode 0) ; too distracting
-(set-frame-font "Iosevka Fixed 14")
+(set-frame-font "Iosevka Fixed Light 14")
 
 (setq inhibit-startup-screen t)
 
@@ -46,6 +46,8 @@
 ;; Scroll a line at a time instead of moving so point is at the middle
 ;; of the frame, basically the vi scrolling behavior.
 (setq scroll-step 1)
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-scroll-amount '(3 ((shift) . hscroll)))
 
 ;; C-c, C-x, C-v
 (cua-mode 1)
@@ -63,6 +65,9 @@
 (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
 (setq org-agenda-span 14)
 
+(setq org-todo-keywords
+      '((sequence "TODO" "STARTED" "|" "DONE" "DEAD")))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -70,9 +75,3 @@
  ;; If there is more than one, they won't work right.
  '(fixed-pitch ((t nil)))
  '(org-agenda-structure ((t (:height 1.0)))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
