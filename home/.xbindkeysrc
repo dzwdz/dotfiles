@@ -1,3 +1,4 @@
+# TODO: the hell even is this
 "xdotool key F22"
   b:12
 
@@ -19,14 +20,31 @@
 "xbacklight -10"
   XF86MonBrightnessDown
 
-"playerctl play-pause; mpc toggle"
+
+"playerctl play-pause"
   XF86AudioPlay 
-"playerctl next; mpc next"
+"playerctl next"
   XF86AudioNext 
-"playerctl previous; mpc prev"
+"playerctl previous"
   XF86AudioPrev 
 "mpdmenu"
   XF86AudioStop
+
+# The T470 doesn't have media control keys...
+# The older Thinkpads used Fn + the arrow keys for those, I have no idea why
+# they stopped doing that.
+# The keyboard controller doesn't even pass those keypresses through to me,
+# so I have to emulate it using Mod4 instead.
+# I'm also forcing Spotify to have priority over Quod Libet, since the latter
+# is always running in the background anyways.
+"playerctl -p spotify,quodlibet play-pause"
+  Mod4 + Up
+"playerctl -p spotify,quodlibet pause"
+  Mod4 + Down
+"playerctl -p spotify,quodlibet previous"
+  Mod4 + Left
+"playerctl -p spotify,quodlibet next"
+  Mod4 + Right
 
 "loginctl lock-session"
   Mod4 + semicolon
