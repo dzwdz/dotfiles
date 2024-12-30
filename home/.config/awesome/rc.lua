@@ -17,7 +17,7 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
-require("awful.hotkeys_popup.keys")
+-- require("awful.hotkeys_popup.keys")
 
 -- Load Debian menu entries
 local debian = require("debian.menu")
@@ -126,11 +126,13 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- Keyboard map indicator and switcher
--- mykeyboardlayout = awful.widget.keyboardlayout()
+mykeyboardlayout = awful.widget.keyboardlayout({
+    country_codes = { "pl", "ru" }
+})
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock(" %Y-%m-%d %H:%M ", 30)
+mytextclock = wibox.widget.textclock(" %a %y-%m-%d %H:%M ", 30)
 
 
 local function makebatwidget()
@@ -207,7 +209,7 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-beautiful.wallpaper = "/home/dzwdz/Pictures/walls/castlevania/2310733.png"
+beautiful.wallpaper = "/home/dzwdz/Pictures/walls/castlevania/375a0ac1b30d4ed5c6f66a02f2a10d903678262f.png"
 local function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
@@ -216,21 +218,24 @@ local function set_wallpaper(s)
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-        -- gears.wallpaper.maximized(wallpaper, s, false)
+        gears.wallpaper.maximized(wallpaper, s, false)
         -- gears.wallpaper.centered(wallpaper, s)
-        gears.wallpaper.tiled(wallpaper, s)
+        --gears.wallpaper.tiled(wallpaper, s)
     end
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+-- The *default* tagnames. They're also directly used for the keybindings.
+local tagnames = {"q","w","e","r","t","y","u","i","o"}
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "q ", "w ", "e ", "r ", "t ", "y ", "u ", "i ", "o " }, s, awful.layout.layouts[1])
+    awful.tag(tagnames, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -242,11 +247,19 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
+    local leftspacing = 8
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons
+        buttons = taglist_buttons,
+        layout = {
+          spacing = leftspacing,
+          spacing_widthet = {
+            widget = wibox.widget.separator,
+          },
+          layout = wibox.layout.fixed.horizontal,
+        }
     }
 
     -- Create a tasklist widget
@@ -258,13 +271,16 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create the wibox
     --s.mywibox = awful.wibar({ position = "bottom", screen = s, height = beautiful.get_font_height(beautiful.font) })
-    s.mywibox = awful.wibar({ position = "bottom", screen = s, height = 22 })
+    local wibox_pos = "bottom"
+    if s:get_next_in_direction("down") then wibox_pos = "top" end
+    s.mywibox = awful.wibar({ position = wibox_pos, screen = s, height = 22 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
+            spacing = leftspacing,
             mylauncher,
             s.mytaglist,
             s.mypromptbox,
@@ -283,12 +299,25 @@ end)
 -- }}}
 
 -- {{{ Mouse bindings
-root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
-))
+-- I only ever used these by accident.
+-- root.buttons(gears.table.join(
+--     awful.button({ }, 3, function () mymainmenu:toggle() end),
+--     awful.button({ }, 4, awful.tag.viewnext),
+--     awful.button({ }, 5, awful.tag.viewprev)
+-- ))
 -- }}}
+
+function snappymwf(delta)
+    local pieces = 20
+    local tag = awful.screen.focused().selected_tag
+    local mwf = tag.master_width_factor
+    mwf = math.floor(mwf * pieces)
+    mwf = mwf + delta
+    mwf = math.max(1, mwf)
+    mwf = math.min(mwf, pieces-1)
+    mwf = mwf / pieces
+    tag.master_width_factor = mwf
+end
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -300,7 +329,7 @@ globalkeys = gears.table.join(
     --           {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Tab", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
-
+  
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -321,10 +350,12 @@ globalkeys = gears.table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey,           }, "p", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
+    -- awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    --           {description = "focus the next screen", group = "screen"}),
+    -- awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+    --           {description = "focus the previous screen", group = "screen"}),
     -- awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
     --           {description = "jump to urgent client", group = "client"}),
     -- awful.key({ modkey,           }, "Tab",
@@ -346,10 +377,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "c", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    -- TODO snap to multiples of 0.0625
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.0625)          end,
+    awful.key({ modkey,           }, "l",     function () snappymwf( 1) end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.0625)          end,
+    awful.key({ modkey,           }, "h",     function () snappymwf(-1) end,
               {description = "decrease master width factor", group = "layout"}),
     -- deviation from my dwm config: i like this
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
@@ -398,10 +428,51 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey }, "b",
               function ()
-                  myscreen = awful.screen.focused()
-                  myscreen.mywibox.visible = not myscreen.mywibox.visible
+                  local mywibox = awful.screen.focused().mywibox
+                  mywibox.visible = not mywibox.visible
               end,
               {description = "toggle statusbar"}
+    ),
+
+    awful.key({ modkey }, "g", function () awful.tag.incgap(5) end,
+              {description = "waste more of the screen"}),
+    awful.key({ modkey, "Shift" }, "g", function () awful.tag.incgap(-5) end,
+              {description = "waste less of the screen"}),
+    awful.key({ modkey, "Ctrl" }, "g",
+              function ()
+                  local s = awful.screen.focused()
+                  for _, tag in ipairs(s.tags) do
+                    tag.gap = s.selected_tag.gap
+                  end
+              end,
+              {description = "propagate gaps"}),
+
+    awful.key({ modkey }, "n",
+              function ()
+                  awful.prompt.run {
+                    prompt       = "New tag name: ",
+                    textbox      = awful.screen.focused().mypromptbox.widget,
+                    exe_callback = function(new_name)
+                      if not new_name then return end
+
+                      local screen = awful.screen.focused()
+                      local tag = screen.selected_tag
+                      local idx = screen.tags
+                      if #new_name == 0 then
+                        -- Figure out which tag this is, and use the default name.
+                        for i, v in ipairs(screen.tags) do
+                          if v == tag then
+                            tag.name = tagnames[i]
+                            break
+                          end
+                        end
+                      else
+                        tag.name = new_name
+                      end
+                    end
+                  }
+              end,
+              {description = "rename tag"}
     )
 )
 
@@ -460,7 +531,7 @@ clientkeys = gears.table.join(
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
-    local key = string.sub("qwertyuio", i, i)
+    local key = tagnames[i]
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, key,
@@ -645,4 +716,15 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- Follow the systray around focused displays (kinda, this is janky).
+local systray = wibox.widget.systray()
+local systray_screen = nil
+client.connect_signal("focus", function(c)
+    -- this is not a real field. well, now it is
+    if systray_screen ~= c.screen then
+        systray_screen = c.screen
+        systray:set_screen(systray_screen)
+    end
+end)
 -- }}}
