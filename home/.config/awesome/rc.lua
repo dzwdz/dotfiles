@@ -17,7 +17,7 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
--- require("awful.hotkeys_popup.keys")
+require("awful.hotkeys_popup.keys")
 
 -- Load Debian menu entries
 local debian = require("debian.menu")
@@ -370,12 +370,14 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "'", function () awful.spawn("xfce4-terminal --drop-down") end,
+              {description = "drop down a terminal", group = "launcher"}),
     awful.key({ modkey,           }, "d", function () awful.spawn("dmenu_run") end,
               {description = "open dmenu", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "r", awesome.restart,
-              {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "c", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+    -- awful.key({ modkey, "Control" }, "r", awesome.restart,
+    --           {description = "reload awesome", group = "awesome"}),
+    -- awful.key({ modkey, "Shift"   }, "c", awesome.quit,
+    --           {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () snappymwf( 1) end,
               {description = "increase master width factor", group = "layout"}),
@@ -625,6 +627,7 @@ awful.rules.rules = {
           "Blueman-manager",
           "Gpick",
           "Kruler",
+          "KeePassXC",
           "MessageWin",  -- kalarm.
           "Sxiv",
           "Wpa_gui",
@@ -640,6 +643,7 @@ awful.rules.rules = {
           "AlarmWindow",  -- Thunderbird's calendar.
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+          "xfce4-terminal-dropdown",
         }
       }, properties = { floating = true }},
 

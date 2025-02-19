@@ -4,8 +4,8 @@
 set encoding=utf8
 
 set hlsearch incsearch ignorecase
-command Nhide tabdo windo set nonumber norelativenumber
-command Nshow tabdo windo set number relativenumber
+command Nhide tabdo windo set nonumber 
+command Nshow tabdo windo set number 
 Nshow
 
 set hidden
@@ -19,7 +19,7 @@ set path+=**
 let g:neoterm_autoscroll = 1
 
 if has('nvim')
-	autocmd TermOpen * setlocal nonumber norelativenumber
+	autocmd TermOpen * setlocal nonumber
 endif
 " }}}
 " Theme {{{
@@ -65,6 +65,7 @@ if has("gui_running")
 		\'#d3869b', '#8ec07c', '#fe8019', '#FBF1C7',
 	\]
 	hi Terminal guibg='#1d2021' guifg='#ebdbb2'
+	set title
 endif
 " }}}
 " Indentation / Folding {{{
@@ -135,3 +136,7 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 " }}}
+
+augroup filetypedetect
+  au! BufRead,BufNewFile *.sage,*.spyx,*.pyx setfiletype python
+augroup END

@@ -15,14 +15,15 @@ local themes_path = gfs.get_themes_dir()
 local theme = dofile(themes_path.."default/theme.lua")
 -- load vector assets' generators for this theme
 
-theme.font          = "Iosevka 12"
+theme.font          = "Iosevka Aile 12"
 
 local accent = xrdb.color3
 
-theme.bg_normal     = xrdb.background
-theme.bg_focus      = xrdb.color8
-theme.bg_urgent     = xrdb.color9
-theme.bg_minimize   = xrdb.color8
+local alpha = "55"
+theme.bg_normal     = xrdb.background .. alpha
+theme.bg_focus      = xrdb.color8 .. alpha
+theme.bg_urgent     = xrdb.color9 .. alpha
+theme.bg_minimize   = xrdb.color8 .. alpha
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = xrdb.foreground
@@ -47,13 +48,13 @@ theme.border_marked = xrdb.color10
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
-theme.tasklist_bg_focus = xrdb.color0
+theme.tasklist_bg_focus = xrdb.color0 .. alpha
 theme.tasklist_fg_focus = accent
-theme.taglist_bg_focus  = xrdb.background
+theme.taglist_bg_focus  = xrdb.background .. alpha
 theme.taglist_fg_focus  = accent
 
 theme.tooltip_fg = theme.fg_normal
-theme.tooltip_bg = theme.bg_normal
+theme.tooltip_bg = xrdb.color8
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
@@ -61,6 +62,8 @@ theme.tooltip_bg = theme.bg_normal
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(24)
 theme.menu_width  = dpi(300)
+theme.menu_bg_normal = xrdb.background
+theme.menu_bg_focus = xrdb.background
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -107,7 +110,7 @@ theme.icon_theme = nil
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(
-    theme.menu_height, accent, theme.fg_focus
+    theme.menu_height, accent, xrdb.background
 )
 
 -- Generate taglist squares:

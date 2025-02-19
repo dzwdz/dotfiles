@@ -1,6 +1,5 @@
-! dmenu.font: cursed:size=16
-! *font: BmPlus IBM VGA 8x16:style=Regular:size=10
 *font: Iosevka:size=14
+dmenu.font: Iosevka Aile:size=14
 
 ! hard contrast: *background: #1d2021
 *background: #1d2021

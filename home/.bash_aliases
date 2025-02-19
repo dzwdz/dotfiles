@@ -17,3 +17,9 @@ ocr() {
 pdfcat() {
 	pdftk "$@" cat output /dev/stdout
 }
+
+xo() {
+	xdg-open "$1" &
+	disown
+	exit
+}
