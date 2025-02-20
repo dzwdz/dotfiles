@@ -1,65 +1,14 @@
-;;; This is a tiny Emacs config, just for Org mode, that tries not to
-;;; deviate much from stock Emacs.  In particular, it uses no packages
-;;; that aren't included in the stock install (on Debian).
-
-;;; To run code under the cursor, run C-x C-e. I think that requires
-;;; you to be on the ending paren.
-
-
-;; Fix dumb hang when closing Emacs.
-(setq x-select-enable-clipboard-manager nil)
-
-;; Don't put ~ backup files everywhere
-(setq-default make-backup-files nil)
-(setq-default cursor-type 'bar)
-
-;; Looks.
-(load-theme 'modus-operandi)
-(blink-cursor-mode 0) ; too distracting
-(set-frame-font "Iosevka Fixed Light 14")
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
-(setq inhibit-startup-screen t)
-
-
-;; Lesser evil: if you're going to be horrible about indenting with
-;; tabs, please just don't use them, even if they're superior.
-(setq-default indent-tabs-mode nil)
-
-;; Display whitespace if programming.
-(add-hook 'prog-mode-hook #'whitespace-mode)
-(setq whitespace-style '(face trailing tabs tab-mark))
-
-;; Tell me where I am.
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
-(global-display-fill-column-indicator-mode)
-(setq-default column-number-mode 1)
-
-;; Set a fixed size for the line number column, so it doesn't jump around.
-(setq-default display-line-numbers-width 4)
-
-;; Lisp parens
-(show-paren-mode 1)
-
-;; Scroll a line at a time instead of moving so point is at the middle
-;; of the frame, basically the vi scrolling behavior.
-(setq scroll-step 1)
-(setq mouse-wheel-progressive-speed nil)
-(setq mouse-wheel-scroll-amount '(3 ((shift) . hscroll)))
-
-;; C-c, C-x, C-v
-(cua-mode 1)
-
-;;; Org mode stuff
 (require 'org)
-(setq calendar-week-start-day 1) ; week starts on Monday
-;; Those keybindings are standard, directly from Org's docs.
-(global-set-key (kbd "C-c l") #'org-store-link)
-(global-set-key (kbd "C-c a") #'org-agenda)
-(global-set-key (kbd "C-c c") #'org-capture)
 
-(setq org-agenda-files (quote ("~/org")))
+;(setq org-startup-indented t)
+
+;; Don't insert the annoying blank lines when doing M-RET.
+(setq org-blank-before-new-entry '((heading . nil)
+                                   (plain-list-item . nil)))
+;; Also, don't split lines.
+(setq org-M-RET-may-split-line '((default . nil)))
+
+(setq calendar-week-start-day 1)        ; Weeks start on Monday.
 
 (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
 (setq org-agenda-span 14)
@@ -67,31 +16,33 @@
 (setq org-todo-keywords
       '((sequence "TODO" "STARTED" "|" "DONE" "DEAD")))
 
-(setq org-startup-indented t)
+(setq org-agenda-files (quote ("~/org")))
 
-;; Don't insert the annoying blank lines when doing M-RET.
-(setq org-blank-before-new-entry
-      '((heading . nil)
-        (plain-list-item . nil)))
-;; Also, don't split lines.
-(setq org-M-RET-may-split-line '((default . nil)))
+;; Lesser evil: if you're going to be horrible about indenting with
+;; tabs, please just don't use them, even if they're superior.
+(setq-default indent-tabs-mode nil)
 
-;; Nicer completion.
-(icomplete-mode 1)
-(icomplete-vertical-mode 1)
+(add-hook 'prog-mode-hook #'whitespace-mode)
+(setq whitespace-style '(face trailing tabs tab-mark))
 
-;; The default TAB behaviour in icomplete is stupid - force it to
-;; complete to the first option.
-(define-key icomplete-minibuffer-map [?\t] 'icomplete-force-complete)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(setq-default display-line-numbers-width 4)
 
-;; Tabs.
-(setq tab-line-separator "")
+(show-paren-mode 1)
+
+;; C-c, C-x, C-v
+(cua-mode 1)
+;; I have strong muscle memory for C-w from Vim, so I keep erasing
+;; stuff by accident.
+(global-unset-key (kbd "C-w"))
+
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
 (global-tab-line-mode 1)
+(setq tab-line-separator "") ; Pack the tabs tightly together.
 
-;; Close the window if the last tab is closed.
-;; This is similar to the default bury-buffer behaviour.
-;; The function call is wrapped in with-selected window,
-;; so it is operating on the window that contains this tab.
 (setq tab-line-close-tab-function
       (lambda (tab)
         (let* ((buffer ; as in tab-line.el, no clue how this works
@@ -110,6 +61,45 @@
             (set-window-next-buffers
              nil (delq buffer (window-next-buffers))))))))
 
+(load-theme 'modus-operandi)            ; Best looking default theme.
+(set-frame-font "Iosevka Fixed Light 14")
+(setq-default cursor-type 'bar)
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(setq inhibit-startup-screen t)
+
+(defun set-margins (faces line-width)
+  (dolist (face faces)
+    (set-face-attribute
+     face nil
+     :box
+     (if line-width
+         `(:line-width ,line-width :color ,(face-attribute face :background))
+       nil))))
+(set-margins '(tab-line-tab tab-line-tab-inactive) '(7 . 4))
+(set-margins '(mode-line mode-line-inactive) '(7 . 4))
+
+(setq fill-column 80)
+(global-display-fill-column-indicator-mode)
+(setq-default column-number-mode 1)
+
+(icomplete-mode 1)                      ; Probably redundant.
+(icomplete-vertical-mode 1)
+
+(define-key icomplete-minibuffer-map [?\t] 'icomplete-force-complete)
+
+(setq scroll-step 1)
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-scroll-amount '(3 ((shift) . hscroll)))
+
+(setq mouse-wheel-tilt-scroll t)
+(setq mouse-wheel-flip-direction t)
+
+(setq-default make-backup-files nil)
+
+(setq x-select-enable-clipboard-manager nil)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

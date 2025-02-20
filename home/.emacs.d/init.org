@@ -1,0 +1,242 @@
+#+TITLE: My Org config
+#+PROPERTY: header-args :tangle init.el
+
+* Introduction
+This my relatively tiny Emacs config.  I only use it for Org mode, and I try not
+to deviate too far from stock Emacs.
+
+I used to have a much fancier config a few years ago. It used a bunch of custom
+packages: org-roam, evil, etc. I did make good use of it, but, at the end of the
+day, it wasn't integrated too well. Evil was especially bad.
+
+This time around I'm going for a purist config - I'm not using any packages that
+aren't included in the stock install (on Debian stable).
+
+It's also literate, because I don't really know how to organize Emacs Lisp
+code. lol.
+** Resources
+*** [[https://assortedarray.com/posts/my-init-org-setup/][[assortedarray's] init.org setup]]
+A fairly simple guide on how to do set up a literate config.
+*** https://github.com/novoid/dot-emacs/
+A hilariously large config from [[https://karl-voit.at/][Karl Voit]], the guy behind [[https://karl-voit.at/2019/09/25/using-orgmode/][Using Org Mode Features]].
+*** https://codeberg.org/ashton314/emacs-bedrock
+> An extremely minimal Emacs starter kit uses just one external package by
+> default, and only GNU-ELPA packages on an opt-in basis.
+* Org mode
+#+begin_src emacs-lisp
+  (require 'org)
+#+end_src
+** The markup format
+I find the indented view more readable.
+Actually, I'm turning it off for the time being, because it doesn't play well
+with the fill column indicator mode.
+#+begin_src emacs-lisp
+  ;(setq org-startup-indented t)
+#+end_src
+
+I also strongly dislike the default M-RET behaviour.
+#+begin_src emacs-lisp
+  ;; Don't insert the annoying blank lines when doing M-RET.
+  (setq org-blank-before-new-entry '((heading . nil)
+                                     (plain-list-item . nil)))
+  ;; Also, don't split lines.
+  (setq org-M-RET-may-split-line '((default . nil)))
+#+end_src
+** Agenda
+#+begin_src emacs-lisp
+  (setq calendar-week-start-day 1)        ; Weeks start on Monday.
+
+  (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
+  (setq org-agenda-span 14)
+
+  (setq org-todo-keywords
+        '((sequence "TODO" "STARTED" "|" "DONE" "DEAD")))
+#+end_src
+*** org-agenda-files
+This is a hack in disguise.
+
+I don't want all of my org files to be included in the agenda.
+
+For example: a TODO in a file about one of my (software) projects
+is only relevant to me if I'm working on it at the given moment,
+and I don't have any deadline at all. I'm pretty much just using
+Org as a bug tracker there.
+
+The easiest way to exclude those files from the agenda is to just put
+them in =~/org/projects/=. This works, because org-agenda-files isn't
+recursive!
+#+begin_src emacs-lisp
+  (setq org-agenda-files (quote ("~/org")))
+#+end_src
+* Programming
+The only sort of programming I do in Emacs is writing Emacs Lisp, but
+that still counts.
+** Indentation
+#+begin_src emacs-lisp
+  ;; Lesser evil: if you're going to be horrible about indenting with
+  ;; tabs, please just don't use them, even if they're superior.
+  (setq-default indent-tabs-mode nil)
+#+end_src
+** Visual stuff
+Make whitespace visible. It's not as useful as in Vim, because I don't
+use tabs to indent (see above), but I still prefer it this way.
+#+begin_src emacs-lisp
+  (add-hook 'prog-mode-hook #'whitespace-mode)
+  (setq whitespace-style '(face trailing tabs tab-mark))
+#+end_src
+
+I don't really have any use for line numbers, but it feels weird to
+program without them.  I'm also setting a constant width for the line
+number column, otherwise it jumps around while scrolling.
+#+begin_src emacs-lisp
+  (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+  (setq-default display-line-numbers-width 4)
+#+end_src
+
+Highlighting matching parens is obviously useful.
+#+begin_src emacs-lisp
+  (show-paren-mode 1)
+#+end_src
+* Custom keybindings
+#+begin_src emacs-lisp
+  ;; C-c, C-x, C-v
+  (cua-mode 1)
+  ;; I have strong muscle memory for C-w from Vim, so I keep erasing
+  ;; stuff by accident.
+  (global-unset-key (kbd "C-w"))
+#+end_src
+** Org mode
+Calling those "custom" is a bit of a stretch; they're just taken from
+[[https://orgmode.org/manual/Activation.html][the Org manual]].
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-c l") #'org-store-link)
+  (global-set-key (kbd "C-c a") #'org-agenda)
+  (global-set-key (kbd "C-c c") #'org-capture)
+#+end_src
+** Other bindings
+So far... none.  This section is only here to remind me that =C-c
+letter= is the only sequence reserved for users.
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html
+* Tabs (tab-line)
+I find navigating between Emacs buffers pretty unintuitive (skill issue on my
+part), so tab-line is very helpful.
+#+begin_src emacs-lisp
+  (global-tab-line-mode 1)
+  (setq tab-line-separator "") ; Pack the tabs tightly together.
+#+end_src
+** Sensible tab closing behaviour.
+In every sensible program, closing the last tab in a window closes the window.
+Emacs is different, and it just puts another random buffer in the place of what
+you've just closed.
+
+When a random window I don't care about is created, my first instinct is to
+close the tab to kill the window - so this behaviour is pretty annoying.
+
+Thankfully, I can override this.
+#+begin_src emacs-lisp
+(setq tab-line-close-tab-function
+      (lambda (tab)
+        (let* ((buffer ; as in tab-line.el, no clue how this works
+                (if (bufferp tab) tab (cdr (assq 'buffer tab)))))
+          (cond
+           ;; If this is the last tab, close the window.
+           ((<= (length (funcall tab-line-tabs-function)) 1)
+            (delete-window))
+           ;; Otherwise, proceed as in the default implementation
+           ;; for bury-buffer.
+           ((eq buffer (current-buffer))
+            (bury-buffer))
+           (t
+            (set-window-prev-buffers
+             nil (assq-delete-all buffer (window-prev-buffers)))
+            (set-window-next-buffers
+             nil (delq buffer (window-next-buffers))))))))
+#+end_src
+* Looks
+#+begin_src emacs-lisp
+  (load-theme 'modus-operandi)            ; Best looking default theme.
+  (set-frame-font "Iosevka Fixed Light 14")
+  (setq-default cursor-type 'bar)
+#+end_src
+** Remove bloat
+#+begin_src emacs-lisp
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (setq inhibit-startup-screen t)
+#+end_src
+** Fancy modern margins
+#+begin_src emacs-lisp
+  (defun set-margins (faces line-width)
+    (dolist (face faces)
+      (set-face-attribute
+       face nil
+       :box
+       (if line-width
+           `(:line-width ,line-width :color ,(face-attribute face :background))
+         nil))))
+  (set-margins '(tab-line-tab tab-line-tab-inactive) '(7 . 4))
+  (set-margins '(mode-line mode-line-inactive) '(7 . 4))
+#+end_src
+** Fill column
+Emacs gets some points for how pretty the fill column indicator is compared to
+Vim.
+#+begin_src emacs-lisp
+  (setq fill-column 80)
+  (global-display-fill-column-indicator-mode)
+  (setq-default column-number-mode 1)
+#+end_src
+* Other tweaks
+** icomplete
+Turns out Emacs has some pretty nice builtin completion features.
+#+begin_src emacs-lisp
+  (icomplete-mode 1)                      ; Probably redundant.
+  (icomplete-vertical-mode 1)
+#+end_src
+
+The default TAB behaviour is stupid, though - it opens another buffer with
+completion suggestions (???). Force it to complete to the first option instead.
+#+begin_src emacs-lisp
+  (define-key icomplete-minibuffer-map [?\t] 'icomplete-force-complete)
+#+end_src
+** Mouse scrolling
+For vertical scrolling I just want to copy Vim's behaviour.
+I think I stole this part of the config from acdw?
+#+begin_src emacs-lisp
+  (setq scroll-step 1)
+  (setq mouse-wheel-progressive-speed nil)
+  (setq mouse-wheel-scroll-amount '(3 ((shift) . hscroll)))
+#+end_src
+
+Enable horizontal scrolling too.
+#+begin_src emacs-lisp
+  (setq mouse-wheel-tilt-scroll t)
+  (setq mouse-wheel-flip-direction t)
+#+end_src
+** Backup files (or lack thereof)
+#+begin_src emacs-lisp
+  (setq-default make-backup-files nil)
+#+end_src
+** Fix hang when closing Emacs.
+Thank you GNU, very cool.
+#+begin_src emacs-lisp
+  (setq x-select-enable-clipboard-manager nil)
+#+end_src
+** Custom
+#+begin_src emacs-lisp
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(fixed-pitch ((t nil)))
+   '(org-agenda-structure ((t (:height 1.0)))))
+#+end_src
+*** TODO Put this in a separate file
+* Local variables
+#+begin_src
+Local Variables:
+org-structure-template-alist: (("s" . "src emacs-lisp"))
+eval: (add-hook 'after-save-hook (lambda () (org-babel-tangle)) nil t)
+End:
+#+end_src
