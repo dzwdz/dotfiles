@@ -20,16 +20,23 @@ A fairly simple guide on how to do set up a literate config.
 *** https://github.com/novoid/dot-emacs/
 A hilariously large config from [[https://karl-voit.at/][Karl Voit]], the guy behind [[https://karl-voit.at/2019/09/25/using-orgmode/][Using Org Mode Features]].
 *** https://codeberg.org/ashton314/emacs-bedrock
-> An extremely minimal Emacs starter kit uses just one external package by
-> default, and only GNU-ELPA packages on an opt-in basis.
+#+begin_quote
+An extremely minimal Emacs starter kit uses just one external package
+by default, and only GNU-ELPA packages on an opt-in basis.
+#+end_quote
 * Org mode
 #+begin_src emacs-lisp
   (require 'org)
 #+end_src
+** Unique IDs
+#+begin_src emacs-lisp
+(setq org-id-link-to-org-use-id 'create-if-interactive)
+#+end_src
 ** The markup format
 I find the indented view more readable.
-Actually, I'm turning it off for the time being, because it doesn't play well
-with the fill column indicator mode.
+
+...actually, I'm turning it off for the time being, because it doesn't
+play well with the fill column indicator mode.
 #+begin_src emacs-lisp
   ;(setq org-startup-indented t)
 #+end_src
@@ -42,15 +49,21 @@ I also strongly dislike the default M-RET behaviour.
   ;; Also, don't split lines.
   (setq org-M-RET-may-split-line '((default . nil)))
 #+end_src
+** org-todo
+https://orgmode.org/manual/Fast-access-to-TODO-states.html
+#+begin_src emacs-lisp
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d)" "DEAD(x)")))
+
+  (setq org-use-fast-todo-selection 'expert)
+#+end_src
 ** Agenda
 #+begin_src emacs-lisp
   (setq calendar-week-start-day 1)        ; Weeks start on Monday.
+  (setq org-agenda-start-on-weekday nil)  ; Don't show past days.
 
   (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
-  (setq org-agenda-span 14)
-
-  (setq org-todo-keywords
-        '((sequence "TODO" "STARTED" "|" "DONE" "DEAD")))
+  (setq org-agenda-span 7)
 #+end_src
 *** org-agenda-files
 This is a hack in disguise.
@@ -67,6 +80,14 @@ them in =~/org/projects/=. This works, because org-agenda-files isn't
 recursive!
 #+begin_src emacs-lisp
   (setq org-agenda-files (quote ("~/org")))
+#+end_src
+** org-habit
+=org-use-effective-time= is a MASSIVE hack, IMO. Works, though.
+https://emacs.stackexchange.com/a/45413
+#+begin_src emacs-lisp
+  (add-to-list 'org-modules 'org-habit t)
+  (setq org-extend-today-until 4
+        org-use-effective-time t)
 #+end_src
 * Programming
 The only sort of programming I do in Emacs is writing Emacs Lisp, but
@@ -155,7 +176,7 @@ Thankfully, I can override this.
 * Looks
 #+begin_src emacs-lisp
   (load-theme 'modus-operandi)            ; Best looking default theme.
-  (set-frame-font "Iosevka Fixed Light 14")
+  (set-face-attribute 'default nil :font "Iosevka Light 14")
   (setq-default cursor-type 'bar)
 #+end_src
 ** Remove bloat
@@ -166,6 +187,7 @@ Thankfully, I can override this.
   (setq inhibit-startup-screen t)
 #+end_src
 ** Fancy modern margins
+Honestly I'm not too sure about whether I want this.
 #+begin_src emacs-lisp
   (defun set-margins (faces line-width)
     (dolist (face faces)
@@ -175,8 +197,14 @@ Thankfully, I can override this.
        (if line-width
            `(:line-width ,line-width :color ,(face-attribute face :background))
          nil))))
-  (set-margins '(tab-line-tab tab-line-tab-inactive) '(7 . 4))
-  (set-margins '(mode-line mode-line-inactive) '(7 . 4))
+
+  (setq modus-themes-after-load-theme-hook
+        (lambda ()
+          (set-margins '(tab-line-tab tab-line-tab-inactive) '(7 . 4))
+          (set-margins '(mode-line mode-line-inactive) '(7 . 4))))
+  ;; This hook usually only runs after modus-theme-toggle, so let's
+  ;; trigger it manually.
+  (run-hooks 'modus-themes-after-load-theme-hook)
 #+end_src
 ** Fill column
 Emacs gets some points for how pretty the fill column indicator is compared to
@@ -187,6 +215,9 @@ Vim.
   (setq-default column-number-mode 1)
 #+end_src
 * Other tweaks
+#+begin_src emacs-lisp
+(setq confirm-kill-emacs #'yes-or-no-p)
+#+end_src
 ** icomplete
 Turns out Emacs has some pretty nice builtin completion features.
 #+begin_src emacs-lisp

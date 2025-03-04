@@ -1,5 +1,7 @@
 (require 'org)
 
+(setq org-id-link-to-org-use-id 'create-if-interactive)
+
 ;(setq org-startup-indented t)
 
 ;; Don't insert the annoying blank lines when doing M-RET.
@@ -8,15 +10,22 @@
 ;; Also, don't split lines.
 (setq org-M-RET-may-split-line '((default . nil)))
 
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d)" "DEAD(x)")))
+
+(setq org-use-fast-todo-selection 'expert)
+
 (setq calendar-week-start-day 1)        ; Weeks start on Monday.
+(setq org-agenda-start-on-weekday nil)  ; Don't show past days.
 
 (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
-(setq org-agenda-span 14)
-
-(setq org-todo-keywords
-      '((sequence "TODO" "STARTED" "|" "DONE" "DEAD")))
+(setq org-agenda-span 7)
 
 (setq org-agenda-files (quote ("~/org")))
+
+(add-to-list 'org-modules 'org-habit t)
+(setq org-extend-today-until 4
+      org-use-effective-time t)
 
 ;; Lesser evil: if you're going to be horrible about indenting with
 ;; tabs, please just don't use them, even if they're superior.
@@ -62,7 +71,7 @@
              nil (delq buffer (window-next-buffers))))))))
 
 (load-theme 'modus-operandi)            ; Best looking default theme.
-(set-frame-font "Iosevka Fixed Light 14")
+(set-face-attribute 'default nil :font "Iosevka Light 14")
 (setq-default cursor-type 'bar)
 
 (tool-bar-mode -1)
@@ -78,12 +87,20 @@
      (if line-width
          `(:line-width ,line-width :color ,(face-attribute face :background))
        nil))))
-(set-margins '(tab-line-tab tab-line-tab-inactive) '(7 . 4))
-(set-margins '(mode-line mode-line-inactive) '(7 . 4))
+
+(setq modus-themes-after-load-theme-hook
+      (lambda ()
+        (set-margins '(tab-line-tab tab-line-tab-inactive) '(7 . 4))
+        (set-margins '(mode-line mode-line-inactive) '(7 . 4))))
+;; This hook usually only runs after modus-theme-toggle, so let's
+;; trigger it manually.
+(run-hooks 'modus-themes-after-load-theme-hook)
 
 (setq fill-column 80)
 (global-display-fill-column-indicator-mode)
 (setq-default column-number-mode 1)
+
+(setq confirm-kill-emacs #'yes-or-no-p)
 
 (icomplete-mode 1)                      ; Probably redundant.
 (icomplete-vertical-mode 1)
