@@ -20,12 +20,83 @@
 
 (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
 (setq org-agenda-span 7)
+(setq org-agenda-todo-ignore-scheduled 'future)
 
 (setq org-agenda-files (quote ("~/org")))
+
+(setq org-agenda-time-grid '((today require-timed remove-match)
+                             (800 945 1130 1315 1500)
+                             ".." "┈┈┈┈┈┈┈┈┈┈┈┈┈")
+      org-agenda-current-time-string "┈┈┈┈┈┈┈┈┈┈┈┈┈ now")
+
+(setq org-agenda-breadcrumbs-separator " ❱ "
+      org-agenda-prefix-format '((agenda . "%i %?-12t% s") ; hide file info
+                                 (todo . "%c ❱ %b")        ; breadcrumbs
+                                 (tags . " %i %-12:c")
+                                 (search . " %i %-12:c")))
+(setq org-agenda-format-date
+      (lambda (date)
+        (let ((fmt (concat "┈ "
+                           (org-agenda-format-date-aligned date)
+                           " ")))
+          (concat "\n" fmt
+                  (make-string (- fill-column (length fmt)) ?┈)))))
+
+(defun dzwdz/apply-org-styles ()
+  ;; Get rid of the annoying background.
+  (set-face-attribute 'org-agenda-date-today nil :background nil)
+  ;; Make TODOs stand out (applies everywhere, but matters especially
+  ;; in the agenda).
+  (set-face-attribute 'org-todo nil :weight 'black))
+(add-hook 'modus-themes-after-load-theme-hook 'dzwdz/apply-org-styles)
+
+(setq org-agenda-deadline-leaders '("Deadline:  "
+                                    "   in %2dd: "
+                                    "%2dd. late: "))
+(setq org-agenda-scheduled-leaders '("Scheduled: "
+                                     " %2dd. ago: "))
+
+;; Hide the ugly block separator (defaults to ======)
+(setq org-agenda-block-separator ?\s)
+
+(setq org-agenda-custom-commands
+      '(("n" "Agenda and unassigned to-dos"
+         ((agenda "")
+          (alltodo ""
+                   ((org-agenda-skip-function
+                     '(org-agenda-skip-entry-if 'scheduled 'deadline))))))))
+
+(setq org-agenda-sorting-strategy
+      '((agenda habit-down time-up timestamp-up priority-down)
+        (todo priority-down category-keep)
+        (tags priority-down category-keep)
+        (search category-keep)))
+
+(setq org-capture-templates
+      '(
+        ;; https://karl-voit.at/2014/08/10/bookmarks-with-orgmode/
+        ("b" "Bookmark"
+         entry (file+headline "~/org/tabdump.org" "Uncategorized")
+         "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
+
+        ("c" "Generic"
+         entry (file "~/org/misc.org")
+         "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
+
+        ;; https://www.howardism.org/Technical/Emacs/journaling-org.html
+        ("j" "Journal Entry"
+         entry (file+datetree "~/org/journal.org")
+         "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
+        ))
 
 (add-to-list 'org-modules 'org-habit t)
 (setq org-extend-today-until 4
       org-use-effective-time t)
+
+(setq org-habit-graph-column (- 80  ; fill column
+				1   ; otherwise the fill column indicator breaks
+				21  ; org-habit-preceding-days (not available yet)
+				7)) ; org-habit-following-days (not available yet)
 
 ;; Lesser evil: if you're going to be horrible about indenting with
 ;; tabs, please just don't use them, even if they're superior.
@@ -49,29 +120,14 @@
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c c") #'org-capture)
 
-(global-tab-line-mode 1)
-(setq tab-line-separator "") ; Pack the tabs tightly together.
+(setq modus-themes-headings '((t . (background overline))))
 
-(setq tab-line-close-tab-function
-      (lambda (tab)
-        (let* ((buffer ; as in tab-line.el, no clue how this works
-                (if (bufferp tab) tab (cdr (assq 'buffer tab)))))
-          (cond
-           ;; If this is the last tab, close the window.
-           ((<= (length (funcall tab-line-tabs-function)) 1)
-            (delete-window))
-           ;; Otherwise, proceed as in the default implementation
-           ;; for bury-buffer.
-           ((eq buffer (current-buffer))
-            (bury-buffer))
-           (t
-            (set-window-prev-buffers
-             nil (assq-delete-all buffer (window-prev-buffers)))
-            (set-window-next-buffers
-             nil (delq buffer (window-next-buffers))))))))
+(load-theme 'modus-operandi)
+;; This hook usually only runs after modus-theme-toggle, so I'll
+;; trigger it manually.
+(run-hooks 'modus-themes-after-load-theme-hook)
 
-(load-theme 'modus-operandi)            ; Best looking default theme.
-(set-face-attribute 'default nil :font "Iosevka Light 14")
+(set-face-attribute 'default nil :font "Iosevka 14" :weight 'normal)
 (setq-default cursor-type 'bar)
 
 (tool-bar-mode -1)
@@ -79,24 +135,7 @@
 (scroll-bar-mode -1)
 (setq inhibit-startup-screen t)
 
-(defun set-margins (faces line-width)
-  (dolist (face faces)
-    (set-face-attribute
-     face nil
-     :box
-     (if line-width
-         `(:line-width ,line-width :color ,(face-attribute face :background))
-       nil))))
-
-(setq modus-themes-after-load-theme-hook
-      (lambda ()
-        (set-margins '(tab-line-tab tab-line-tab-inactive) '(7 . 4))
-        (set-margins '(mode-line mode-line-inactive) '(7 . 4))))
-;; This hook usually only runs after modus-theme-toggle, so let's
-;; trigger it manually.
-(run-hooks 'modus-themes-after-load-theme-hook)
-
-(setq fill-column 80)
+(setq-default fill-column 80)
 (global-display-fill-column-indicator-mode)
 (setq-default column-number-mode 1)
 
@@ -106,6 +145,13 @@
 (icomplete-vertical-mode 1)
 
 (define-key icomplete-minibuffer-map [?\t] 'icomplete-force-complete)
+
+(defun dzwdz/build-file-cache ()
+  (interactive)                         ; why not
+  (file-cache-add-directory-using-find "~/org")
+  (file-cache-add-file "~/src/dotfiles/home/.emacs.d/init.org")
+  (file-cache-add-file "~/sleep"))
+(eval-after-load "filecache" #'dzwdz/build-file-cache)
 
 (setq scroll-step 1)
 (setq mouse-wheel-progressive-speed nil)

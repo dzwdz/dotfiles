@@ -64,6 +64,7 @@ https://orgmode.org/manual/Fast-access-to-TODO-states.html
 
   (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
   (setq org-agenda-span 7)
+  (setq org-agenda-todo-ignore-scheduled 'future)
 #+end_src
 *** org-agenda-files
 This is a hack in disguise.
@@ -81,13 +82,107 @@ recursive!
 #+begin_src emacs-lisp
   (setq org-agenda-files (quote ("~/org")))
 #+end_src
+*** Styling
+At first I found the time grid annoying, but aligning it with the hours at which
+I tend to have classes it's pretty useful (I have an external script that
+generates an org file with all my classes.
+
+I was inspired by [[https://hugocisneros.com/org-config/][Hugo Cisneros' config]].
+#+begin_src emacs-lisp
+  (setq org-agenda-time-grid '((today require-timed remove-match)
+                               (800 945 1130 1315 1500)
+                               ".." "┈┈┈┈┈┈┈┈┈┈┈┈┈")
+        org-agenda-current-time-string "┈┈┈┈┈┈┈┈┈┈┈┈┈ now")
+#+end_src
+
+Here's everything else.
+#+begin_src emacs-lisp
+  (setq org-agenda-breadcrumbs-separator " ❱ "
+        org-agenda-prefix-format '((agenda . "%i %?-12t% s") ; hide file info
+                                   (todo . "%c ❱ %b")        ; breadcrumbs
+                                   (tags . " %i %-12:c")
+                                   (search . " %i %-12:c")))
+  (setq org-agenda-format-date
+        (lambda (date)
+          (let ((fmt (concat "┈ "
+                             (org-agenda-format-date-aligned date)
+                             " ")))
+            (concat "\n" fmt
+                    (make-string (- fill-column (length fmt)) ?┈)))))
+
+  (defun dzwdz/apply-org-styles ()
+    ;; Get rid of the annoying background.
+    (set-face-attribute 'org-agenda-date-today nil :background nil)
+    ;; Make TODOs stand out (applies everywhere, but matters especially
+    ;; in the agenda).
+    (set-face-attribute 'org-todo nil :weight 'black))
+  (add-hook 'modus-themes-after-load-theme-hook 'dzwdz/apply-org-styles)
+
+  (setq org-agenda-deadline-leaders '("Deadline:  "
+                                      "   in %2dd: "
+                                      "%2dd. late: "))
+  (setq org-agenda-scheduled-leaders '("Scheduled: "
+                                       " %2dd. ago: "))
+
+  ;; Hide the ugly block separator (defaults to ======)
+  (setq org-agenda-block-separator ?\s)
+#+end_src
+*** Custom view
+This sounds scary, but it's a relatively small change.  I just don't want the
+TODO list at the bottom to repeat tasks I already saw in the weekly view...  I'm
+not sure why this isn't the default behaviour.
+
+Stolen from [[https://noa.pub/conf/][noa's config]].
+#+begin_src emacs-lisp
+  (setq org-agenda-custom-commands
+        '(("n" "Agenda and unassigned to-dos"
+           ((agenda "")
+            (alltodo ""
+                     ((org-agenda-skip-function
+                       '(org-agenda-skip-entry-if 'scheduled 'deadline))))))))
+#+end_src
+*** Custom sorting order
+Once again, sounds scary, but I just want to sort by timestamp before sorting by
+priority.  This is a small change.
+#+begin_src emacs-lisp
+  (setq org-agenda-sorting-strategy
+        '((agenda habit-down time-up timestamp-up priority-down)
+          (todo priority-down category-keep)
+          (tags priority-down category-keep)
+          (search category-keep)))
+#+end_src
+** org-capture
+I used to think this is useless if you don't live in Emacs.  I was wrong.
+#+begin_src emacs-lisp
+  (setq org-capture-templates
+        '(
+          ;; https://karl-voit.at/2014/08/10/bookmarks-with-orgmode/
+          ("b" "Bookmark"
+           entry (file+headline "~/org/tabdump.org" "Uncategorized")
+           "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
+
+          ("c" "Generic"
+           entry (file "~/org/misc.org")
+           "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
+
+          ;; https://www.howardism.org/Technical/Emacs/journaling-org.html
+          ("j" "Journal Entry"
+           entry (file+datetree "~/org/journal.org")
+           "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
+          ))
+#+end_src
 ** org-habit
 =org-use-effective-time= is a MASSIVE hack, IMO. Works, though.
 https://emacs.stackexchange.com/a/45413
 #+begin_src emacs-lisp
   (add-to-list 'org-modules 'org-habit t)
   (setq org-extend-today-until 4
-        org-use-effective-time t)
+	org-use-effective-time t)
+
+  (setq org-habit-graph-column (- 80  ; fill column
+				  1   ; otherwise the fill column indicator breaks
+				  21  ; org-habit-preceding-days (not available yet)
+				  7)) ; org-habit-following-days (not available yet)
 #+end_src
 * Programming
 The only sort of programming I do in Emacs is writing Emacs Lisp, but
@@ -138,7 +233,7 @@ Calling those "custom" is a bit of a stretch; they're just taken from
 So far... none.  This section is only here to remind me that =C-c
 letter= is the only sequence reserved for users.
 https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html
-* Tabs (tab-line)
+* COMMENT Tabs (tab-line)
 I find navigating between Emacs buffers pretty unintuitive (skill issue on my
 part), so tab-line is very helpful.
 #+begin_src emacs-lisp
@@ -175,8 +270,14 @@ Thankfully, I can override this.
 #+end_src
 * Looks
 #+begin_src emacs-lisp
-  (load-theme 'modus-operandi)            ; Best looking default theme.
-  (set-face-attribute 'default nil :font "Iosevka Light 14")
+  (setq modus-themes-headings '((t . (background overline))))
+
+  (load-theme 'modus-operandi)
+  ;; This hook usually only runs after modus-theme-toggle, so I'll
+  ;; trigger it manually.
+  (run-hooks 'modus-themes-after-load-theme-hook)
+
+  (set-face-attribute 'default nil :font "Iosevka 14" :weight 'normal)
   (setq-default cursor-type 'bar)
 #+end_src
 ** Remove bloat
@@ -186,9 +287,13 @@ Thankfully, I can override this.
   (scroll-bar-mode -1)
   (setq inhibit-startup-screen t)
 #+end_src
-** Fancy modern margins
+** COMMENT Fancy modern margins
 Honestly I'm not too sure about whether I want this.
 #+begin_src emacs-lisp
+  ;; Flaws:
+  ;; - set-margins should be namespaced
+  ;; - instead of setting the hook, I should use add-hook
+
   (defun set-margins (faces line-width)
     (dolist (face faces)
       (set-face-attribute
@@ -210,7 +315,7 @@ Honestly I'm not too sure about whether I want this.
 Emacs gets some points for how pretty the fill column indicator is compared to
 Vim.
 #+begin_src emacs-lisp
-  (setq fill-column 80)
+  (setq-default fill-column 80)
   (global-display-fill-column-indicator-mode)
   (setq-default column-number-mode 1)
 #+end_src
@@ -229,6 +334,19 @@ The default TAB behaviour is stupid, though - it opens another buffer with
 completion suggestions (???). Force it to complete to the first option instead.
 #+begin_src emacs-lisp
   (define-key icomplete-minibuffer-map [?\t] 'icomplete-force-complete)
+#+end_src
+** File navigation
+https://www.emacswiki.org/emacs/FileNameCache
+
+The filename cache lets me quickly jump to files by using *C-TAB* in the
+minibuffer. It has no autocompletion by default, but it's good enough.
+#+begin_src emacs-lisp
+  (defun dzwdz/build-file-cache ()
+    (interactive)                         ; why not
+    (file-cache-add-directory-using-find "~/org")
+    (file-cache-add-file "~/src/dotfiles/home/.emacs.d/init.org")
+    (file-cache-add-file "~/sleep"))
+  (eval-after-load "filecache" #'dzwdz/build-file-cache)
 #+end_src
 ** Mouse scrolling
 For vertical scrolling I just want to copy Vim's behaviour.
