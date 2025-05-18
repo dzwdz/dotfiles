@@ -77,6 +77,7 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType lisp setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType scheme setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType julia setlocal shiftwidth=4 tabstop=4 sts=4 expandtab
 autocmd FileType txt setlocal foldmethod=indent
 autocmd FileType markdown setlocal foldmethod=indent
 
