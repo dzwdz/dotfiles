@@ -67,8 +67,10 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
+local pseudotabbed = require("pseudotabbed")
 awful.layout.layouts = {
-    awful.layout.suit.tile,
+    awful.layout.suit.tile.right,
+    pseudotabbed.right,
     awful.layout.suit.max,
     -- awful.layout.suit.floating,
     -- awful.layout.suit.tile,
@@ -330,17 +332,21 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Tab", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
   
+    awful.key({ modkey,           }, "h",
+        function () awful.client.focus.bydirection("left", nil, true) end,
+        {description = "focus left", group = "client"}
+    ),
     awful.key({ modkey,           }, "j",
-        function ()
-            awful.client.focus.byidx( 1)
-        end,
+        function () awful.client.focus.byidx( 1) end,
         {description = "focus next by index", group = "client"}
     ),
     awful.key({ modkey,           }, "k",
-        function ()
-            awful.client.focus.byidx(-1)
-        end,
+        function () awful.client.focus.byidx(-1) end,
         {description = "focus previous by index", group = "client"}
+    ),
+    awful.key({ modkey,           }, "l",
+        function () awful.client.focus.bydirection("right", nil, true) end,
+        {description = "focus right", group = "client"}
     ),
     -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
     --           {description = "show main menu", group = "awesome"}),
@@ -379,9 +385,9 @@ globalkeys = gears.table.join(
     -- awful.key({ modkey, "Shift"   }, "c", awesome.quit,
     --           {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey,           }, "l",     function () snappymwf( 1) end,
+    awful.key({ modkey,           }, ".",     function () snappymwf( 1) end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () snappymwf(-1) end,
+    awful.key({ modkey,           }, ",",     function () snappymwf(-1) end,
               {description = "decrease master width factor", group = "layout"}),
     -- deviation from my dwm config: i like this
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
