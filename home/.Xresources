@@ -30,3 +30,5 @@ dmenu.font: Iosevka Aile:size=14
 ! LightGrey + White
 *color7:  #a89984
 *color15: #ebdbb2
+
+Xcursor.size: 16

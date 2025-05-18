@@ -1,0 +1,24 @@
+configuration {
+	modi: "run,window,drun,filebrowser";
+	sidebar-mode: true; /* shows the available modi */
+
+	font: "Iosevka 12";
+	show-icons: true;
+
+	disable-history: true;
+
+	sort: true;
+	sorting-method: "fzf";
+
+	scroll-method: 1; /* continuous */
+
+	timeout {
+		action: "kb-cancel";
+		delay:  0;
+	}
+	filebrowser {
+		directories-first: true;
+		sorting-method:    "name";
+	}
+}
+@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"

@@ -54,7 +54,9 @@ installdots() {
 # X11
 installdots .Xmodmap .XCompose .xbindkeysrc # keyboard config
 installdots .Xresources .config/awesome # theming
+installdots .config/i3
 installdots .Xsession .xsessionrc .xinitrc # misc
+installdots .config/rofi
 
 # regular cli stuff
 installdots .local/bin/*
